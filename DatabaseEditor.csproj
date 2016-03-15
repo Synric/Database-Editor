@@ -1,0 +1,611 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{31D6802B-0678-4FCF-B47F-1188C7D8F8A8}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DatabaseEditor</RootNamespace>
+    <AssemblyName>DatabaseEditor</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\favicon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.6.9.8\lib\net45\MySql.Data.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MySql.Data.Entity.EF6, Version=6.9.8.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <HintPath>packages\MySql.Data.Entity.6.9.8\lib\net45\MySql.Data.Entity.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="UI\About.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\About.Designer.cs">
+      <DependentUpon>About.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Connection.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Connection.Designer.cs">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </Compile>
+    <Compile Include="creature.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\CreatureControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\CreatureControl.Designer.cs">
+      <DependentUpon>CreatureControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\DynamicFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\DynamicFlags.Designer.cs">
+      <DependentUpon>DynamicFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Faction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Faction.Designer.cs">
+      <DependentUpon>Faction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Family.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Family.Designer.cs">
+      <DependentUpon>Family.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\ImmuneMask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\ImmuneMask.Designer.cs">
+      <DependentUpon>ImmuneMask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\InhabitType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\InhabitType.Designer.cs">
+      <DependentUpon>InhabitType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\MovementType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\MovementType.Designer.cs">
+      <DependentUpon>MovementType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\NPCFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\NPCFlags.Designer.cs">
+      <DependentUpon>NPCFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Rank.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Rank.Designer.cs">
+      <DependentUpon>Rank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerClass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerClass.Designer.cs">
+      <DependentUpon>TrainerClass.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerRace.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerRace.Designer.cs">
+      <DependentUpon>TrainerRace.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerSpell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerSpell.Designer.cs">
+      <DependentUpon>TrainerSpell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerType.Designer.cs">
+      <DependentUpon>TrainerType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\Type.Designer.cs">
+      <DependentUpon>Type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TypeFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TypeFlags.Designer.cs">
+      <DependentUpon>TypeFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\UnitFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\UnitFlags.Designer.cs">
+      <DependentUpon>UnitFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Location\Map.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Location\Map.Designer.cs">
+      <DependentUpon>Map.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Location\SpawnMask.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Location\SpawnMask.Designer.cs">
+      <DependentUpon>SpawnMask.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Copy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Copy.Designer.cs">
+      <DependentUpon>Copy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SmartAI\ActionType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\SmartAI\ActionType.Designer.cs">
+      <DependentUpon>ActionType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SmartAI\EventFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\SmartAI\EventFlags.Designer.cs">
+      <DependentUpon>EventFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SmartAI\EventType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\SmartAI\EventType.Designer.cs">
+      <DependentUpon>EventType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SmartAI\SourceType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\SmartAI\SourceType.Designer.cs">
+      <DependentUpon>SourceType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\SmartAI\TargetType.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\SmartAI\TargetType.Designer.cs">
+      <DependentUpon>TargetType.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Emote.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Emote.Designer.cs">
+      <DependentUpon>Emote.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Loot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Loot.Designer.cs">
+      <DependentUpon>Loot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\RepMaxStanding.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\RepMaxStanding.Designer.cs">
+      <DependentUpon>RepMaxStanding.cs</DependentUpon>
+    </Compile>
+    <Compile Include="creature_addon.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_equip_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_model_info.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_onkill_reputation.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_questender.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_queststarter.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="creature_template_addon.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database.cs" />
+    <Compile Include="DatabaseHelper.cs" />
+    <Compile Include="DatabaseStructure.cs" />
+    <Compile Include="WoW\Dbc\DbcRecord.cs" />
+    <Compile Include="WoW\Dbc\DbcSchema.cs" />
+    <Compile Include="WoW\Dbc\DbcStore.cs" />
+    <Compile Include="WoW\Dbc\DbcStringReference.cs" />
+    <Compile Include="WoW\Dbc\DbcStructures.cs" />
+    <Compile Include="WoW\Dbc\DbcTable.cs" />
+    <Compile Include="WoW\Dbc\DbcTableCompiler.cs" />
+    <Compile Include="UI\DBCPath.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\DBCPath.Designer.cs">
+      <DependentUpon>DBCPath.cs</DependentUpon>
+    </Compile>
+    <Compile Include="disenchant_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="EditorControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="EditorControl.Designer.cs">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameObject\GameObjectControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\GameObject\GameObjectControl.Designer.cs">
+      <DependentUpon>GameObjectControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\FAQ.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\FAQ.Designer.cs">
+      <DependentUpon>FAQ.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fishing_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gameobject.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gameobject_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gameobject_questender.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gameobject_queststarter.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="gameobject_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="item_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="item_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UI\MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameObject\Edit\Flags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\GameObject\Edit\Flags.Designer.cs">
+      <DependentUpon>Flags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\GameObject\Edit\Type.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\GameObject\Edit\Type.Designer.cs">
+      <DependentUpon>Type.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="milling_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="pickpocketing_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="quest_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Settings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Settings.Designer.cs">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="skinning_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="smart_scripts.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Threading.cs" />
+    <Compile Include="Trash.cs" />
+    <Compile Include="Utility.cs" />
+    <Compile Include="WoW\Enums.cs" />
+    <Compile Include="WoW\Common.cs" />
+    <EmbeddedResource Include="UI\About.resx">
+      <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Connection.resx">
+      <DependentUpon>Connection.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\CreatureControl.resx">
+      <DependentUpon>CreatureControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\DynamicFlags.resx">
+      <DependentUpon>DynamicFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\Faction.resx">
+      <DependentUpon>Faction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\Family.resx">
+      <DependentUpon>Family.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\ImmuneMask.resx">
+      <DependentUpon>ImmuneMask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\InhabitType.resx">
+      <DependentUpon>InhabitType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\MovementType.resx">
+      <DependentUpon>MovementType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\NPCFlags.resx">
+      <DependentUpon>NPCFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\Rank.resx">
+      <DependentUpon>Rank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\TrainerClass.resx">
+      <DependentUpon>TrainerClass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\TrainerRace.resx">
+      <DependentUpon>TrainerRace.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\TrainerSpell.resx">
+      <DependentUpon>TrainerSpell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\TrainerType.resx">
+      <DependentUpon>TrainerType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\Type.resx">
+      <DependentUpon>Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\TypeFlags.resx">
+      <DependentUpon>TypeFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Edit\UnitFlags.resx">
+      <DependentUpon>UnitFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Location\Map.resx">
+      <DependentUpon>Map.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Location\SpawnMask.resx">
+      <DependentUpon>SpawnMask.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Copy.resx">
+      <DependentUpon>Copy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SmartAI\ActionType.resx">
+      <DependentUpon>ActionType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SmartAI\EventFlags.resx">
+      <DependentUpon>EventFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SmartAI\EventType.resx">
+      <DependentUpon>EventType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SmartAI\SourceType.resx">
+      <DependentUpon>SourceType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\SmartAI\TargetType.resx">
+      <DependentUpon>TargetType.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Emote.resx">
+      <DependentUpon>Emote.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\Loot.resx">
+      <DependentUpon>Loot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Creature\RepMaxStanding.resx">
+      <DependentUpon>RepMaxStanding.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\DBCPath.resx">
+      <DependentUpon>DBCPath.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EditorControl.resx">
+      <DependentUpon>EditorControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\GameObject\GameObjectControl.resx">
+      <DependentUpon>GameObjectControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\FAQ.resx">
+      <DependentUpon>FAQ.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\GameObject\Edit\Flags.resx">
+      <DependentUpon>Flags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\GameObject\Edit\Type.resx">
+      <DependentUpon>Type.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="UI\Settings.resx">
+      <DependentUpon>Settings.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <EntityDeploy Include="Database.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Database.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Database.edmx.diagram">
+      <DependentUpon>Database.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\DatabaseEditor.DBC2.DbcRecord.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\favicon.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Database.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database.Context.cs</LastGenOutput>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Content>
+    <Content Include="Database.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Database1.cs</LastGenOutput>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

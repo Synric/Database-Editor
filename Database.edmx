@@ -1,0 +1,2555 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="itheria_worldModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.6" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="creature">
+          <Key>
+            <PropertyRef Name="guid" />
+          </Key>
+          <Property Name="guid" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="umediumint" Nullable="false" />
+          <Property Name="map" Type="usmallint" Nullable="false" />
+          <Property Name="spawnMask" Type="utinyint" Nullable="false" />
+          <Property Name="phaseMask" Type="uint" Nullable="false" />
+          <Property Name="modelid" Type="umediumint" Nullable="false" />
+          <Property Name="equipment_id" Type="mediumint" Nullable="false" />
+          <Property Name="position_x" Type="float" Nullable="false" />
+          <Property Name="position_y" Type="float" Nullable="false" />
+          <Property Name="position_z" Type="float" Nullable="false" />
+          <Property Name="orientation" Type="float" Nullable="false" />
+          <Property Name="spawntimesecs" Type="uint" Nullable="false" />
+          <Property Name="spawndist" Type="float" Nullable="false" />
+          <Property Name="currentwaypoint" Type="umediumint" Nullable="false" />
+          <Property Name="curhealth" Type="uint" Nullable="false" />
+          <Property Name="curmana" Type="uint" Nullable="false" />
+          <Property Name="MovementType" Type="utinyint" Nullable="false" />
+          <Property Name="npcflag" Type="int" Nullable="false" />
+          <Property Name="unit_flags" Type="int" Nullable="false" />
+          <Property Name="dynamicflags" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_addon">
+          <Key>
+            <PropertyRef Name="guid" />
+          </Key>
+          <Property Name="guid" Type="uint" Nullable="false" />
+          <Property Name="path_id" Type="int" Nullable="false" />
+          <Property Name="mount" Type="umediumint" Nullable="false" />
+          <Property Name="bytes1" Type="uint" Nullable="false" />
+          <Property Name="bytes2" Type="uint" Nullable="false" />
+          <Property Name="emote" Type="uint" Nullable="false" />
+          <Property Name="auras" Type="text" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'def.itheria_world.creature_equip_template' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="creature_equip_template">
+          <Key>
+            <PropertyRef Name="entry" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="itemEntry1" />
+            <PropertyRef Name="itemEntry2" />
+            <PropertyRef Name="itemEntry3" />
+          </Key>
+          <Property Name="entry" Type="umediumint" Nullable="false" />
+          <Property Name="id" Type="utinyint" Nullable="false" />
+          <Property Name="itemEntry1" Type="umediumint" Nullable="false" />
+          <Property Name="itemEntry2" Type="umediumint" Nullable="false" />
+          <Property Name="itemEntry3" Type="umediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="creature_model_info">
+          <Key>
+            <PropertyRef Name="modelid" />
+          </Key>
+          <Property Name="modelid" Type="umediumint" Nullable="false" />
+          <Property Name="bounding_radius" Type="float" Nullable="false" />
+          <Property Name="combat_reach" Type="float" Nullable="false" />
+          <Property Name="gender" Type="utinyint" Nullable="false" />
+          <Property Name="modelid_other_gender" Type="umediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_onkill_reputation">
+          <Key>
+            <PropertyRef Name="creature_id" />
+          </Key>
+          <Property Name="creature_id" Type="umediumint" Nullable="false" />
+          <Property Name="RewOnKillRepFaction1" Type="smallint" Nullable="false" />
+          <Property Name="RewOnKillRepFaction2" Type="smallint" Nullable="false" />
+          <Property Name="MaxStanding1" Type="tinyint" Nullable="false" />
+          <Property Name="IsTeamAward1" Type="tinyint" Nullable="false" />
+          <Property Name="RewOnKillRepValue1" Type="mediumint" Nullable="false" />
+          <Property Name="MaxStanding2" Type="tinyint" Nullable="false" />
+          <Property Name="IsTeamAward2" Type="tinyint" Nullable="false" />
+          <Property Name="RewOnKillRepValue2" Type="mediumint" Nullable="false" />
+          <Property Name="TeamDependent" Type="utinyint" Nullable="false" />
+          <Property Name="CurrencyId1" Type="usmallint" Nullable="false" />
+          <Property Name="CurrencyId2" Type="usmallint" Nullable="false" />
+          <Property Name="CurrencyId3" Type="usmallint" Nullable="false" />
+          <Property Name="CurrencyCount1" Type="mediumint" Nullable="false" />
+          <Property Name="CurrencyCount2" Type="mediumint" Nullable="false" />
+          <Property Name="CurrencyCount3" Type="mediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_questender">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="umediumint" Nullable="false" />
+          <Property Name="quest" Type="umediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_queststarter">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="umediumint" Nullable="false" />
+          <Property Name="quest" Type="umediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_template">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="umediumint" Nullable="false" />
+          <Property Name="difficulty_entry_1" Type="umediumint" Nullable="false" />
+          <Property Name="difficulty_entry_2" Type="umediumint" Nullable="false" />
+          <Property Name="difficulty_entry_3" Type="umediumint" Nullable="false" />
+          <Property Name="KillCredit1" Type="uint" Nullable="false" />
+          <Property Name="KillCredit2" Type="uint" Nullable="false" />
+          <Property Name="modelid1" Type="umediumint" Nullable="false" />
+          <Property Name="modelid2" Type="umediumint" Nullable="false" />
+          <Property Name="modelid3" Type="umediumint" Nullable="false" />
+          <Property Name="modelid4" Type="umediumint" Nullable="false" />
+          <Property Name="name" Type="char" MaxLength="100" Nullable="false" />
+          <Property Name="subname" Type="char" MaxLength="100" />
+          <Property Name="IconName" Type="char" MaxLength="100" />
+          <Property Name="gossip_menu_id" Type="umediumint" Nullable="false" />
+          <Property Name="minlevel" Type="utinyint" Nullable="false" />
+          <Property Name="maxlevel" Type="utinyint" Nullable="false" />
+          <Property Name="exp" Type="smallint" Nullable="false" />
+          <Property Name="exp_unk" Type="smallint" Nullable="false" />
+          <Property Name="faction" Type="usmallint" Nullable="false" />
+          <Property Name="npcflag" Type="uint" Nullable="false" />
+          <Property Name="speed_walk" Type="float" Nullable="false" />
+          <Property Name="speed_run" Type="float" Nullable="false" />
+          <Property Name="scale" Type="float" Nullable="false" />
+          <Property Name="rank" Type="utinyint" Nullable="false" />
+          <Property Name="mindmg" Type="float" Nullable="false" />
+          <Property Name="maxdmg" Type="float" Nullable="false" />
+          <Property Name="dmgschool" Type="tinyint" Nullable="false" />
+          <Property Name="attackpower" Type="uint" Nullable="false" />
+          <Property Name="dmg_multiplier" Type="float" Nullable="false" />
+          <Property Name="baseattacktime" Type="uint" Nullable="false" />
+          <Property Name="rangeattacktime" Type="uint" Nullable="false" />
+          <Property Name="unit_class" Type="utinyint" Nullable="false" />
+          <Property Name="unit_flags" Type="uint" Nullable="false" />
+          <Property Name="unit_flags2" Type="uint" Nullable="false" />
+          <Property Name="dynamicflags" Type="uint" Nullable="false" />
+          <Property Name="family" Type="tinyint" Nullable="false" />
+          <Property Name="trainer_type" Type="tinyint" Nullable="false" />
+          <Property Name="trainer_spell" Type="umediumint" Nullable="false" />
+          <Property Name="trainer_class" Type="utinyint" Nullable="false" />
+          <Property Name="trainer_race" Type="utinyint" Nullable="false" />
+          <Property Name="minrangedmg" Type="float" Nullable="false" />
+          <Property Name="maxrangedmg" Type="float" Nullable="false" />
+          <Property Name="rangedattackpower" Type="usmallint" Nullable="false" />
+          <Property Name="type" Type="utinyint" Nullable="false" />
+          <Property Name="type_flags" Type="uint" Nullable="false" />
+          <Property Name="type_flags2" Type="uint" Nullable="false" />
+          <Property Name="lootid" Type="umediumint" Nullable="false" />
+          <Property Name="pickpocketloot" Type="umediumint" Nullable="false" />
+          <Property Name="skinloot" Type="umediumint" Nullable="false" />
+          <Property Name="resistance1" Type="smallint" Nullable="false" />
+          <Property Name="resistance2" Type="smallint" Nullable="false" />
+          <Property Name="resistance3" Type="smallint" Nullable="false" />
+          <Property Name="resistance4" Type="smallint" Nullable="false" />
+          <Property Name="resistance5" Type="smallint" Nullable="false" />
+          <Property Name="resistance6" Type="smallint" Nullable="false" />
+          <Property Name="spell1" Type="umediumint" Nullable="false" />
+          <Property Name="spell2" Type="umediumint" Nullable="false" />
+          <Property Name="spell3" Type="umediumint" Nullable="false" />
+          <Property Name="spell4" Type="umediumint" Nullable="false" />
+          <Property Name="spell5" Type="umediumint" Nullable="false" />
+          <Property Name="spell6" Type="umediumint" Nullable="false" />
+          <Property Name="spell7" Type="umediumint" Nullable="false" />
+          <Property Name="spell8" Type="umediumint" Nullable="false" />
+          <Property Name="PetSpellDataId" Type="umediumint" Nullable="false" />
+          <Property Name="VehicleId" Type="umediumint" Nullable="false" />
+          <Property Name="mingold" Type="umediumint" Nullable="false" />
+          <Property Name="maxgold" Type="umediumint" Nullable="false" />
+          <Property Name="AIName" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="MovementType" Type="utinyint" Nullable="false" />
+          <Property Name="InhabitType" Type="utinyint" Nullable="false" />
+          <Property Name="HoverHeight" Type="float" Nullable="false" />
+          <Property Name="Health_mod" Type="float" Nullable="false" />
+          <Property Name="Mana_mod" Type="float" Nullable="false" />
+          <Property Name="Mana_mod_extra" Type="float" Nullable="false" />
+          <Property Name="Armor_mod" Type="float" Nullable="false" />
+          <Property Name="RacialLeader" Type="utinyint" Nullable="false" />
+          <Property Name="questItem1" Type="uint" Nullable="false" />
+          <Property Name="questItem2" Type="uint" Nullable="false" />
+          <Property Name="questItem3" Type="uint" Nullable="false" />
+          <Property Name="questItem4" Type="uint" Nullable="false" />
+          <Property Name="questItem5" Type="uint" Nullable="false" />
+          <Property Name="questItem6" Type="uint" Nullable="false" />
+          <Property Name="movementId" Type="uint" Nullable="false" />
+          <Property Name="RegenHealth" Type="utinyint" Nullable="false" />
+          <Property Name="equipment_id" Type="umediumint" Nullable="false" />
+          <Property Name="mechanic_immune_mask" Type="uint" Nullable="false" />
+          <Property Name="flags_extra" Type="uint" Nullable="false" />
+          <Property Name="ScriptName" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="WDBVerified" Type="smallint" />
+        </EntityType>
+        <EntityType Name="creature_template_addon">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="umediumint" Nullable="false" />
+          <Property Name="path_id" Type="uint" Nullable="false" />
+          <Property Name="mount" Type="umediumint" Nullable="false" />
+          <Property Name="bytes1" Type="uint" Nullable="false" />
+          <Property Name="bytes2" Type="uint" Nullable="false" />
+          <Property Name="emote" Type="umediumint" Nullable="false" />
+          <Property Name="auras" Type="text" />
+        </EntityType>
+        <EntityType Name="disenchant_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="fishing_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="gameobject">
+          <Key>
+            <PropertyRef Name="guid" />
+          </Key>
+          <Property Name="guid" Type="uint" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="id" Type="umediumint" Nullable="false" />
+          <Property Name="map" Type="usmallint" Nullable="false" />
+          <Property Name="zoneId" Type="smallint" Nullable="false" />
+          <Property Name="areaId" Type="smallint" Nullable="false" />
+          <Property Name="spawnMask" Type="utinyint" Nullable="false" />
+          <Property Name="phaseMask" Type="uint" Nullable="false" />
+          <Property Name="PhaseId" Type="int" />
+          <Property Name="PhaseGroup" Type="int" />
+          <Property Name="position_x" Type="float" Nullable="false" />
+          <Property Name="position_y" Type="float" Nullable="false" />
+          <Property Name="position_z" Type="float" Nullable="false" />
+          <Property Name="orientation" Type="float" Nullable="false" />
+          <Property Name="rotation0" Type="float" Nullable="false" />
+          <Property Name="rotation1" Type="float" Nullable="false" />
+          <Property Name="rotation2" Type="float" Nullable="false" />
+          <Property Name="rotation3" Type="float" Nullable="false" />
+          <Property Name="spawntimesecs" Type="int" Nullable="false" />
+          <Property Name="animprogress" Type="utinyint" Nullable="false" />
+          <Property Name="state" Type="utinyint" Nullable="false" />
+          <Property Name="VerifiedBuild" Type="smallint" />
+        </EntityType>
+        <EntityType Name="gameobject_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="gameobject_questender">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="umediumint" Nullable="false" />
+          <Property Name="quest" Type="umediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gameobject_queststarter">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="umediumint" Nullable="false" />
+          <Property Name="quest" Type="umediumint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gameobject_template">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="umediumint" Nullable="false" />
+          <Property Name="type" Type="utinyint" Nullable="false" />
+          <Property Name="displayId" Type="umediumint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="IconName" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="castBarCaption" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="unk1" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="faction" Type="usmallint" Nullable="false" />
+          <Property Name="flags" Type="uint" Nullable="false" />
+          <Property Name="size" Type="float" Nullable="false" />
+          <Property Name="questItem1" Type="uint" Nullable="false" />
+          <Property Name="questItem2" Type="uint" Nullable="false" />
+          <Property Name="questItem3" Type="uint" Nullable="false" />
+          <Property Name="questItem4" Type="uint" Nullable="false" />
+          <Property Name="questItem5" Type="uint" Nullable="false" />
+          <Property Name="questItem6" Type="uint" Nullable="false" />
+          <Property Name="data0" Type="uint" Nullable="false" />
+          <Property Name="data1" Type="int" Nullable="false" />
+          <Property Name="data2" Type="uint" Nullable="false" />
+          <Property Name="data3" Type="uint" Nullable="false" />
+          <Property Name="data4" Type="uint" Nullable="false" />
+          <Property Name="data5" Type="uint" Nullable="false" />
+          <Property Name="data6" Type="int" Nullable="false" />
+          <Property Name="data7" Type="uint" Nullable="false" />
+          <Property Name="data8" Type="uint" Nullable="false" />
+          <Property Name="data9" Type="uint" Nullable="false" />
+          <Property Name="data10" Type="uint" Nullable="false" />
+          <Property Name="data11" Type="uint" Nullable="false" />
+          <Property Name="data12" Type="uint" Nullable="false" />
+          <Property Name="data13" Type="uint" Nullable="false" />
+          <Property Name="data14" Type="uint" Nullable="false" />
+          <Property Name="data15" Type="uint" Nullable="false" />
+          <Property Name="data16" Type="uint" Nullable="false" />
+          <Property Name="data17" Type="uint" Nullable="false" />
+          <Property Name="data18" Type="uint" Nullable="false" />
+          <Property Name="data19" Type="uint" Nullable="false" />
+          <Property Name="data20" Type="uint" Nullable="false" />
+          <Property Name="data21" Type="uint" Nullable="false" />
+          <Property Name="data22" Type="uint" Nullable="false" />
+          <Property Name="data23" Type="uint" Nullable="false" />
+          <Property Name="data24" Type="int" />
+          <Property Name="data25" Type="int" />
+          <Property Name="data26" Type="int" />
+          <Property Name="data27" Type="int" />
+          <Property Name="data28" Type="int" />
+          <Property Name="data29" Type="int" />
+          <Property Name="data30" Type="int" />
+          <Property Name="data31" Type="int" />
+          <Property Name="unkInt32" Type="int" Nullable="false" />
+          <Property Name="AIName" Type="char" MaxLength="64" Nullable="false" />
+          <Property Name="ScriptName" Type="varchar" MaxLength="64" Nullable="false" />
+          <Property Name="VerifiedBuild" Type="smallint" />
+        </EntityType>
+        <EntityType Name="item_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6005: The data type 'ufloat' is currently not supported for the target Entity Framework version; the column 'Unk430_1' in the table 'def.itheria_world.item_template' was excluded.-->
+        <EntityType Name="item_template">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="umediumint" Nullable="false" />
+          <Property Name="class" Type="utinyint" Nullable="false" />
+          <Property Name="subclass" Type="utinyint" Nullable="false" />
+          <Property Name="SoundOverrideSubclass" Type="tinyint" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="displayid" Type="umediumint" Nullable="false" />
+          <Property Name="Quality" Type="utinyint" Nullable="false" />
+          <Property Name="Flags" Type="bigint" Nullable="false" />
+          <Property Name="FlagsExtra" Type="uint" Nullable="false" />
+          <Property Name="Unk430_2" Type="float" Nullable="false" />
+          <Property Name="BuyCount" Type="utinyint" Nullable="false" />
+          <Property Name="BuyPrice" Type="bigint" Nullable="false" />
+          <Property Name="SellPrice" Type="uint" Nullable="false" />
+          <Property Name="InventoryType" Type="utinyint" Nullable="false" />
+          <Property Name="AllowableClass" Type="int" Nullable="false" />
+          <Property Name="AllowableRace" Type="int" Nullable="false" />
+          <Property Name="ItemLevel" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredLevel" Type="utinyint" Nullable="false" />
+          <Property Name="RequiredSkill" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSkillRank" Type="usmallint" Nullable="false" />
+          <Property Name="requiredspell" Type="umediumint" Nullable="false" />
+          <Property Name="requiredhonorrank" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredCityRank" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredReputationFaction" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredReputationRank" Type="usmallint" Nullable="false" />
+          <Property Name="maxcount" Type="int" Nullable="false" />
+          <Property Name="stackable" Type="int" />
+          <Property Name="ContainerSlots" Type="utinyint" Nullable="false" />
+          <Property Name="stat_type1" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value1" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_1" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_1" Type="int" Nullable="false" />
+          <Property Name="stat_type2" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value2" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_2" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_2" Type="int" Nullable="false" />
+          <Property Name="stat_type3" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value3" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_3" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_3" Type="int" Nullable="false" />
+          <Property Name="stat_type4" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value4" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_4" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_4" Type="int" Nullable="false" />
+          <Property Name="stat_type5" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value5" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_5" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_5" Type="int" Nullable="false" />
+          <Property Name="stat_type6" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value6" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_6" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_6" Type="int" Nullable="false" />
+          <Property Name="stat_type7" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value7" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_7" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_7" Type="int" Nullable="false" />
+          <Property Name="stat_type8" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value8" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_8" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_8" Type="int" Nullable="false" />
+          <Property Name="stat_type9" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value9" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_9" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_9" Type="int" Nullable="false" />
+          <Property Name="stat_type10" Type="utinyint" Nullable="false" />
+          <Property Name="stat_value10" Type="smallint" Nullable="false" />
+          <Property Name="stat_unk1_10" Type="int" Nullable="false" />
+          <Property Name="stat_unk2_10" Type="int" Nullable="false" />
+          <Property Name="ScalingStatDistribution" Type="smallint" Nullable="false" />
+          <Property Name="DamageType" Type="utinyint" Nullable="false" />
+          <Property Name="delay" Type="usmallint" Nullable="false" />
+          <Property Name="RangedModRange" Type="float" Nullable="false" />
+          <Property Name="spellid_1" Type="mediumint" Nullable="false" />
+          <Property Name="spelltrigger_1" Type="utinyint" Nullable="false" />
+          <Property Name="spellcharges_1" Type="smallint" Nullable="false" />
+          <Property Name="spellcooldown_1" Type="int" Nullable="false" />
+          <Property Name="spellcategory_1" Type="usmallint" Nullable="false" />
+          <Property Name="spellcategorycooldown_1" Type="int" Nullable="false" />
+          <Property Name="spellid_2" Type="mediumint" Nullable="false" />
+          <Property Name="spelltrigger_2" Type="utinyint" Nullable="false" />
+          <Property Name="spellcharges_2" Type="smallint" Nullable="false" />
+          <Property Name="spellcooldown_2" Type="int" Nullable="false" />
+          <Property Name="spellcategory_2" Type="usmallint" Nullable="false" />
+          <Property Name="spellcategorycooldown_2" Type="int" Nullable="false" />
+          <Property Name="spellid_3" Type="mediumint" Nullable="false" />
+          <Property Name="spelltrigger_3" Type="utinyint" Nullable="false" />
+          <Property Name="spellcharges_3" Type="smallint" Nullable="false" />
+          <Property Name="spellcooldown_3" Type="int" Nullable="false" />
+          <Property Name="spellcategory_3" Type="usmallint" Nullable="false" />
+          <Property Name="spellcategorycooldown_3" Type="int" Nullable="false" />
+          <Property Name="spellid_4" Type="mediumint" Nullable="false" />
+          <Property Name="spelltrigger_4" Type="utinyint" Nullable="false" />
+          <Property Name="spellcharges_4" Type="smallint" Nullable="false" />
+          <Property Name="spellcooldown_4" Type="int" Nullable="false" />
+          <Property Name="spellcategory_4" Type="usmallint" Nullable="false" />
+          <Property Name="spellcategorycooldown_4" Type="int" Nullable="false" />
+          <Property Name="spellid_5" Type="mediumint" Nullable="false" />
+          <Property Name="spelltrigger_5" Type="utinyint" Nullable="false" />
+          <Property Name="spellcharges_5" Type="smallint" Nullable="false" />
+          <Property Name="spellcooldown_5" Type="int" Nullable="false" />
+          <Property Name="spellcategory_5" Type="usmallint" Nullable="false" />
+          <Property Name="spellcategorycooldown_5" Type="int" Nullable="false" />
+          <Property Name="bonding" Type="utinyint" Nullable="false" />
+          <Property Name="description" Type="varchar" MaxLength="255" Nullable="false" />
+          <Property Name="PageText" Type="umediumint" Nullable="false" />
+          <Property Name="LanguageID" Type="utinyint" Nullable="false" />
+          <Property Name="PageMaterial" Type="utinyint" Nullable="false" />
+          <Property Name="startquest" Type="umediumint" Nullable="false" />
+          <Property Name="lockid" Type="umediumint" Nullable="false" />
+          <Property Name="Material" Type="tinyint" Nullable="false" />
+          <Property Name="sheath" Type="utinyint" Nullable="false" />
+          <Property Name="RandomProperty" Type="mediumint" Nullable="false" />
+          <Property Name="RandomSuffix" Type="umediumint" Nullable="false" />
+          <Property Name="itemset" Type="umediumint" Nullable="false" />
+          <Property Name="MaxDurability" Type="usmallint" Nullable="false" />
+          <Property Name="area" Type="umediumint" Nullable="false" />
+          <Property Name="Map" Type="smallint" Nullable="false" />
+          <Property Name="BagFamily" Type="mediumint" Nullable="false" />
+          <Property Name="TotemCategory" Type="mediumint" Nullable="false" />
+          <Property Name="socketColor_1" Type="tinyint" Nullable="false" />
+          <Property Name="socketContent_1" Type="mediumint" Nullable="false" />
+          <Property Name="socketColor_2" Type="tinyint" Nullable="false" />
+          <Property Name="socketContent_2" Type="mediumint" Nullable="false" />
+          <Property Name="socketColor_3" Type="tinyint" Nullable="false" />
+          <Property Name="socketContent_3" Type="mediumint" Nullable="false" />
+          <Property Name="socketBonus" Type="mediumint" Nullable="false" />
+          <Property Name="GemProperties" Type="mediumint" Nullable="false" />
+          <Property Name="ArmorDamageModifier" Type="float" Nullable="false" />
+          <Property Name="duration" Type="uint" Nullable="false" />
+          <Property Name="ItemLimitCategory" Type="smallint" Nullable="false" />
+          <Property Name="HolidayId" Type="uint" Nullable="false" />
+          <Property Name="StatScalingFactor" Type="float" Nullable="false" />
+          <Property Name="CurrencySubstitutionId" Type="uint" Nullable="false" />
+          <Property Name="CurrencySubstitutionCount" Type="uint" Nullable="false" />
+          <Property Name="flagsCustom" Type="uint" Nullable="false" />
+          <Property Name="WDBVerified" Type="smallint" />
+        </EntityType>
+        <EntityType Name="milling_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="pickpocketing_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="quest_template">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="umediumint" Nullable="false" />
+          <Property Name="Method" Type="utinyint" Nullable="false" />
+          <Property Name="Level" Type="smallint" Nullable="false" />
+          <Property Name="MinLevel" Type="smallint" Nullable="false" />
+          <Property Name="MaxLevel" Type="smallint" Nullable="false" />
+          <Property Name="ZoneOrSort" Type="smallint" Nullable="false" />
+          <Property Name="Type" Type="usmallint" Nullable="false" />
+          <Property Name="SuggestedPlayers" Type="utinyint" Nullable="false" />
+          <Property Name="LimitTime" Type="uint" Nullable="false" />
+          <Property Name="RequiredClasses" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredRaces" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredSkillId" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSkill" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSkillPoints" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredFactionId1" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredFactionId2" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredFactionValue1" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredFactionValue2" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredMinRepFaction" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredMaxRepFaction" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredMinRepValue" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredMaxRepValue" Type="mediumint" Nullable="false" />
+          <Property Name="PrevQuestId" Type="mediumint" Nullable="false" />
+          <Property Name="NextQuestId" Type="mediumint" Nullable="false" />
+          <Property Name="ExclusiveGroup" Type="mediumint" Nullable="false" />
+          <Property Name="NextQuestIdChain" Type="umediumint" Nullable="false" />
+          <Property Name="RewardXPId" Type="utinyint" Nullable="false" />
+          <Property Name="RewardOrRequiredMoney" Type="int" Nullable="false" />
+          <Property Name="RewardMoneyMaxLevel" Type="uint" Nullable="false" />
+          <Property Name="RewardSpell" Type="umediumint" Nullable="false" />
+          <Property Name="RewardSpellCast" Type="int" Nullable="false" />
+          <Property Name="RewardHonor" Type="int" Nullable="false" />
+          <Property Name="RewardHonorMultiplier" Type="float" Nullable="false" />
+          <Property Name="RewardMailTemplateId" Type="umediumint" Nullable="false" />
+          <Property Name="RewardMailDelay" Type="uint" Nullable="false" />
+          <Property Name="SourceItemId" Type="umediumint" Nullable="false" />
+          <Property Name="SourceItemCount" Type="utinyint" Nullable="false" />
+          <Property Name="SourceSpellId" Type="umediumint" Nullable="false" />
+          <Property Name="Flags" Type="uint" Nullable="false" />
+          <Property Name="SpecialFlags" Type="utinyint" Nullable="false" />
+          <Property Name="MinimapTargetMark" Type="utinyint" Nullable="false" />
+          <Property Name="RewardTitleId" Type="utinyint" Nullable="false" />
+          <Property Name="RequiredPlayerKills" Type="utinyint" Nullable="false" />
+          <Property Name="RewardTalents" Type="utinyint" Nullable="false" />
+          <Property Name="RewardArenaPoints" Type="usmallint" Nullable="false" />
+          <Property Name="RewardSkillId" Type="usmallint" Nullable="false" />
+          <Property Name="RewardSkillPoints" Type="utinyint" Nullable="false" />
+          <Property Name="RewardReputationMask" Type="utinyint" Nullable="false" />
+          <Property Name="QuestGiverPortrait" Type="umediumint" Nullable="false" />
+          <Property Name="QuestTurnInPortrait" Type="umediumint" Nullable="false" />
+          <Property Name="RewardItemId1" Type="umediumint" Nullable="false" />
+          <Property Name="RewardItemId2" Type="umediumint" Nullable="false" />
+          <Property Name="RewardItemId3" Type="umediumint" Nullable="false" />
+          <Property Name="RewardItemId4" Type="umediumint" Nullable="false" />
+          <Property Name="RewardItemCount1" Type="usmallint" Nullable="false" />
+          <Property Name="RewardItemCount2" Type="usmallint" Nullable="false" />
+          <Property Name="RewardItemCount3" Type="usmallint" Nullable="false" />
+          <Property Name="RewardItemCount4" Type="usmallint" Nullable="false" />
+          <Property Name="RewardChoiceItemId1" Type="umediumint" Nullable="false" />
+          <Property Name="RewardChoiceItemId2" Type="umediumint" Nullable="false" />
+          <Property Name="RewardChoiceItemId3" Type="umediumint" Nullable="false" />
+          <Property Name="RewardChoiceItemId4" Type="umediumint" Nullable="false" />
+          <Property Name="RewardChoiceItemId5" Type="umediumint" Nullable="false" />
+          <Property Name="RewardChoiceItemId6" Type="umediumint" Nullable="false" />
+          <Property Name="RewardChoiceItemCount1" Type="usmallint" Nullable="false" />
+          <Property Name="RewardChoiceItemCount2" Type="usmallint" Nullable="false" />
+          <Property Name="RewardChoiceItemCount3" Type="usmallint" Nullable="false" />
+          <Property Name="RewardChoiceItemCount4" Type="usmallint" Nullable="false" />
+          <Property Name="RewardChoiceItemCount5" Type="usmallint" Nullable="false" />
+          <Property Name="RewardChoiceItemCount6" Type="usmallint" Nullable="false" />
+          <Property Name="RewardFactionId1" Type="usmallint" Nullable="false" />
+          <Property Name="RewardFactionId2" Type="usmallint" Nullable="false" />
+          <Property Name="RewardFactionId3" Type="usmallint" Nullable="false" />
+          <Property Name="RewardFactionId4" Type="usmallint" Nullable="false" />
+          <Property Name="RewardFactionId5" Type="usmallint" Nullable="false" />
+          <Property Name="RewardFactionValueId1" Type="mediumint" Nullable="false" />
+          <Property Name="RewardFactionValueId2" Type="mediumint" Nullable="false" />
+          <Property Name="RewardFactionValueId3" Type="mediumint" Nullable="false" />
+          <Property Name="RewardFactionValueId4" Type="mediumint" Nullable="false" />
+          <Property Name="RewardFactionValueId5" Type="mediumint" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride1" Type="int" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride2" Type="int" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride3" Type="int" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride4" Type="int" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride5" Type="int" Nullable="false" />
+          <Property Name="PointMapId" Type="usmallint" Nullable="false" />
+          <Property Name="PointX" Type="float" Nullable="false" />
+          <Property Name="PointY" Type="float" Nullable="false" />
+          <Property Name="PointOption" Type="umediumint" Nullable="false" />
+          <Property Name="Title" Type="text" />
+          <Property Name="Objectives" Type="text" />
+          <Property Name="Details" Type="text" />
+          <Property Name="EndText" Type="text" />
+          <Property Name="OfferRewardText" Type="text" />
+          <Property Name="RequestItemsText" Type="text" />
+          <Property Name="CompletedText" Type="text" />
+          <Property Name="RequiredNpcOrGo1" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredNpcOrGo2" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredNpcOrGo3" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredNpcOrGo4" Type="mediumint" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount1" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount2" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount3" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount4" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSourceItemId1" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSourceItemId2" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSourceItemId3" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSourceItemId4" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSourceItemCount1" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSourceItemCount2" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSourceItemCount3" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSourceItemCount4" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredItemId1" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredItemId2" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredItemId3" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredItemId4" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredItemId5" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredItemId6" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredItemCount1" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredItemCount2" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredItemCount3" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredItemCount4" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredItemCount5" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredItemCount6" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredSpell" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSpellCast1" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSpellCast2" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSpellCast3" Type="umediumint" Nullable="false" />
+          <Property Name="RequiredSpellCast4" Type="umediumint" Nullable="false" />
+          <Property Name="Unknown0" Type="utinyint" Nullable="false" />
+          <Property Name="ObjectiveText1" Type="text" />
+          <Property Name="ObjectiveText2" Type="text" />
+          <Property Name="ObjectiveText3" Type="text" />
+          <Property Name="ObjectiveText4" Type="text" />
+          <Property Name="RewardCurrencyId1" Type="usmallint" Nullable="false" />
+          <Property Name="RewardCurrencyId2" Type="usmallint" Nullable="false" />
+          <Property Name="RewardCurrencyId3" Type="usmallint" Nullable="false" />
+          <Property Name="RewardCurrencyId4" Type="usmallint" Nullable="false" />
+          <Property Name="RewardCurrencyCount1" Type="utinyint" Nullable="false" />
+          <Property Name="RewardCurrencyCount2" Type="utinyint" Nullable="false" />
+          <Property Name="RewardCurrencyCount3" Type="utinyint" Nullable="false" />
+          <Property Name="RewardCurrencyCount4" Type="utinyint" Nullable="false" />
+          <Property Name="RequiredCurrencyId1" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredCurrencyId2" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredCurrencyId3" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredCurrencyId4" Type="usmallint" Nullable="false" />
+          <Property Name="RequiredCurrencyCount1" Type="utinyint" Nullable="false" />
+          <Property Name="RequiredCurrencyCount2" Type="utinyint" Nullable="false" />
+          <Property Name="RequiredCurrencyCount3" Type="utinyint" Nullable="false" />
+          <Property Name="RequiredCurrencyCount4" Type="utinyint" Nullable="false" />
+          <Property Name="QuestGiverTextWindow" Type="text" />
+          <Property Name="QuestGiverTargetName" Type="text" />
+          <Property Name="QuestTurnTextWindow" Type="text" />
+          <Property Name="QuestTurnTargetName" Type="text" />
+          <Property Name="SoundAccept" Type="usmallint" Nullable="false" />
+          <Property Name="SoundTurnIn" Type="usmallint" Nullable="false" />
+          <Property Name="DetailsEmote1" Type="usmallint" Nullable="false" />
+          <Property Name="DetailsEmote2" Type="usmallint" Nullable="false" />
+          <Property Name="DetailsEmote3" Type="usmallint" Nullable="false" />
+          <Property Name="DetailsEmote4" Type="usmallint" Nullable="false" />
+          <Property Name="DetailsEmoteDelay1" Type="uint" Nullable="false" />
+          <Property Name="DetailsEmoteDelay2" Type="uint" Nullable="false" />
+          <Property Name="DetailsEmoteDelay3" Type="uint" Nullable="false" />
+          <Property Name="DetailsEmoteDelay4" Type="uint" Nullable="false" />
+          <Property Name="EmoteOnIncomplete" Type="usmallint" Nullable="false" />
+          <Property Name="EmoteOnComplete" Type="usmallint" Nullable="false" />
+          <Property Name="OfferRewardEmote1" Type="usmallint" Nullable="false" />
+          <Property Name="OfferRewardEmote2" Type="usmallint" Nullable="false" />
+          <Property Name="OfferRewardEmote3" Type="usmallint" Nullable="false" />
+          <Property Name="OfferRewardEmote4" Type="usmallint" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay1" Type="uint" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay2" Type="uint" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay3" Type="uint" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay4" Type="uint" Nullable="false" />
+          <Property Name="RewSkillLineId" Type="uint" Nullable="false" />
+          <Property Name="RewSkillPoints" Type="uint" Nullable="false" />
+          <Property Name="RewRepMask" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyId1" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyCount1" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyId2" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyCount2" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyId3" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyCount3" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyId4" Type="uint" Nullable="false" />
+          <Property Name="RewCurrencyCount4" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyId1" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyCount1" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyId2" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyCount2" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyId3" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyCount3" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyId4" Type="uint" Nullable="false" />
+          <Property Name="ReqCurrencyCount4" Type="uint" Nullable="false" />
+          <Property Name="QuestGiverPortraitText" Type="text" />
+          <Property Name="QuestGiverPortraitUnk" Type="text" />
+          <Property Name="QuestTurnInPortraitText" Type="text" />
+          <Property Name="QuestTurnInPortraitUnk" Type="text" />
+          <Property Name="QuestTargetMark" Type="text" />
+          <Property Name="QuestStartType" Type="text" />
+          <Property Name="StartScript" Type="umediumint" Nullable="false" />
+          <Property Name="CompleteScript" Type="umediumint" Nullable="false" />
+          <Property Name="WDBVerified" Type="smallint" Nullable="false" />
+        </EntityType>
+        <EntityType Name="skinning_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="umediumint" Nullable="false" />
+          <Property Name="Item" Type="umediumint" Nullable="false" />
+          <Property Name="Reference" Type="umediumint" Nullable="false" />
+          <Property Name="Chance" Type="float" Nullable="false" />
+          <Property Name="QuestRequired" Type="bool" Nullable="false" />
+          <Property Name="LootMode" Type="usmallint" Nullable="false" />
+          <Property Name="GroupId" Type="utinyint" Nullable="false" />
+          <Property Name="MinCount" Type="utinyint" Nullable="false" />
+          <Property Name="MaxCount" Type="utinyint" Nullable="false" />
+          <Property Name="Comment" Type="varchar" MaxLength="255" />
+        </EntityType>
+        <EntityType Name="smart_scripts">
+          <Key>
+            <PropertyRef Name="entryorguid" />
+            <PropertyRef Name="source_type" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="link" />
+          </Key>
+          <Property Name="entryorguid" Type="int" Nullable="false" />
+          <Property Name="source_type" Type="utinyint" Nullable="false" />
+          <Property Name="id" Type="usmallint" Nullable="false" />
+          <Property Name="link" Type="usmallint" Nullable="false" />
+          <Property Name="event_type" Type="utinyint" Nullable="false" />
+          <Property Name="event_phase_mask" Type="utinyint" Nullable="false" />
+          <Property Name="event_chance" Type="utinyint" Nullable="false" />
+          <Property Name="event_flags" Type="utinyint" Nullable="false" />
+          <Property Name="event_param1" Type="uint" Nullable="false" />
+          <Property Name="event_param2" Type="uint" Nullable="false" />
+          <Property Name="event_param3" Type="uint" Nullable="false" />
+          <Property Name="event_param4" Type="uint" Nullable="false" />
+          <Property Name="action_type" Type="utinyint" Nullable="false" />
+          <Property Name="action_param1" Type="uint" Nullable="false" />
+          <Property Name="action_param2" Type="uint" Nullable="false" />
+          <Property Name="action_param3" Type="uint" Nullable="false" />
+          <Property Name="action_param4" Type="uint" Nullable="false" />
+          <Property Name="action_param5" Type="uint" Nullable="false" />
+          <Property Name="action_param6" Type="uint" Nullable="false" />
+          <Property Name="target_type" Type="utinyint" Nullable="false" />
+          <Property Name="target_param1" Type="uint" Nullable="false" />
+          <Property Name="target_param2" Type="uint" Nullable="false" />
+          <Property Name="target_param3" Type="uint" Nullable="false" />
+          <Property Name="target_x" Type="float" Nullable="false" />
+          <Property Name="target_y" Type="float" Nullable="false" />
+          <Property Name="target_z" Type="float" Nullable="false" />
+          <Property Name="target_o" Type="float" Nullable="false" />
+          <Property Name="comment" Type="text" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="itheria_worldModelStoreContainer">
+          <EntitySet Name="creature" EntityType="Self.creature" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_addon" EntityType="Self.creature_addon" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_loot_template" EntityType="Self.creature_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_model_info" EntityType="Self.creature_model_info" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_onkill_reputation" EntityType="Self.creature_onkill_reputation" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_questender" EntityType="Self.creature_questender" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_queststarter" EntityType="Self.creature_queststarter" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_template" EntityType="Self.creature_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_template_addon" EntityType="Self.creature_template_addon" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="disenchant_loot_template" EntityType="Self.disenchant_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="fishing_loot_template" EntityType="Self.fishing_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="gameobject" EntityType="Self.gameobject" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="gameobject_loot_template" EntityType="Self.gameobject_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="gameobject_questender" EntityType="Self.gameobject_questender" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="gameobject_queststarter" EntityType="Self.gameobject_queststarter" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="gameobject_template" EntityType="Self.gameobject_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="item_loot_template" EntityType="Self.item_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="item_template" EntityType="Self.item_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="milling_loot_template" EntityType="Self.milling_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="pickpocketing_loot_template" EntityType="Self.pickpocketing_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="quest_template" EntityType="Self.quest_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="skinning_loot_template" EntityType="Self.skinning_loot_template" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="smart_scripts" EntityType="Self.smart_scripts" Schema="itheria_world" store:Type="Tables" />
+          <EntitySet Name="creature_equip_template" EntityType="Self.creature_equip_template" store:Type="Tables" store:Schema="itheria_world">
+            <DefiningQuery>SELECT
+`creature_equip_template`.`entry`, 
+`creature_equip_template`.`id`, 
+`creature_equip_template`.`itemEntry1`, 
+`creature_equip_template`.`itemEntry2`, 
+`creature_equip_template`.`itemEntry3`
+FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="itheria_worldModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="creature">
+          <Key>
+            <PropertyRef Name="guid" />
+          </Key>
+          <Property Name="guid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="map" Type="Int32" Nullable="false" />
+          <Property Name="spawnMask" Type="Byte" Nullable="false" />
+          <Property Name="phaseMask" Type="Int64" Nullable="false" />
+          <Property Name="modelid" Type="Int32" Nullable="false" />
+          <Property Name="equipment_id" Type="Int32" Nullable="false" />
+          <Property Name="position_x" Type="Single" Nullable="false" />
+          <Property Name="position_y" Type="Single" Nullable="false" />
+          <Property Name="position_z" Type="Single" Nullable="false" />
+          <Property Name="orientation" Type="Single" Nullable="false" />
+          <Property Name="spawntimesecs" Type="Int64" Nullable="false" />
+          <Property Name="spawndist" Type="Single" Nullable="false" />
+          <Property Name="currentwaypoint" Type="Int32" Nullable="false" />
+          <Property Name="curhealth" Type="Int64" Nullable="false" />
+          <Property Name="curmana" Type="Int64" Nullable="false" />
+          <Property Name="MovementType" Type="Byte" Nullable="false" />
+          <Property Name="npcflag" Type="Int32" Nullable="false" />
+          <Property Name="unit_flags" Type="Int32" Nullable="false" />
+          <Property Name="dynamicflags" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_addon">
+          <Key>
+            <PropertyRef Name="guid" />
+          </Key>
+          <Property Name="guid" Type="Int64" Nullable="false" />
+          <Property Name="path_id" Type="Int32" Nullable="false" />
+          <Property Name="mount" Type="Int32" Nullable="false" />
+          <Property Name="bytes1" Type="Int64" Nullable="false" />
+          <Property Name="bytes2" Type="Int64" Nullable="false" />
+          <Property Name="emote" Type="Int64" Nullable="false" />
+          <Property Name="auras" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="creature_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="creature_model_info">
+          <Key>
+            <PropertyRef Name="modelid" />
+          </Key>
+          <Property Name="modelid" Type="Int32" Nullable="false" />
+          <Property Name="bounding_radius" Type="Single" Nullable="false" />
+          <Property Name="combat_reach" Type="Single" Nullable="false" />
+          <Property Name="gender" Type="Byte" Nullable="false" />
+          <Property Name="modelid_other_gender" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_onkill_reputation">
+          <Key>
+            <PropertyRef Name="creature_id" />
+          </Key>
+          <Property Name="creature_id" Type="Int32" Nullable="false" />
+          <Property Name="RewOnKillRepFaction1" Type="Int16" Nullable="false" />
+          <Property Name="RewOnKillRepFaction2" Type="Int16" Nullable="false" />
+          <Property Name="MaxStanding1" Type="SByte" Nullable="false" />
+          <Property Name="IsTeamAward1" Type="SByte" Nullable="false" />
+          <Property Name="RewOnKillRepValue1" Type="Int32" Nullable="false" />
+          <Property Name="MaxStanding2" Type="SByte" Nullable="false" />
+          <Property Name="IsTeamAward2" Type="SByte" Nullable="false" />
+          <Property Name="RewOnKillRepValue2" Type="Int32" Nullable="false" />
+          <Property Name="TeamDependent" Type="Byte" Nullable="false" />
+          <Property Name="CurrencyId1" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyId2" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyId3" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCount1" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCount2" Type="Int32" Nullable="false" />
+          <Property Name="CurrencyCount3" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_template">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="Int32" Nullable="false" />
+          <Property Name="difficulty_entry_1" Type="Int32" Nullable="false" />
+          <Property Name="difficulty_entry_2" Type="Int32" Nullable="false" />
+          <Property Name="difficulty_entry_3" Type="Int32" Nullable="false" />
+          <Property Name="KillCredit1" Type="Int64" Nullable="false" />
+          <Property Name="KillCredit2" Type="Int64" Nullable="false" />
+          <Property Name="modelid1" Type="Int32" Nullable="false" />
+          <Property Name="modelid2" Type="Int32" Nullable="false" />
+          <Property Name="modelid3" Type="Int32" Nullable="false" />
+          <Property Name="modelid4" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="subname" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="IconName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="gossip_menu_id" Type="Int32" Nullable="false" />
+          <Property Name="minlevel" Type="Byte" Nullable="false" />
+          <Property Name="maxlevel" Type="Byte" Nullable="false" />
+          <Property Name="exp" Type="Int16" Nullable="false" />
+          <Property Name="exp_unk" Type="Int16" Nullable="false" />
+          <Property Name="faction" Type="Int32" Nullable="false" />
+          <Property Name="npcflag" Type="Int64" Nullable="false" />
+          <Property Name="speed_walk" Type="Single" Nullable="false" />
+          <Property Name="speed_run" Type="Single" Nullable="false" />
+          <Property Name="scale" Type="Single" Nullable="false" />
+          <Property Name="rank" Type="Byte" Nullable="false" />
+          <Property Name="mindmg" Type="Single" Nullable="false" />
+          <Property Name="maxdmg" Type="Single" Nullable="false" />
+          <Property Name="dmgschool" Type="SByte" Nullable="false" />
+          <Property Name="attackpower" Type="Int64" Nullable="false" />
+          <Property Name="dmg_multiplier" Type="Single" Nullable="false" />
+          <Property Name="baseattacktime" Type="Int64" Nullable="false" />
+          <Property Name="rangeattacktime" Type="Int64" Nullable="false" />
+          <Property Name="unit_class" Type="Byte" Nullable="false" />
+          <Property Name="unit_flags" Type="Int64" Nullable="false" />
+          <Property Name="unit_flags2" Type="Int64" Nullable="false" />
+          <Property Name="dynamicflags" Type="Int64" Nullable="false" />
+          <Property Name="family" Type="SByte" Nullable="false" />
+          <Property Name="trainer_type" Type="SByte" Nullable="false" />
+          <Property Name="trainer_spell" Type="Int32" Nullable="false" />
+          <Property Name="trainer_class" Type="Byte" Nullable="false" />
+          <Property Name="trainer_race" Type="Byte" Nullable="false" />
+          <Property Name="minrangedmg" Type="Single" Nullable="false" />
+          <Property Name="maxrangedmg" Type="Single" Nullable="false" />
+          <Property Name="rangedattackpower" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Byte" Nullable="false" />
+          <Property Name="type_flags" Type="Int64" Nullable="false" />
+          <Property Name="type_flags2" Type="Int64" Nullable="false" />
+          <Property Name="lootid" Type="Int32" Nullable="false" />
+          <Property Name="pickpocketloot" Type="Int32" Nullable="false" />
+          <Property Name="skinloot" Type="Int32" Nullable="false" />
+          <Property Name="resistance1" Type="Int16" Nullable="false" />
+          <Property Name="resistance2" Type="Int16" Nullable="false" />
+          <Property Name="resistance3" Type="Int16" Nullable="false" />
+          <Property Name="resistance4" Type="Int16" Nullable="false" />
+          <Property Name="resistance5" Type="Int16" Nullable="false" />
+          <Property Name="resistance6" Type="Int16" Nullable="false" />
+          <Property Name="spell1" Type="Int32" Nullable="false" />
+          <Property Name="spell2" Type="Int32" Nullable="false" />
+          <Property Name="spell3" Type="Int32" Nullable="false" />
+          <Property Name="spell4" Type="Int32" Nullable="false" />
+          <Property Name="spell5" Type="Int32" Nullable="false" />
+          <Property Name="spell6" Type="Int32" Nullable="false" />
+          <Property Name="spell7" Type="Int32" Nullable="false" />
+          <Property Name="spell8" Type="Int32" Nullable="false" />
+          <Property Name="PetSpellDataId" Type="Int32" Nullable="false" />
+          <Property Name="VehicleId" Type="Int32" Nullable="false" />
+          <Property Name="mingold" Type="Int32" Nullable="false" />
+          <Property Name="maxgold" Type="Int32" Nullable="false" />
+          <Property Name="AIName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="MovementType" Type="Byte" Nullable="false" />
+          <Property Name="InhabitType" Type="Byte" Nullable="false" />
+          <Property Name="HoverHeight" Type="Single" Nullable="false" />
+          <Property Name="Health_mod" Type="Single" Nullable="false" />
+          <Property Name="Mana_mod" Type="Single" Nullable="false" />
+          <Property Name="Mana_mod_extra" Type="Single" Nullable="false" />
+          <Property Name="Armor_mod" Type="Single" Nullable="false" />
+          <Property Name="RacialLeader" Type="Byte" Nullable="false" />
+          <Property Name="questItem1" Type="Int64" Nullable="false" />
+          <Property Name="questItem2" Type="Int64" Nullable="false" />
+          <Property Name="questItem3" Type="Int64" Nullable="false" />
+          <Property Name="questItem4" Type="Int64" Nullable="false" />
+          <Property Name="questItem5" Type="Int64" Nullable="false" />
+          <Property Name="questItem6" Type="Int64" Nullable="false" />
+          <Property Name="movementId" Type="Int64" Nullable="false" />
+          <Property Name="RegenHealth" Type="Byte" Nullable="false" />
+          <Property Name="equipment_id" Type="Int32" Nullable="false" />
+          <Property Name="mechanic_immune_mask" Type="Int64" Nullable="false" />
+          <Property Name="flags_extra" Type="Int64" Nullable="false" />
+          <Property Name="ScriptName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="WDBVerified" Type="Int16" />
+        </EntityType>
+        <EntityType Name="creature_template_addon">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="Int32" Nullable="false" />
+          <Property Name="path_id" Type="Int64" Nullable="false" />
+          <Property Name="mount" Type="Int32" Nullable="false" />
+          <Property Name="bytes1" Type="Int64" Nullable="false" />
+          <Property Name="bytes2" Type="Int64" Nullable="false" />
+          <Property Name="emote" Type="Int32" Nullable="false" />
+          <Property Name="auras" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="disenchant_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="fishing_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gameobject">
+          <Key>
+            <PropertyRef Name="guid" />
+          </Key>
+          <Property Name="guid" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="map" Type="Int32" Nullable="false" />
+          <Property Name="zoneId" Type="Int16" Nullable="false" />
+          <Property Name="areaId" Type="Int16" Nullable="false" />
+          <Property Name="spawnMask" Type="Byte" Nullable="false" />
+          <Property Name="phaseMask" Type="Int64" Nullable="false" />
+          <Property Name="PhaseId" Type="Int32" />
+          <Property Name="PhaseGroup" Type="Int32" />
+          <Property Name="position_x" Type="Single" Nullable="false" />
+          <Property Name="position_y" Type="Single" Nullable="false" />
+          <Property Name="position_z" Type="Single" Nullable="false" />
+          <Property Name="orientation" Type="Single" Nullable="false" />
+          <Property Name="rotation0" Type="Single" Nullable="false" />
+          <Property Name="rotation1" Type="Single" Nullable="false" />
+          <Property Name="rotation2" Type="Single" Nullable="false" />
+          <Property Name="rotation3" Type="Single" Nullable="false" />
+          <Property Name="spawntimesecs" Type="Int32" Nullable="false" />
+          <Property Name="animprogress" Type="Byte" Nullable="false" />
+          <Property Name="state" Type="Byte" Nullable="false" />
+          <Property Name="VerifiedBuild" Type="Int16" />
+        </EntityType>
+        <EntityType Name="gameobject_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="gameobject_template">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="Int32" Nullable="false" />
+          <Property Name="type" Type="Byte" Nullable="false" />
+          <Property Name="displayId" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="IconName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="castBarCaption" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="unk1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="faction" Type="Int32" Nullable="false" />
+          <Property Name="flags" Type="Int64" Nullable="false" />
+          <Property Name="size" Type="Single" Nullable="false" />
+          <Property Name="questItem1" Type="Int64" Nullable="false" />
+          <Property Name="questItem2" Type="Int64" Nullable="false" />
+          <Property Name="questItem3" Type="Int64" Nullable="false" />
+          <Property Name="questItem4" Type="Int64" Nullable="false" />
+          <Property Name="questItem5" Type="Int64" Nullable="false" />
+          <Property Name="questItem6" Type="Int64" Nullable="false" />
+          <Property Name="data0" Type="Int64" Nullable="false" />
+          <Property Name="data1" Type="Int32" Nullable="false" />
+          <Property Name="data2" Type="Int64" Nullable="false" />
+          <Property Name="data3" Type="Int64" Nullable="false" />
+          <Property Name="data4" Type="Int64" Nullable="false" />
+          <Property Name="data5" Type="Int64" Nullable="false" />
+          <Property Name="data6" Type="Int32" Nullable="false" />
+          <Property Name="data7" Type="Int64" Nullable="false" />
+          <Property Name="data8" Type="Int64" Nullable="false" />
+          <Property Name="data9" Type="Int64" Nullable="false" />
+          <Property Name="data10" Type="Int64" Nullable="false" />
+          <Property Name="data11" Type="Int64" Nullable="false" />
+          <Property Name="data12" Type="Int64" Nullable="false" />
+          <Property Name="data13" Type="Int64" Nullable="false" />
+          <Property Name="data14" Type="Int64" Nullable="false" />
+          <Property Name="data15" Type="Int64" Nullable="false" />
+          <Property Name="data16" Type="Int64" Nullable="false" />
+          <Property Name="data17" Type="Int64" Nullable="false" />
+          <Property Name="data18" Type="Int64" Nullable="false" />
+          <Property Name="data19" Type="Int64" Nullable="false" />
+          <Property Name="data20" Type="Int64" Nullable="false" />
+          <Property Name="data21" Type="Int64" Nullable="false" />
+          <Property Name="data22" Type="Int64" Nullable="false" />
+          <Property Name="data23" Type="Int64" Nullable="false" />
+          <Property Name="data24" Type="Int32" />
+          <Property Name="data25" Type="Int32" />
+          <Property Name="data26" Type="Int32" />
+          <Property Name="data27" Type="Int32" />
+          <Property Name="data28" Type="Int32" />
+          <Property Name="data29" Type="Int32" />
+          <Property Name="data30" Type="Int32" />
+          <Property Name="data31" Type="Int32" />
+          <Property Name="unkInt32" Type="Int32" Nullable="false" />
+          <Property Name="AIName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ScriptName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="VerifiedBuild" Type="Int16" />
+        </EntityType>
+        <EntityType Name="item_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="item_template">
+          <Key>
+            <PropertyRef Name="entry" />
+          </Key>
+          <Property Name="entry" Type="Int32" Nullable="false" />
+          <Property Name="class" Type="Byte" Nullable="false" />
+          <Property Name="subclass" Type="Byte" Nullable="false" />
+          <Property Name="SoundOverrideSubclass" Type="SByte" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="displayid" Type="Int32" Nullable="false" />
+          <Property Name="Quality" Type="Byte" Nullable="false" />
+          <Property Name="Flags" Type="Int64" Nullable="false" />
+          <Property Name="FlagsExtra" Type="Int64" Nullable="false" />
+          <Property Name="Unk430_2" Type="Single" Nullable="false" />
+          <Property Name="BuyCount" Type="Byte" Nullable="false" />
+          <Property Name="BuyPrice" Type="Int64" Nullable="false" />
+          <Property Name="SellPrice" Type="Int64" Nullable="false" />
+          <Property Name="InventoryType" Type="Byte" Nullable="false" />
+          <Property Name="AllowableClass" Type="Int32" Nullable="false" />
+          <Property Name="AllowableRace" Type="Int32" Nullable="false" />
+          <Property Name="ItemLevel" Type="Int32" Nullable="false" />
+          <Property Name="RequiredLevel" Type="Byte" Nullable="false" />
+          <Property Name="RequiredSkill" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSkillRank" Type="Int32" Nullable="false" />
+          <Property Name="requiredspell" Type="Int32" Nullable="false" />
+          <Property Name="requiredhonorrank" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCityRank" Type="Int32" Nullable="false" />
+          <Property Name="RequiredReputationFaction" Type="Int32" Nullable="false" />
+          <Property Name="RequiredReputationRank" Type="Int32" Nullable="false" />
+          <Property Name="maxcount" Type="Int32" Nullable="false" />
+          <Property Name="stackable" Type="Int32" />
+          <Property Name="ContainerSlots" Type="Byte" Nullable="false" />
+          <Property Name="stat_type1" Type="Byte" Nullable="false" />
+          <Property Name="stat_value1" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_1" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_1" Type="Int32" Nullable="false" />
+          <Property Name="stat_type2" Type="Byte" Nullable="false" />
+          <Property Name="stat_value2" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_2" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_2" Type="Int32" Nullable="false" />
+          <Property Name="stat_type3" Type="Byte" Nullable="false" />
+          <Property Name="stat_value3" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_3" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_3" Type="Int32" Nullable="false" />
+          <Property Name="stat_type4" Type="Byte" Nullable="false" />
+          <Property Name="stat_value4" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_4" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_4" Type="Int32" Nullable="false" />
+          <Property Name="stat_type5" Type="Byte" Nullable="false" />
+          <Property Name="stat_value5" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_5" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_5" Type="Int32" Nullable="false" />
+          <Property Name="stat_type6" Type="Byte" Nullable="false" />
+          <Property Name="stat_value6" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_6" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_6" Type="Int32" Nullable="false" />
+          <Property Name="stat_type7" Type="Byte" Nullable="false" />
+          <Property Name="stat_value7" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_7" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_7" Type="Int32" Nullable="false" />
+          <Property Name="stat_type8" Type="Byte" Nullable="false" />
+          <Property Name="stat_value8" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_8" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_8" Type="Int32" Nullable="false" />
+          <Property Name="stat_type9" Type="Byte" Nullable="false" />
+          <Property Name="stat_value9" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_9" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_9" Type="Int32" Nullable="false" />
+          <Property Name="stat_type10" Type="Byte" Nullable="false" />
+          <Property Name="stat_value10" Type="Int16" Nullable="false" />
+          <Property Name="stat_unk1_10" Type="Int32" Nullable="false" />
+          <Property Name="stat_unk2_10" Type="Int32" Nullable="false" />
+          <Property Name="ScalingStatDistribution" Type="Int16" Nullable="false" />
+          <Property Name="DamageType" Type="Byte" Nullable="false" />
+          <Property Name="delay" Type="Int32" Nullable="false" />
+          <Property Name="RangedModRange" Type="Single" Nullable="false" />
+          <Property Name="spellid_1" Type="Int32" Nullable="false" />
+          <Property Name="spelltrigger_1" Type="Byte" Nullable="false" />
+          <Property Name="spellcharges_1" Type="Int16" Nullable="false" />
+          <Property Name="spellcooldown_1" Type="Int32" Nullable="false" />
+          <Property Name="spellcategory_1" Type="Int32" Nullable="false" />
+          <Property Name="spellcategorycooldown_1" Type="Int32" Nullable="false" />
+          <Property Name="spellid_2" Type="Int32" Nullable="false" />
+          <Property Name="spelltrigger_2" Type="Byte" Nullable="false" />
+          <Property Name="spellcharges_2" Type="Int16" Nullable="false" />
+          <Property Name="spellcooldown_2" Type="Int32" Nullable="false" />
+          <Property Name="spellcategory_2" Type="Int32" Nullable="false" />
+          <Property Name="spellcategorycooldown_2" Type="Int32" Nullable="false" />
+          <Property Name="spellid_3" Type="Int32" Nullable="false" />
+          <Property Name="spelltrigger_3" Type="Byte" Nullable="false" />
+          <Property Name="spellcharges_3" Type="Int16" Nullable="false" />
+          <Property Name="spellcooldown_3" Type="Int32" Nullable="false" />
+          <Property Name="spellcategory_3" Type="Int32" Nullable="false" />
+          <Property Name="spellcategorycooldown_3" Type="Int32" Nullable="false" />
+          <Property Name="spellid_4" Type="Int32" Nullable="false" />
+          <Property Name="spelltrigger_4" Type="Byte" Nullable="false" />
+          <Property Name="spellcharges_4" Type="Int16" Nullable="false" />
+          <Property Name="spellcooldown_4" Type="Int32" Nullable="false" />
+          <Property Name="spellcategory_4" Type="Int32" Nullable="false" />
+          <Property Name="spellcategorycooldown_4" Type="Int32" Nullable="false" />
+          <Property Name="spellid_5" Type="Int32" Nullable="false" />
+          <Property Name="spelltrigger_5" Type="Byte" Nullable="false" />
+          <Property Name="spellcharges_5" Type="Int16" Nullable="false" />
+          <Property Name="spellcooldown_5" Type="Int32" Nullable="false" />
+          <Property Name="spellcategory_5" Type="Int32" Nullable="false" />
+          <Property Name="spellcategorycooldown_5" Type="Int32" Nullable="false" />
+          <Property Name="bonding" Type="Byte" Nullable="false" />
+          <Property Name="description" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="PageText" Type="Int32" Nullable="false" />
+          <Property Name="LanguageID" Type="Byte" Nullable="false" />
+          <Property Name="PageMaterial" Type="Byte" Nullable="false" />
+          <Property Name="startquest" Type="Int32" Nullable="false" />
+          <Property Name="lockid" Type="Int32" Nullable="false" />
+          <Property Name="Material" Type="SByte" Nullable="false" />
+          <Property Name="sheath" Type="Byte" Nullable="false" />
+          <Property Name="RandomProperty" Type="Int32" Nullable="false" />
+          <Property Name="RandomSuffix" Type="Int32" Nullable="false" />
+          <Property Name="itemset" Type="Int32" Nullable="false" />
+          <Property Name="MaxDurability" Type="Int32" Nullable="false" />
+          <Property Name="area" Type="Int32" Nullable="false" />
+          <Property Name="Map" Type="Int16" Nullable="false" />
+          <Property Name="BagFamily" Type="Int32" Nullable="false" />
+          <Property Name="TotemCategory" Type="Int32" Nullable="false" />
+          <Property Name="socketColor_1" Type="SByte" Nullable="false" />
+          <Property Name="socketContent_1" Type="Int32" Nullable="false" />
+          <Property Name="socketColor_2" Type="SByte" Nullable="false" />
+          <Property Name="socketContent_2" Type="Int32" Nullable="false" />
+          <Property Name="socketColor_3" Type="SByte" Nullable="false" />
+          <Property Name="socketContent_3" Type="Int32" Nullable="false" />
+          <Property Name="socketBonus" Type="Int32" Nullable="false" />
+          <Property Name="GemProperties" Type="Int32" Nullable="false" />
+          <Property Name="ArmorDamageModifier" Type="Single" Nullable="false" />
+          <Property Name="duration" Type="Int64" Nullable="false" />
+          <Property Name="ItemLimitCategory" Type="Int16" Nullable="false" />
+          <Property Name="HolidayId" Type="Int64" Nullable="false" />
+          <Property Name="StatScalingFactor" Type="Single" Nullable="false" />
+          <Property Name="CurrencySubstitutionId" Type="Int64" Nullable="false" />
+          <Property Name="CurrencySubstitutionCount" Type="Int64" Nullable="false" />
+          <Property Name="flagsCustom" Type="Int64" Nullable="false" />
+          <Property Name="WDBVerified" Type="Int16" />
+        </EntityType>
+        <EntityType Name="milling_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="pickpocketing_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="skinning_loot_template">
+          <Key>
+            <PropertyRef Name="Entry" />
+            <PropertyRef Name="Item" />
+          </Key>
+          <Property Name="Entry" Type="Int32" Nullable="false" />
+          <Property Name="Item" Type="Int32" Nullable="false" />
+          <Property Name="Reference" Type="Int32" Nullable="false" />
+          <Property Name="Chance" Type="Single" Nullable="false" />
+          <Property Name="QuestRequired" Type="Boolean" Nullable="false" />
+          <Property Name="LootMode" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Byte" Nullable="false" />
+          <Property Name="MinCount" Type="Byte" Nullable="false" />
+          <Property Name="MaxCount" Type="Byte" Nullable="false" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
+        </EntityType>
+        <EntityType Name="smart_scripts">
+          <Key>
+            <PropertyRef Name="entryorguid" />
+            <PropertyRef Name="source_type" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="link" />
+          </Key>
+          <Property Name="entryorguid" Type="Int32" Nullable="false" />
+          <Property Name="source_type" Type="Byte" Nullable="false" />
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="link" Type="Int32" Nullable="false" />
+          <Property Name="event_type" Type="Byte" Nullable="false" />
+          <Property Name="event_phase_mask" Type="Byte" Nullable="false" />
+          <Property Name="event_chance" Type="Byte" Nullable="false" />
+          <Property Name="event_flags" Type="Byte" Nullable="false" />
+          <Property Name="event_param1" Type="Int64" Nullable="false" />
+          <Property Name="event_param2" Type="Int64" Nullable="false" />
+          <Property Name="event_param3" Type="Int64" Nullable="false" />
+          <Property Name="event_param4" Type="Int64" Nullable="false" />
+          <Property Name="action_type" Type="Byte" Nullable="false" />
+          <Property Name="action_param1" Type="Int64" Nullable="false" />
+          <Property Name="action_param2" Type="Int64" Nullable="false" />
+          <Property Name="action_param3" Type="Int64" Nullable="false" />
+          <Property Name="action_param4" Type="Int64" Nullable="false" />
+          <Property Name="action_param5" Type="Int64" Nullable="false" />
+          <Property Name="action_param6" Type="Int64" Nullable="false" />
+          <Property Name="target_type" Type="Byte" Nullable="false" />
+          <Property Name="target_param1" Type="Int64" Nullable="false" />
+          <Property Name="target_param2" Type="Int64" Nullable="false" />
+          <Property Name="target_param3" Type="Int64" Nullable="false" />
+          <Property Name="target_x" Type="Single" Nullable="false" />
+          <Property Name="target_y" Type="Single" Nullable="false" />
+          <Property Name="target_z" Type="Single" Nullable="false" />
+          <Property Name="target_o" Type="Single" Nullable="false" />
+          <Property Name="comment" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_equip_template">
+          <Key>
+            <PropertyRef Name="entry" />
+            <PropertyRef Name="id" />
+            <PropertyRef Name="itemEntry1" />
+            <PropertyRef Name="itemEntry2" />
+            <PropertyRef Name="itemEntry3" />
+          </Key>
+          <Property Name="entry" Type="Int32" Nullable="false" />
+          <Property Name="id" Type="Byte" Nullable="false" />
+          <Property Name="itemEntry1" Type="Int32" Nullable="false" />
+          <Property Name="itemEntry2" Type="Int32" Nullable="false" />
+          <Property Name="itemEntry3" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityContainer Name="WorldDatabase" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="creature" EntityType="Self.creature" />
+          <EntitySet Name="creature_addon" EntityType="Self.creature_addon" />
+          <EntitySet Name="creature_loot_template" EntityType="Self.creature_loot_template" />
+          <EntitySet Name="creature_model_info" EntityType="Self.creature_model_info" />
+          <EntitySet Name="creature_onkill_reputation" EntityType="Self.creature_onkill_reputation" />
+          <EntitySet Name="creature_template" EntityType="Self.creature_template" />
+          <EntitySet Name="creature_template_addon" EntityType="Self.creature_template_addon" />
+          <EntitySet Name="disenchant_loot_template" EntityType="Self.disenchant_loot_template" />
+          <EntitySet Name="fishing_loot_template" EntityType="Self.fishing_loot_template" />
+          <EntitySet Name="gameobject" EntityType="Self.gameobject" />
+          <EntitySet Name="gameobject_loot_template" EntityType="Self.gameobject_loot_template" />
+          <EntitySet Name="gameobject_template" EntityType="Self.gameobject_template" />
+          <EntitySet Name="item_loot_template" EntityType="Self.item_loot_template" />
+          <EntitySet Name="item_template" EntityType="Self.item_template" />
+          <EntitySet Name="milling_loot_template" EntityType="Self.milling_loot_template" />
+          <EntitySet Name="pickpocketing_loot_template" EntityType="Self.pickpocketing_loot_template" />
+          <EntitySet Name="skinning_loot_template" EntityType="Self.skinning_loot_template" />
+          <EntitySet Name="smart_scripts" EntityType="Self.smart_scripts" />
+          <EntitySet Name="creature_equip_template" EntityType="Self.creature_equip_template" />
+          <EntitySet Name="quest_template" EntityType="itheria_worldModel.quest_template" />
+          <EntitySet Name="creature_questender" EntityType="itheria_worldModel.creature_questender" />
+          <EntitySet Name="creature_queststarter" EntityType="itheria_worldModel.creature_queststarter" />
+          <EntitySet Name="gameobject_questender" EntityType="itheria_worldModel.gameobject_questender" />
+          <EntitySet Name="gameobject_queststarter" EntityType="itheria_worldModel.gameobject_queststarter" />
+        </EntityContainer>
+        <EntityType Name="quest_template">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Method" Type="Byte" Nullable="false" />
+          <Property Name="Level" Type="Int16" Nullable="false" />
+          <Property Name="MinLevel" Type="Int16" Nullable="false" />
+          <Property Name="MaxLevel" Type="Int16" Nullable="false" />
+          <Property Name="ZoneOrSort" Type="Int16" Nullable="false" />
+          <Property Name="Type" Type="Int32" Nullable="false" />
+          <Property Name="SuggestedPlayers" Type="Byte" Nullable="false" />
+          <Property Name="LimitTime" Type="Int64" Nullable="false" />
+          <Property Name="RequiredClasses" Type="Int32" Nullable="false" />
+          <Property Name="RequiredRaces" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSkillId" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSkill" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSkillPoints" Type="Int32" Nullable="false" />
+          <Property Name="RequiredFactionId1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredFactionId2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredFactionValue1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredFactionValue2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredMinRepFaction" Type="Int32" Nullable="false" />
+          <Property Name="RequiredMaxRepFaction" Type="Int32" Nullable="false" />
+          <Property Name="RequiredMinRepValue" Type="Int32" Nullable="false" />
+          <Property Name="RequiredMaxRepValue" Type="Int32" Nullable="false" />
+          <Property Name="PrevQuestId" Type="Int32" Nullable="false" />
+          <Property Name="NextQuestId" Type="Int32" Nullable="false" />
+          <Property Name="ExclusiveGroup" Type="Int32" Nullable="false" />
+          <Property Name="NextQuestIdChain" Type="Int32" Nullable="false" />
+          <Property Name="RewardXPId" Type="Byte" Nullable="false" />
+          <Property Name="RewardOrRequiredMoney" Type="Int32" Nullable="false" />
+          <Property Name="RewardMoneyMaxLevel" Type="Int64" Nullable="false" />
+          <Property Name="RewardSpell" Type="Int32" Nullable="false" />
+          <Property Name="RewardSpellCast" Type="Int32" Nullable="false" />
+          <Property Name="RewardHonor" Type="Int32" Nullable="false" />
+          <Property Name="RewardHonorMultiplier" Type="Single" Nullable="false" />
+          <Property Name="RewardMailTemplateId" Type="Int32" Nullable="false" />
+          <Property Name="RewardMailDelay" Type="Int64" Nullable="false" />
+          <Property Name="SourceItemId" Type="Int32" Nullable="false" />
+          <Property Name="SourceItemCount" Type="Byte" Nullable="false" />
+          <Property Name="SourceSpellId" Type="Int32" Nullable="false" />
+          <Property Name="Flags" Type="Int64" Nullable="false" />
+          <Property Name="SpecialFlags" Type="Byte" Nullable="false" />
+          <Property Name="MinimapTargetMark" Type="Byte" Nullable="false" />
+          <Property Name="RewardTitleId" Type="Byte" Nullable="false" />
+          <Property Name="RequiredPlayerKills" Type="Byte" Nullable="false" />
+          <Property Name="RewardTalents" Type="Byte" Nullable="false" />
+          <Property Name="RewardArenaPoints" Type="Int32" Nullable="false" />
+          <Property Name="RewardSkillId" Type="Int32" Nullable="false" />
+          <Property Name="RewardSkillPoints" Type="Byte" Nullable="false" />
+          <Property Name="RewardReputationMask" Type="Byte" Nullable="false" />
+          <Property Name="QuestGiverPortrait" Type="Int32" Nullable="false" />
+          <Property Name="QuestTurnInPortrait" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemId1" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemId2" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemId3" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemId4" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemCount1" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemCount2" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemCount3" Type="Int32" Nullable="false" />
+          <Property Name="RewardItemCount4" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemId1" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemId2" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemId3" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemId4" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemId5" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemId6" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemCount1" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemCount2" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemCount3" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemCount4" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemCount5" Type="Int32" Nullable="false" />
+          <Property Name="RewardChoiceItemCount6" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionId1" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionId2" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionId3" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionId4" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionId5" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueId1" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueId2" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueId3" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueId4" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueId5" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride1" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride2" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride3" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride4" Type="Int32" Nullable="false" />
+          <Property Name="RewardFactionValueIdOverride5" Type="Int32" Nullable="false" />
+          <Property Name="PointMapId" Type="Int32" Nullable="false" />
+          <Property Name="PointX" Type="Single" Nullable="false" />
+          <Property Name="PointY" Type="Single" Nullable="false" />
+          <Property Name="PointOption" Type="Int32" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Objectives" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="Details" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="EndText" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="OfferRewardText" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="RequestItemsText" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="CompletedText" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="RequiredNpcOrGo1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGo2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGo3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGo4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredNpcOrGoCount4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemId1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemId2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemId3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemId4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemCount1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemCount2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemCount3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSourceItemCount4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemId1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemId2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemId3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemId4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemId5" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemId6" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemCount1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemCount2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemCount3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemCount4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemCount5" Type="Int32" Nullable="false" />
+          <Property Name="RequiredItemCount6" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSpell" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSpellCast1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSpellCast2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSpellCast3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredSpellCast4" Type="Int32" Nullable="false" />
+          <Property Name="Unknown0" Type="Byte" Nullable="false" />
+          <Property Name="ObjectiveText1" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectiveText2" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectiveText3" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="ObjectiveText4" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="RewardCurrencyId1" Type="Int32" Nullable="false" />
+          <Property Name="RewardCurrencyId2" Type="Int32" Nullable="false" />
+          <Property Name="RewardCurrencyId3" Type="Int32" Nullable="false" />
+          <Property Name="RewardCurrencyId4" Type="Int32" Nullable="false" />
+          <Property Name="RewardCurrencyCount1" Type="Byte" Nullable="false" />
+          <Property Name="RewardCurrencyCount2" Type="Byte" Nullable="false" />
+          <Property Name="RewardCurrencyCount3" Type="Byte" Nullable="false" />
+          <Property Name="RewardCurrencyCount4" Type="Byte" Nullable="false" />
+          <Property Name="RequiredCurrencyId1" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCurrencyId2" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCurrencyId3" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCurrencyId4" Type="Int32" Nullable="false" />
+          <Property Name="RequiredCurrencyCount1" Type="Byte" Nullable="false" />
+          <Property Name="RequiredCurrencyCount2" Type="Byte" Nullable="false" />
+          <Property Name="RequiredCurrencyCount3" Type="Byte" Nullable="false" />
+          <Property Name="RequiredCurrencyCount4" Type="Byte" Nullable="false" />
+          <Property Name="QuestGiverTextWindow" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestGiverTargetName" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestTurnTextWindow" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestTurnTargetName" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="SoundAccept" Type="Int32" Nullable="false" />
+          <Property Name="SoundTurnIn" Type="Int32" Nullable="false" />
+          <Property Name="DetailsEmote1" Type="Int32" Nullable="false" />
+          <Property Name="DetailsEmote2" Type="Int32" Nullable="false" />
+          <Property Name="DetailsEmote3" Type="Int32" Nullable="false" />
+          <Property Name="DetailsEmote4" Type="Int32" Nullable="false" />
+          <Property Name="DetailsEmoteDelay1" Type="Int64" Nullable="false" />
+          <Property Name="DetailsEmoteDelay2" Type="Int64" Nullable="false" />
+          <Property Name="DetailsEmoteDelay3" Type="Int64" Nullable="false" />
+          <Property Name="DetailsEmoteDelay4" Type="Int64" Nullable="false" />
+          <Property Name="EmoteOnIncomplete" Type="Int32" Nullable="false" />
+          <Property Name="EmoteOnComplete" Type="Int32" Nullable="false" />
+          <Property Name="OfferRewardEmote1" Type="Int32" Nullable="false" />
+          <Property Name="OfferRewardEmote2" Type="Int32" Nullable="false" />
+          <Property Name="OfferRewardEmote3" Type="Int32" Nullable="false" />
+          <Property Name="OfferRewardEmote4" Type="Int32" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay1" Type="Int64" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay2" Type="Int64" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay3" Type="Int64" Nullable="false" />
+          <Property Name="OfferRewardEmoteDelay4" Type="Int64" Nullable="false" />
+          <Property Name="RewSkillLineId" Type="Int64" Nullable="false" />
+          <Property Name="RewSkillPoints" Type="Int64" Nullable="false" />
+          <Property Name="RewRepMask" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyId1" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyCount1" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyId2" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyCount2" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyId3" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyCount3" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyId4" Type="Int64" Nullable="false" />
+          <Property Name="RewCurrencyCount4" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyId1" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyCount1" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyId2" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyCount2" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyId3" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyCount3" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyId4" Type="Int64" Nullable="false" />
+          <Property Name="ReqCurrencyCount4" Type="Int64" Nullable="false" />
+          <Property Name="QuestGiverPortraitText" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestGiverPortraitUnk" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestTurnInPortraitText" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestTurnInPortraitUnk" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestTargetMark" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="QuestStartType" Type="String" MaxLength="65535" FixedLength="false" Unicode="false" />
+          <Property Name="StartScript" Type="Int32" Nullable="false" />
+          <Property Name="CompleteScript" Type="Int32" Nullable="false" />
+          <Property Name="WDBVerified" Type="Int16" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_questender">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="quest" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="creature_queststarter">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="quest" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gameobject_questender">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="quest" Type="Int32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="gameobject_queststarter">
+          <Key>
+            <PropertyRef Name="id" />
+            <PropertyRef Name="quest" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" />
+          <Property Name="quest" Type="Int32" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="itheria_worldModelStoreContainer" CdmEntityContainer="WorldDatabase">
+          <EntitySetMapping Name="creature">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature">
+              <MappingFragment StoreEntitySet="creature">
+                <ScalarProperty Name="guid" ColumnName="guid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="map" ColumnName="map" />
+                <ScalarProperty Name="spawnMask" ColumnName="spawnMask" />
+                <ScalarProperty Name="phaseMask" ColumnName="phaseMask" />
+                <ScalarProperty Name="modelid" ColumnName="modelid" />
+                <ScalarProperty Name="equipment_id" ColumnName="equipment_id" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="orientation" ColumnName="orientation" />
+                <ScalarProperty Name="spawntimesecs" ColumnName="spawntimesecs" />
+                <ScalarProperty Name="spawndist" ColumnName="spawndist" />
+                <ScalarProperty Name="currentwaypoint" ColumnName="currentwaypoint" />
+                <ScalarProperty Name="curhealth" ColumnName="curhealth" />
+                <ScalarProperty Name="curmana" ColumnName="curmana" />
+                <ScalarProperty Name="MovementType" ColumnName="MovementType" />
+                <ScalarProperty Name="npcflag" ColumnName="npcflag" />
+                <ScalarProperty Name="unit_flags" ColumnName="unit_flags" />
+                <ScalarProperty Name="dynamicflags" ColumnName="dynamicflags" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_addon">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_addon">
+              <MappingFragment StoreEntitySet="creature_addon">
+                <ScalarProperty Name="guid" ColumnName="guid" />
+                <ScalarProperty Name="path_id" ColumnName="path_id" />
+                <ScalarProperty Name="mount" ColumnName="mount" />
+                <ScalarProperty Name="bytes1" ColumnName="bytes1" />
+                <ScalarProperty Name="bytes2" ColumnName="bytes2" />
+                <ScalarProperty Name="emote" ColumnName="emote" />
+                <ScalarProperty Name="auras" ColumnName="auras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_loot_template">
+              <MappingFragment StoreEntitySet="creature_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_model_info">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_model_info">
+              <MappingFragment StoreEntitySet="creature_model_info">
+                <ScalarProperty Name="modelid" ColumnName="modelid" />
+                <ScalarProperty Name="bounding_radius" ColumnName="bounding_radius" />
+                <ScalarProperty Name="combat_reach" ColumnName="combat_reach" />
+                <ScalarProperty Name="gender" ColumnName="gender" />
+                <ScalarProperty Name="modelid_other_gender" ColumnName="modelid_other_gender" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_onkill_reputation">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_onkill_reputation">
+              <MappingFragment StoreEntitySet="creature_onkill_reputation">
+                <ScalarProperty Name="creature_id" ColumnName="creature_id" />
+                <ScalarProperty Name="RewOnKillRepFaction1" ColumnName="RewOnKillRepFaction1" />
+                <ScalarProperty Name="RewOnKillRepFaction2" ColumnName="RewOnKillRepFaction2" />
+                <ScalarProperty Name="MaxStanding1" ColumnName="MaxStanding1" />
+                <ScalarProperty Name="IsTeamAward1" ColumnName="IsTeamAward1" />
+                <ScalarProperty Name="RewOnKillRepValue1" ColumnName="RewOnKillRepValue1" />
+                <ScalarProperty Name="MaxStanding2" ColumnName="MaxStanding2" />
+                <ScalarProperty Name="IsTeamAward2" ColumnName="IsTeamAward2" />
+                <ScalarProperty Name="RewOnKillRepValue2" ColumnName="RewOnKillRepValue2" />
+                <ScalarProperty Name="TeamDependent" ColumnName="TeamDependent" />
+                <ScalarProperty Name="CurrencyId1" ColumnName="CurrencyId1" />
+                <ScalarProperty Name="CurrencyId2" ColumnName="CurrencyId2" />
+                <ScalarProperty Name="CurrencyId3" ColumnName="CurrencyId3" />
+                <ScalarProperty Name="CurrencyCount1" ColumnName="CurrencyCount1" />
+                <ScalarProperty Name="CurrencyCount2" ColumnName="CurrencyCount2" />
+                <ScalarProperty Name="CurrencyCount3" ColumnName="CurrencyCount3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_template">
+              <MappingFragment StoreEntitySet="creature_template">
+                <ScalarProperty Name="entry" ColumnName="entry" />
+                <ScalarProperty Name="difficulty_entry_1" ColumnName="difficulty_entry_1" />
+                <ScalarProperty Name="difficulty_entry_2" ColumnName="difficulty_entry_2" />
+                <ScalarProperty Name="difficulty_entry_3" ColumnName="difficulty_entry_3" />
+                <ScalarProperty Name="KillCredit1" ColumnName="KillCredit1" />
+                <ScalarProperty Name="KillCredit2" ColumnName="KillCredit2" />
+                <ScalarProperty Name="modelid1" ColumnName="modelid1" />
+                <ScalarProperty Name="modelid2" ColumnName="modelid2" />
+                <ScalarProperty Name="modelid3" ColumnName="modelid3" />
+                <ScalarProperty Name="modelid4" ColumnName="modelid4" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="subname" ColumnName="subname" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="gossip_menu_id" ColumnName="gossip_menu_id" />
+                <ScalarProperty Name="minlevel" ColumnName="minlevel" />
+                <ScalarProperty Name="maxlevel" ColumnName="maxlevel" />
+                <ScalarProperty Name="exp" ColumnName="exp" />
+                <ScalarProperty Name="exp_unk" ColumnName="exp_unk" />
+                <ScalarProperty Name="faction" ColumnName="faction" />
+                <ScalarProperty Name="npcflag" ColumnName="npcflag" />
+                <ScalarProperty Name="speed_walk" ColumnName="speed_walk" />
+                <ScalarProperty Name="speed_run" ColumnName="speed_run" />
+                <ScalarProperty Name="scale" ColumnName="scale" />
+                <ScalarProperty Name="rank" ColumnName="rank" />
+                <ScalarProperty Name="mindmg" ColumnName="mindmg" />
+                <ScalarProperty Name="maxdmg" ColumnName="maxdmg" />
+                <ScalarProperty Name="dmgschool" ColumnName="dmgschool" />
+                <ScalarProperty Name="attackpower" ColumnName="attackpower" />
+                <ScalarProperty Name="dmg_multiplier" ColumnName="dmg_multiplier" />
+                <ScalarProperty Name="baseattacktime" ColumnName="baseattacktime" />
+                <ScalarProperty Name="rangeattacktime" ColumnName="rangeattacktime" />
+                <ScalarProperty Name="unit_class" ColumnName="unit_class" />
+                <ScalarProperty Name="unit_flags" ColumnName="unit_flags" />
+                <ScalarProperty Name="unit_flags2" ColumnName="unit_flags2" />
+                <ScalarProperty Name="dynamicflags" ColumnName="dynamicflags" />
+                <ScalarProperty Name="family" ColumnName="family" />
+                <ScalarProperty Name="trainer_type" ColumnName="trainer_type" />
+                <ScalarProperty Name="trainer_spell" ColumnName="trainer_spell" />
+                <ScalarProperty Name="trainer_class" ColumnName="trainer_class" />
+                <ScalarProperty Name="trainer_race" ColumnName="trainer_race" />
+                <ScalarProperty Name="minrangedmg" ColumnName="minrangedmg" />
+                <ScalarProperty Name="maxrangedmg" ColumnName="maxrangedmg" />
+                <ScalarProperty Name="rangedattackpower" ColumnName="rangedattackpower" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="type_flags" ColumnName="type_flags" />
+                <ScalarProperty Name="type_flags2" ColumnName="type_flags2" />
+                <ScalarProperty Name="lootid" ColumnName="lootid" />
+                <ScalarProperty Name="pickpocketloot" ColumnName="pickpocketloot" />
+                <ScalarProperty Name="skinloot" ColumnName="skinloot" />
+                <ScalarProperty Name="resistance1" ColumnName="resistance1" />
+                <ScalarProperty Name="resistance2" ColumnName="resistance2" />
+                <ScalarProperty Name="resistance3" ColumnName="resistance3" />
+                <ScalarProperty Name="resistance4" ColumnName="resistance4" />
+                <ScalarProperty Name="resistance5" ColumnName="resistance5" />
+                <ScalarProperty Name="resistance6" ColumnName="resistance6" />
+                <ScalarProperty Name="spell1" ColumnName="spell1" />
+                <ScalarProperty Name="spell2" ColumnName="spell2" />
+                <ScalarProperty Name="spell3" ColumnName="spell3" />
+                <ScalarProperty Name="spell4" ColumnName="spell4" />
+                <ScalarProperty Name="spell5" ColumnName="spell5" />
+                <ScalarProperty Name="spell6" ColumnName="spell6" />
+                <ScalarProperty Name="spell7" ColumnName="spell7" />
+                <ScalarProperty Name="spell8" ColumnName="spell8" />
+                <ScalarProperty Name="PetSpellDataId" ColumnName="PetSpellDataId" />
+                <ScalarProperty Name="VehicleId" ColumnName="VehicleId" />
+                <ScalarProperty Name="mingold" ColumnName="mingold" />
+                <ScalarProperty Name="maxgold" ColumnName="maxgold" />
+                <ScalarProperty Name="AIName" ColumnName="AIName" />
+                <ScalarProperty Name="MovementType" ColumnName="MovementType" />
+                <ScalarProperty Name="InhabitType" ColumnName="InhabitType" />
+                <ScalarProperty Name="HoverHeight" ColumnName="HoverHeight" />
+                <ScalarProperty Name="Health_mod" ColumnName="Health_mod" />
+                <ScalarProperty Name="Mana_mod" ColumnName="Mana_mod" />
+                <ScalarProperty Name="Mana_mod_extra" ColumnName="Mana_mod_extra" />
+                <ScalarProperty Name="Armor_mod" ColumnName="Armor_mod" />
+                <ScalarProperty Name="RacialLeader" ColumnName="RacialLeader" />
+                <ScalarProperty Name="questItem1" ColumnName="questItem1" />
+                <ScalarProperty Name="questItem2" ColumnName="questItem2" />
+                <ScalarProperty Name="questItem3" ColumnName="questItem3" />
+                <ScalarProperty Name="questItem4" ColumnName="questItem4" />
+                <ScalarProperty Name="questItem5" ColumnName="questItem5" />
+                <ScalarProperty Name="questItem6" ColumnName="questItem6" />
+                <ScalarProperty Name="movementId" ColumnName="movementId" />
+                <ScalarProperty Name="RegenHealth" ColumnName="RegenHealth" />
+                <ScalarProperty Name="equipment_id" ColumnName="equipment_id" />
+                <ScalarProperty Name="mechanic_immune_mask" ColumnName="mechanic_immune_mask" />
+                <ScalarProperty Name="flags_extra" ColumnName="flags_extra" />
+                <ScalarProperty Name="ScriptName" ColumnName="ScriptName" />
+                <ScalarProperty Name="WDBVerified" ColumnName="WDBVerified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_template_addon">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_template_addon">
+              <MappingFragment StoreEntitySet="creature_template_addon">
+                <ScalarProperty Name="entry" ColumnName="entry" />
+                <ScalarProperty Name="path_id" ColumnName="path_id" />
+                <ScalarProperty Name="mount" ColumnName="mount" />
+                <ScalarProperty Name="bytes1" ColumnName="bytes1" />
+                <ScalarProperty Name="bytes2" ColumnName="bytes2" />
+                <ScalarProperty Name="emote" ColumnName="emote" />
+                <ScalarProperty Name="auras" ColumnName="auras" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="disenchant_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.disenchant_loot_template">
+              <MappingFragment StoreEntitySet="disenchant_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="fishing_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.fishing_loot_template">
+              <MappingFragment StoreEntitySet="fishing_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gameobject">
+            <EntityTypeMapping TypeName="itheria_worldModel.gameobject">
+              <MappingFragment StoreEntitySet="gameobject">
+                <ScalarProperty Name="guid" ColumnName="guid" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="map" ColumnName="map" />
+                <ScalarProperty Name="zoneId" ColumnName="zoneId" />
+                <ScalarProperty Name="areaId" ColumnName="areaId" />
+                <ScalarProperty Name="spawnMask" ColumnName="spawnMask" />
+                <ScalarProperty Name="phaseMask" ColumnName="phaseMask" />
+                <ScalarProperty Name="PhaseId" ColumnName="PhaseId" />
+                <ScalarProperty Name="PhaseGroup" ColumnName="PhaseGroup" />
+                <ScalarProperty Name="position_x" ColumnName="position_x" />
+                <ScalarProperty Name="position_y" ColumnName="position_y" />
+                <ScalarProperty Name="position_z" ColumnName="position_z" />
+                <ScalarProperty Name="orientation" ColumnName="orientation" />
+                <ScalarProperty Name="rotation0" ColumnName="rotation0" />
+                <ScalarProperty Name="rotation1" ColumnName="rotation1" />
+                <ScalarProperty Name="rotation2" ColumnName="rotation2" />
+                <ScalarProperty Name="rotation3" ColumnName="rotation3" />
+                <ScalarProperty Name="spawntimesecs" ColumnName="spawntimesecs" />
+                <ScalarProperty Name="animprogress" ColumnName="animprogress" />
+                <ScalarProperty Name="state" ColumnName="state" />
+                <ScalarProperty Name="VerifiedBuild" ColumnName="VerifiedBuild" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gameobject_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.gameobject_loot_template">
+              <MappingFragment StoreEntitySet="gameobject_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gameobject_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.gameobject_template">
+              <MappingFragment StoreEntitySet="gameobject_template">
+                <ScalarProperty Name="entry" ColumnName="entry" />
+                <ScalarProperty Name="type" ColumnName="type" />
+                <ScalarProperty Name="displayId" ColumnName="displayId" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="IconName" ColumnName="IconName" />
+                <ScalarProperty Name="castBarCaption" ColumnName="castBarCaption" />
+                <ScalarProperty Name="unk1" ColumnName="unk1" />
+                <ScalarProperty Name="faction" ColumnName="faction" />
+                <ScalarProperty Name="flags" ColumnName="flags" />
+                <ScalarProperty Name="size" ColumnName="size" />
+                <ScalarProperty Name="questItem1" ColumnName="questItem1" />
+                <ScalarProperty Name="questItem2" ColumnName="questItem2" />
+                <ScalarProperty Name="questItem3" ColumnName="questItem3" />
+                <ScalarProperty Name="questItem4" ColumnName="questItem4" />
+                <ScalarProperty Name="questItem5" ColumnName="questItem5" />
+                <ScalarProperty Name="questItem6" ColumnName="questItem6" />
+                <ScalarProperty Name="data0" ColumnName="data0" />
+                <ScalarProperty Name="data1" ColumnName="data1" />
+                <ScalarProperty Name="data2" ColumnName="data2" />
+                <ScalarProperty Name="data3" ColumnName="data3" />
+                <ScalarProperty Name="data4" ColumnName="data4" />
+                <ScalarProperty Name="data5" ColumnName="data5" />
+                <ScalarProperty Name="data6" ColumnName="data6" />
+                <ScalarProperty Name="data7" ColumnName="data7" />
+                <ScalarProperty Name="data8" ColumnName="data8" />
+                <ScalarProperty Name="data9" ColumnName="data9" />
+                <ScalarProperty Name="data10" ColumnName="data10" />
+                <ScalarProperty Name="data11" ColumnName="data11" />
+                <ScalarProperty Name="data12" ColumnName="data12" />
+                <ScalarProperty Name="data13" ColumnName="data13" />
+                <ScalarProperty Name="data14" ColumnName="data14" />
+                <ScalarProperty Name="data15" ColumnName="data15" />
+                <ScalarProperty Name="data16" ColumnName="data16" />
+                <ScalarProperty Name="data17" ColumnName="data17" />
+                <ScalarProperty Name="data18" ColumnName="data18" />
+                <ScalarProperty Name="data19" ColumnName="data19" />
+                <ScalarProperty Name="data20" ColumnName="data20" />
+                <ScalarProperty Name="data21" ColumnName="data21" />
+                <ScalarProperty Name="data22" ColumnName="data22" />
+                <ScalarProperty Name="data23" ColumnName="data23" />
+                <ScalarProperty Name="data24" ColumnName="data24" />
+                <ScalarProperty Name="data25" ColumnName="data25" />
+                <ScalarProperty Name="data26" ColumnName="data26" />
+                <ScalarProperty Name="data27" ColumnName="data27" />
+                <ScalarProperty Name="data28" ColumnName="data28" />
+                <ScalarProperty Name="data29" ColumnName="data29" />
+                <ScalarProperty Name="data30" ColumnName="data30" />
+                <ScalarProperty Name="data31" ColumnName="data31" />
+                <ScalarProperty Name="unkInt32" ColumnName="unkInt32" />
+                <ScalarProperty Name="AIName" ColumnName="AIName" />
+                <ScalarProperty Name="ScriptName" ColumnName="ScriptName" />
+                <ScalarProperty Name="VerifiedBuild" ColumnName="VerifiedBuild" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.item_loot_template">
+              <MappingFragment StoreEntitySet="item_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="item_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.item_template">
+              <MappingFragment StoreEntitySet="item_template">
+                <ScalarProperty Name="entry" ColumnName="entry" />
+                <ScalarProperty Name="class" ColumnName="class" />
+                <ScalarProperty Name="subclass" ColumnName="subclass" />
+                <ScalarProperty Name="SoundOverrideSubclass" ColumnName="SoundOverrideSubclass" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="displayid" ColumnName="displayid" />
+                <ScalarProperty Name="Quality" ColumnName="Quality" />
+                <ScalarProperty Name="Flags" ColumnName="Flags" />
+                <ScalarProperty Name="FlagsExtra" ColumnName="FlagsExtra" />
+                <ScalarProperty Name="Unk430_2" ColumnName="Unk430_2" />
+                <ScalarProperty Name="BuyCount" ColumnName="BuyCount" />
+                <ScalarProperty Name="BuyPrice" ColumnName="BuyPrice" />
+                <ScalarProperty Name="SellPrice" ColumnName="SellPrice" />
+                <ScalarProperty Name="InventoryType" ColumnName="InventoryType" />
+                <ScalarProperty Name="AllowableClass" ColumnName="AllowableClass" />
+                <ScalarProperty Name="AllowableRace" ColumnName="AllowableRace" />
+                <ScalarProperty Name="ItemLevel" ColumnName="ItemLevel" />
+                <ScalarProperty Name="RequiredLevel" ColumnName="RequiredLevel" />
+                <ScalarProperty Name="RequiredSkill" ColumnName="RequiredSkill" />
+                <ScalarProperty Name="RequiredSkillRank" ColumnName="RequiredSkillRank" />
+                <ScalarProperty Name="requiredspell" ColumnName="requiredspell" />
+                <ScalarProperty Name="requiredhonorrank" ColumnName="requiredhonorrank" />
+                <ScalarProperty Name="RequiredCityRank" ColumnName="RequiredCityRank" />
+                <ScalarProperty Name="RequiredReputationFaction" ColumnName="RequiredReputationFaction" />
+                <ScalarProperty Name="RequiredReputationRank" ColumnName="RequiredReputationRank" />
+                <ScalarProperty Name="maxcount" ColumnName="maxcount" />
+                <ScalarProperty Name="stackable" ColumnName="stackable" />
+                <ScalarProperty Name="ContainerSlots" ColumnName="ContainerSlots" />
+                <ScalarProperty Name="stat_type1" ColumnName="stat_type1" />
+                <ScalarProperty Name="stat_value1" ColumnName="stat_value1" />
+                <ScalarProperty Name="stat_unk1_1" ColumnName="stat_unk1_1" />
+                <ScalarProperty Name="stat_unk2_1" ColumnName="stat_unk2_1" />
+                <ScalarProperty Name="stat_type2" ColumnName="stat_type2" />
+                <ScalarProperty Name="stat_value2" ColumnName="stat_value2" />
+                <ScalarProperty Name="stat_unk1_2" ColumnName="stat_unk1_2" />
+                <ScalarProperty Name="stat_unk2_2" ColumnName="stat_unk2_2" />
+                <ScalarProperty Name="stat_type3" ColumnName="stat_type3" />
+                <ScalarProperty Name="stat_value3" ColumnName="stat_value3" />
+                <ScalarProperty Name="stat_unk1_3" ColumnName="stat_unk1_3" />
+                <ScalarProperty Name="stat_unk2_3" ColumnName="stat_unk2_3" />
+                <ScalarProperty Name="stat_type4" ColumnName="stat_type4" />
+                <ScalarProperty Name="stat_value4" ColumnName="stat_value4" />
+                <ScalarProperty Name="stat_unk1_4" ColumnName="stat_unk1_4" />
+                <ScalarProperty Name="stat_unk2_4" ColumnName="stat_unk2_4" />
+                <ScalarProperty Name="stat_type5" ColumnName="stat_type5" />
+                <ScalarProperty Name="stat_value5" ColumnName="stat_value5" />
+                <ScalarProperty Name="stat_unk1_5" ColumnName="stat_unk1_5" />
+                <ScalarProperty Name="stat_unk2_5" ColumnName="stat_unk2_5" />
+                <ScalarProperty Name="stat_type6" ColumnName="stat_type6" />
+                <ScalarProperty Name="stat_value6" ColumnName="stat_value6" />
+                <ScalarProperty Name="stat_unk1_6" ColumnName="stat_unk1_6" />
+                <ScalarProperty Name="stat_unk2_6" ColumnName="stat_unk2_6" />
+                <ScalarProperty Name="stat_type7" ColumnName="stat_type7" />
+                <ScalarProperty Name="stat_value7" ColumnName="stat_value7" />
+                <ScalarProperty Name="stat_unk1_7" ColumnName="stat_unk1_7" />
+                <ScalarProperty Name="stat_unk2_7" ColumnName="stat_unk2_7" />
+                <ScalarProperty Name="stat_type8" ColumnName="stat_type8" />
+                <ScalarProperty Name="stat_value8" ColumnName="stat_value8" />
+                <ScalarProperty Name="stat_unk1_8" ColumnName="stat_unk1_8" />
+                <ScalarProperty Name="stat_unk2_8" ColumnName="stat_unk2_8" />
+                <ScalarProperty Name="stat_type9" ColumnName="stat_type9" />
+                <ScalarProperty Name="stat_value9" ColumnName="stat_value9" />
+                <ScalarProperty Name="stat_unk1_9" ColumnName="stat_unk1_9" />
+                <ScalarProperty Name="stat_unk2_9" ColumnName="stat_unk2_9" />
+                <ScalarProperty Name="stat_type10" ColumnName="stat_type10" />
+                <ScalarProperty Name="stat_value10" ColumnName="stat_value10" />
+                <ScalarProperty Name="stat_unk1_10" ColumnName="stat_unk1_10" />
+                <ScalarProperty Name="stat_unk2_10" ColumnName="stat_unk2_10" />
+                <ScalarProperty Name="ScalingStatDistribution" ColumnName="ScalingStatDistribution" />
+                <ScalarProperty Name="DamageType" ColumnName="DamageType" />
+                <ScalarProperty Name="delay" ColumnName="delay" />
+                <ScalarProperty Name="RangedModRange" ColumnName="RangedModRange" />
+                <ScalarProperty Name="spellid_1" ColumnName="spellid_1" />
+                <ScalarProperty Name="spelltrigger_1" ColumnName="spelltrigger_1" />
+                <ScalarProperty Name="spellcharges_1" ColumnName="spellcharges_1" />
+                <ScalarProperty Name="spellcooldown_1" ColumnName="spellcooldown_1" />
+                <ScalarProperty Name="spellcategory_1" ColumnName="spellcategory_1" />
+                <ScalarProperty Name="spellcategorycooldown_1" ColumnName="spellcategorycooldown_1" />
+                <ScalarProperty Name="spellid_2" ColumnName="spellid_2" />
+                <ScalarProperty Name="spelltrigger_2" ColumnName="spelltrigger_2" />
+                <ScalarProperty Name="spellcharges_2" ColumnName="spellcharges_2" />
+                <ScalarProperty Name="spellcooldown_2" ColumnName="spellcooldown_2" />
+                <ScalarProperty Name="spellcategory_2" ColumnName="spellcategory_2" />
+                <ScalarProperty Name="spellcategorycooldown_2" ColumnName="spellcategorycooldown_2" />
+                <ScalarProperty Name="spellid_3" ColumnName="spellid_3" />
+                <ScalarProperty Name="spelltrigger_3" ColumnName="spelltrigger_3" />
+                <ScalarProperty Name="spellcharges_3" ColumnName="spellcharges_3" />
+                <ScalarProperty Name="spellcooldown_3" ColumnName="spellcooldown_3" />
+                <ScalarProperty Name="spellcategory_3" ColumnName="spellcategory_3" />
+                <ScalarProperty Name="spellcategorycooldown_3" ColumnName="spellcategorycooldown_3" />
+                <ScalarProperty Name="spellid_4" ColumnName="spellid_4" />
+                <ScalarProperty Name="spelltrigger_4" ColumnName="spelltrigger_4" />
+                <ScalarProperty Name="spellcharges_4" ColumnName="spellcharges_4" />
+                <ScalarProperty Name="spellcooldown_4" ColumnName="spellcooldown_4" />
+                <ScalarProperty Name="spellcategory_4" ColumnName="spellcategory_4" />
+                <ScalarProperty Name="spellcategorycooldown_4" ColumnName="spellcategorycooldown_4" />
+                <ScalarProperty Name="spellid_5" ColumnName="spellid_5" />
+                <ScalarProperty Name="spelltrigger_5" ColumnName="spelltrigger_5" />
+                <ScalarProperty Name="spellcharges_5" ColumnName="spellcharges_5" />
+                <ScalarProperty Name="spellcooldown_5" ColumnName="spellcooldown_5" />
+                <ScalarProperty Name="spellcategory_5" ColumnName="spellcategory_5" />
+                <ScalarProperty Name="spellcategorycooldown_5" ColumnName="spellcategorycooldown_5" />
+                <ScalarProperty Name="bonding" ColumnName="bonding" />
+                <ScalarProperty Name="description" ColumnName="description" />
+                <ScalarProperty Name="PageText" ColumnName="PageText" />
+                <ScalarProperty Name="LanguageID" ColumnName="LanguageID" />
+                <ScalarProperty Name="PageMaterial" ColumnName="PageMaterial" />
+                <ScalarProperty Name="startquest" ColumnName="startquest" />
+                <ScalarProperty Name="lockid" ColumnName="lockid" />
+                <ScalarProperty Name="Material" ColumnName="Material" />
+                <ScalarProperty Name="sheath" ColumnName="sheath" />
+                <ScalarProperty Name="RandomProperty" ColumnName="RandomProperty" />
+                <ScalarProperty Name="RandomSuffix" ColumnName="RandomSuffix" />
+                <ScalarProperty Name="itemset" ColumnName="itemset" />
+                <ScalarProperty Name="MaxDurability" ColumnName="MaxDurability" />
+                <ScalarProperty Name="area" ColumnName="area" />
+                <ScalarProperty Name="Map" ColumnName="Map" />
+                <ScalarProperty Name="BagFamily" ColumnName="BagFamily" />
+                <ScalarProperty Name="TotemCategory" ColumnName="TotemCategory" />
+                <ScalarProperty Name="socketColor_1" ColumnName="socketColor_1" />
+                <ScalarProperty Name="socketContent_1" ColumnName="socketContent_1" />
+                <ScalarProperty Name="socketColor_2" ColumnName="socketColor_2" />
+                <ScalarProperty Name="socketContent_2" ColumnName="socketContent_2" />
+                <ScalarProperty Name="socketColor_3" ColumnName="socketColor_3" />
+                <ScalarProperty Name="socketContent_3" ColumnName="socketContent_3" />
+                <ScalarProperty Name="socketBonus" ColumnName="socketBonus" />
+                <ScalarProperty Name="GemProperties" ColumnName="GemProperties" />
+                <ScalarProperty Name="ArmorDamageModifier" ColumnName="ArmorDamageModifier" />
+                <ScalarProperty Name="duration" ColumnName="duration" />
+                <ScalarProperty Name="ItemLimitCategory" ColumnName="ItemLimitCategory" />
+                <ScalarProperty Name="HolidayId" ColumnName="HolidayId" />
+                <ScalarProperty Name="StatScalingFactor" ColumnName="StatScalingFactor" />
+                <ScalarProperty Name="CurrencySubstitutionId" ColumnName="CurrencySubstitutionId" />
+                <ScalarProperty Name="CurrencySubstitutionCount" ColumnName="CurrencySubstitutionCount" />
+                <ScalarProperty Name="flagsCustom" ColumnName="flagsCustom" />
+                <ScalarProperty Name="WDBVerified" ColumnName="WDBVerified" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="milling_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.milling_loot_template">
+              <MappingFragment StoreEntitySet="milling_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="pickpocketing_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.pickpocketing_loot_template">
+              <MappingFragment StoreEntitySet="pickpocketing_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="skinning_loot_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.skinning_loot_template">
+              <MappingFragment StoreEntitySet="skinning_loot_template">
+                <ScalarProperty Name="Entry" ColumnName="Entry" />
+                <ScalarProperty Name="Item" ColumnName="Item" />
+                <ScalarProperty Name="Reference" ColumnName="Reference" />
+                <ScalarProperty Name="Chance" ColumnName="Chance" />
+                <ScalarProperty Name="QuestRequired" ColumnName="QuestRequired" />
+                <ScalarProperty Name="LootMode" ColumnName="LootMode" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="MinCount" ColumnName="MinCount" />
+                <ScalarProperty Name="MaxCount" ColumnName="MaxCount" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="smart_scripts">
+            <EntityTypeMapping TypeName="itheria_worldModel.smart_scripts">
+              <MappingFragment StoreEntitySet="smart_scripts">
+                <ScalarProperty Name="entryorguid" ColumnName="entryorguid" />
+                <ScalarProperty Name="source_type" ColumnName="source_type" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="link" ColumnName="link" />
+                <ScalarProperty Name="event_type" ColumnName="event_type" />
+                <ScalarProperty Name="event_phase_mask" ColumnName="event_phase_mask" />
+                <ScalarProperty Name="event_chance" ColumnName="event_chance" />
+                <ScalarProperty Name="event_flags" ColumnName="event_flags" />
+                <ScalarProperty Name="event_param1" ColumnName="event_param1" />
+                <ScalarProperty Name="event_param2" ColumnName="event_param2" />
+                <ScalarProperty Name="event_param3" ColumnName="event_param3" />
+                <ScalarProperty Name="event_param4" ColumnName="event_param4" />
+                <ScalarProperty Name="action_type" ColumnName="action_type" />
+                <ScalarProperty Name="action_param1" ColumnName="action_param1" />
+                <ScalarProperty Name="action_param2" ColumnName="action_param2" />
+                <ScalarProperty Name="action_param3" ColumnName="action_param3" />
+                <ScalarProperty Name="action_param4" ColumnName="action_param4" />
+                <ScalarProperty Name="action_param5" ColumnName="action_param5" />
+                <ScalarProperty Name="action_param6" ColumnName="action_param6" />
+                <ScalarProperty Name="target_type" ColumnName="target_type" />
+                <ScalarProperty Name="target_param1" ColumnName="target_param1" />
+                <ScalarProperty Name="target_param2" ColumnName="target_param2" />
+                <ScalarProperty Name="target_param3" ColumnName="target_param3" />
+                <ScalarProperty Name="target_x" ColumnName="target_x" />
+                <ScalarProperty Name="target_y" ColumnName="target_y" />
+                <ScalarProperty Name="target_z" ColumnName="target_z" />
+                <ScalarProperty Name="target_o" ColumnName="target_o" />
+                <ScalarProperty Name="comment" ColumnName="comment" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_equip_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_equip_template">
+              <MappingFragment StoreEntitySet="creature_equip_template">
+                <ScalarProperty Name="entry" ColumnName="entry" />
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="itemEntry1" ColumnName="itemEntry1" />
+                <ScalarProperty Name="itemEntry2" ColumnName="itemEntry2" />
+                <ScalarProperty Name="itemEntry3" ColumnName="itemEntry3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="quest_template">
+            <EntityTypeMapping TypeName="itheria_worldModel.quest_template">
+              <MappingFragment StoreEntitySet="quest_template">
+                <ScalarProperty Name="WDBVerified" ColumnName="WDBVerified" />
+                <ScalarProperty Name="CompleteScript" ColumnName="CompleteScript" />
+                <ScalarProperty Name="StartScript" ColumnName="StartScript" />
+                <ScalarProperty Name="QuestStartType" ColumnName="QuestStartType" />
+                <ScalarProperty Name="QuestTargetMark" ColumnName="QuestTargetMark" />
+                <ScalarProperty Name="QuestTurnInPortraitUnk" ColumnName="QuestTurnInPortraitUnk" />
+                <ScalarProperty Name="QuestTurnInPortraitText" ColumnName="QuestTurnInPortraitText" />
+                <ScalarProperty Name="QuestGiverPortraitUnk" ColumnName="QuestGiverPortraitUnk" />
+                <ScalarProperty Name="QuestGiverPortraitText" ColumnName="QuestGiverPortraitText" />
+                <ScalarProperty Name="ReqCurrencyCount4" ColumnName="ReqCurrencyCount4" />
+                <ScalarProperty Name="ReqCurrencyId4" ColumnName="ReqCurrencyId4" />
+                <ScalarProperty Name="ReqCurrencyCount3" ColumnName="ReqCurrencyCount3" />
+                <ScalarProperty Name="ReqCurrencyId3" ColumnName="ReqCurrencyId3" />
+                <ScalarProperty Name="ReqCurrencyCount2" ColumnName="ReqCurrencyCount2" />
+                <ScalarProperty Name="ReqCurrencyId2" ColumnName="ReqCurrencyId2" />
+                <ScalarProperty Name="ReqCurrencyCount1" ColumnName="ReqCurrencyCount1" />
+                <ScalarProperty Name="ReqCurrencyId1" ColumnName="ReqCurrencyId1" />
+                <ScalarProperty Name="RewCurrencyCount4" ColumnName="RewCurrencyCount4" />
+                <ScalarProperty Name="RewCurrencyId4" ColumnName="RewCurrencyId4" />
+                <ScalarProperty Name="RewCurrencyCount3" ColumnName="RewCurrencyCount3" />
+                <ScalarProperty Name="RewCurrencyId3" ColumnName="RewCurrencyId3" />
+                <ScalarProperty Name="RewCurrencyCount2" ColumnName="RewCurrencyCount2" />
+                <ScalarProperty Name="RewCurrencyId2" ColumnName="RewCurrencyId2" />
+                <ScalarProperty Name="RewCurrencyCount1" ColumnName="RewCurrencyCount1" />
+                <ScalarProperty Name="RewCurrencyId1" ColumnName="RewCurrencyId1" />
+                <ScalarProperty Name="RewRepMask" ColumnName="RewRepMask" />
+                <ScalarProperty Name="RewSkillPoints" ColumnName="RewSkillPoints" />
+                <ScalarProperty Name="RewSkillLineId" ColumnName="RewSkillLineId" />
+                <ScalarProperty Name="OfferRewardEmoteDelay4" ColumnName="OfferRewardEmoteDelay4" />
+                <ScalarProperty Name="OfferRewardEmoteDelay3" ColumnName="OfferRewardEmoteDelay3" />
+                <ScalarProperty Name="OfferRewardEmoteDelay2" ColumnName="OfferRewardEmoteDelay2" />
+                <ScalarProperty Name="OfferRewardEmoteDelay1" ColumnName="OfferRewardEmoteDelay1" />
+                <ScalarProperty Name="OfferRewardEmote4" ColumnName="OfferRewardEmote4" />
+                <ScalarProperty Name="OfferRewardEmote3" ColumnName="OfferRewardEmote3" />
+                <ScalarProperty Name="OfferRewardEmote2" ColumnName="OfferRewardEmote2" />
+                <ScalarProperty Name="OfferRewardEmote1" ColumnName="OfferRewardEmote1" />
+                <ScalarProperty Name="EmoteOnComplete" ColumnName="EmoteOnComplete" />
+                <ScalarProperty Name="EmoteOnIncomplete" ColumnName="EmoteOnIncomplete" />
+                <ScalarProperty Name="DetailsEmoteDelay4" ColumnName="DetailsEmoteDelay4" />
+                <ScalarProperty Name="DetailsEmoteDelay3" ColumnName="DetailsEmoteDelay3" />
+                <ScalarProperty Name="DetailsEmoteDelay2" ColumnName="DetailsEmoteDelay2" />
+                <ScalarProperty Name="DetailsEmoteDelay1" ColumnName="DetailsEmoteDelay1" />
+                <ScalarProperty Name="DetailsEmote4" ColumnName="DetailsEmote4" />
+                <ScalarProperty Name="DetailsEmote3" ColumnName="DetailsEmote3" />
+                <ScalarProperty Name="DetailsEmote2" ColumnName="DetailsEmote2" />
+                <ScalarProperty Name="DetailsEmote1" ColumnName="DetailsEmote1" />
+                <ScalarProperty Name="SoundTurnIn" ColumnName="SoundTurnIn" />
+                <ScalarProperty Name="SoundAccept" ColumnName="SoundAccept" />
+                <ScalarProperty Name="QuestTurnTargetName" ColumnName="QuestTurnTargetName" />
+                <ScalarProperty Name="QuestTurnTextWindow" ColumnName="QuestTurnTextWindow" />
+                <ScalarProperty Name="QuestGiverTargetName" ColumnName="QuestGiverTargetName" />
+                <ScalarProperty Name="QuestGiverTextWindow" ColumnName="QuestGiverTextWindow" />
+                <ScalarProperty Name="RequiredCurrencyCount4" ColumnName="RequiredCurrencyCount4" />
+                <ScalarProperty Name="RequiredCurrencyCount3" ColumnName="RequiredCurrencyCount3" />
+                <ScalarProperty Name="RequiredCurrencyCount2" ColumnName="RequiredCurrencyCount2" />
+                <ScalarProperty Name="RequiredCurrencyCount1" ColumnName="RequiredCurrencyCount1" />
+                <ScalarProperty Name="RequiredCurrencyId4" ColumnName="RequiredCurrencyId4" />
+                <ScalarProperty Name="RequiredCurrencyId3" ColumnName="RequiredCurrencyId3" />
+                <ScalarProperty Name="RequiredCurrencyId2" ColumnName="RequiredCurrencyId2" />
+                <ScalarProperty Name="RequiredCurrencyId1" ColumnName="RequiredCurrencyId1" />
+                <ScalarProperty Name="RewardCurrencyCount4" ColumnName="RewardCurrencyCount4" />
+                <ScalarProperty Name="RewardCurrencyCount3" ColumnName="RewardCurrencyCount3" />
+                <ScalarProperty Name="RewardCurrencyCount2" ColumnName="RewardCurrencyCount2" />
+                <ScalarProperty Name="RewardCurrencyCount1" ColumnName="RewardCurrencyCount1" />
+                <ScalarProperty Name="RewardCurrencyId4" ColumnName="RewardCurrencyId4" />
+                <ScalarProperty Name="RewardCurrencyId3" ColumnName="RewardCurrencyId3" />
+                <ScalarProperty Name="RewardCurrencyId2" ColumnName="RewardCurrencyId2" />
+                <ScalarProperty Name="RewardCurrencyId1" ColumnName="RewardCurrencyId1" />
+                <ScalarProperty Name="ObjectiveText4" ColumnName="ObjectiveText4" />
+                <ScalarProperty Name="ObjectiveText3" ColumnName="ObjectiveText3" />
+                <ScalarProperty Name="ObjectiveText2" ColumnName="ObjectiveText2" />
+                <ScalarProperty Name="ObjectiveText1" ColumnName="ObjectiveText1" />
+                <ScalarProperty Name="Unknown0" ColumnName="Unknown0" />
+                <ScalarProperty Name="RequiredSpellCast4" ColumnName="RequiredSpellCast4" />
+                <ScalarProperty Name="RequiredSpellCast3" ColumnName="RequiredSpellCast3" />
+                <ScalarProperty Name="RequiredSpellCast2" ColumnName="RequiredSpellCast2" />
+                <ScalarProperty Name="RequiredSpellCast1" ColumnName="RequiredSpellCast1" />
+                <ScalarProperty Name="RequiredSpell" ColumnName="RequiredSpell" />
+                <ScalarProperty Name="RequiredItemCount6" ColumnName="RequiredItemCount6" />
+                <ScalarProperty Name="RequiredItemCount5" ColumnName="RequiredItemCount5" />
+                <ScalarProperty Name="RequiredItemCount4" ColumnName="RequiredItemCount4" />
+                <ScalarProperty Name="RequiredItemCount3" ColumnName="RequiredItemCount3" />
+                <ScalarProperty Name="RequiredItemCount2" ColumnName="RequiredItemCount2" />
+                <ScalarProperty Name="RequiredItemCount1" ColumnName="RequiredItemCount1" />
+                <ScalarProperty Name="RequiredItemId6" ColumnName="RequiredItemId6" />
+                <ScalarProperty Name="RequiredItemId5" ColumnName="RequiredItemId5" />
+                <ScalarProperty Name="RequiredItemId4" ColumnName="RequiredItemId4" />
+                <ScalarProperty Name="RequiredItemId3" ColumnName="RequiredItemId3" />
+                <ScalarProperty Name="RequiredItemId2" ColumnName="RequiredItemId2" />
+                <ScalarProperty Name="RequiredItemId1" ColumnName="RequiredItemId1" />
+                <ScalarProperty Name="RequiredSourceItemCount4" ColumnName="RequiredSourceItemCount4" />
+                <ScalarProperty Name="RequiredSourceItemCount3" ColumnName="RequiredSourceItemCount3" />
+                <ScalarProperty Name="RequiredSourceItemCount2" ColumnName="RequiredSourceItemCount2" />
+                <ScalarProperty Name="RequiredSourceItemCount1" ColumnName="RequiredSourceItemCount1" />
+                <ScalarProperty Name="RequiredSourceItemId4" ColumnName="RequiredSourceItemId4" />
+                <ScalarProperty Name="RequiredSourceItemId3" ColumnName="RequiredSourceItemId3" />
+                <ScalarProperty Name="RequiredSourceItemId2" ColumnName="RequiredSourceItemId2" />
+                <ScalarProperty Name="RequiredSourceItemId1" ColumnName="RequiredSourceItemId1" />
+                <ScalarProperty Name="RequiredNpcOrGoCount4" ColumnName="RequiredNpcOrGoCount4" />
+                <ScalarProperty Name="RequiredNpcOrGoCount3" ColumnName="RequiredNpcOrGoCount3" />
+                <ScalarProperty Name="RequiredNpcOrGoCount2" ColumnName="RequiredNpcOrGoCount2" />
+                <ScalarProperty Name="RequiredNpcOrGoCount1" ColumnName="RequiredNpcOrGoCount1" />
+                <ScalarProperty Name="RequiredNpcOrGo4" ColumnName="RequiredNpcOrGo4" />
+                <ScalarProperty Name="RequiredNpcOrGo3" ColumnName="RequiredNpcOrGo3" />
+                <ScalarProperty Name="RequiredNpcOrGo2" ColumnName="RequiredNpcOrGo2" />
+                <ScalarProperty Name="RequiredNpcOrGo1" ColumnName="RequiredNpcOrGo1" />
+                <ScalarProperty Name="CompletedText" ColumnName="CompletedText" />
+                <ScalarProperty Name="RequestItemsText" ColumnName="RequestItemsText" />
+                <ScalarProperty Name="OfferRewardText" ColumnName="OfferRewardText" />
+                <ScalarProperty Name="EndText" ColumnName="EndText" />
+                <ScalarProperty Name="Details" ColumnName="Details" />
+                <ScalarProperty Name="Objectives" ColumnName="Objectives" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="PointOption" ColumnName="PointOption" />
+                <ScalarProperty Name="PointY" ColumnName="PointY" />
+                <ScalarProperty Name="PointX" ColumnName="PointX" />
+                <ScalarProperty Name="PointMapId" ColumnName="PointMapId" />
+                <ScalarProperty Name="RewardFactionValueIdOverride5" ColumnName="RewardFactionValueIdOverride5" />
+                <ScalarProperty Name="RewardFactionValueIdOverride4" ColumnName="RewardFactionValueIdOverride4" />
+                <ScalarProperty Name="RewardFactionValueIdOverride3" ColumnName="RewardFactionValueIdOverride3" />
+                <ScalarProperty Name="RewardFactionValueIdOverride2" ColumnName="RewardFactionValueIdOverride2" />
+                <ScalarProperty Name="RewardFactionValueIdOverride1" ColumnName="RewardFactionValueIdOverride1" />
+                <ScalarProperty Name="RewardFactionValueId5" ColumnName="RewardFactionValueId5" />
+                <ScalarProperty Name="RewardFactionValueId4" ColumnName="RewardFactionValueId4" />
+                <ScalarProperty Name="RewardFactionValueId3" ColumnName="RewardFactionValueId3" />
+                <ScalarProperty Name="RewardFactionValueId2" ColumnName="RewardFactionValueId2" />
+                <ScalarProperty Name="RewardFactionValueId1" ColumnName="RewardFactionValueId1" />
+                <ScalarProperty Name="RewardFactionId5" ColumnName="RewardFactionId5" />
+                <ScalarProperty Name="RewardFactionId4" ColumnName="RewardFactionId4" />
+                <ScalarProperty Name="RewardFactionId3" ColumnName="RewardFactionId3" />
+                <ScalarProperty Name="RewardFactionId2" ColumnName="RewardFactionId2" />
+                <ScalarProperty Name="RewardFactionId1" ColumnName="RewardFactionId1" />
+                <ScalarProperty Name="RewardChoiceItemCount6" ColumnName="RewardChoiceItemCount6" />
+                <ScalarProperty Name="RewardChoiceItemCount5" ColumnName="RewardChoiceItemCount5" />
+                <ScalarProperty Name="RewardChoiceItemCount4" ColumnName="RewardChoiceItemCount4" />
+                <ScalarProperty Name="RewardChoiceItemCount3" ColumnName="RewardChoiceItemCount3" />
+                <ScalarProperty Name="RewardChoiceItemCount2" ColumnName="RewardChoiceItemCount2" />
+                <ScalarProperty Name="RewardChoiceItemCount1" ColumnName="RewardChoiceItemCount1" />
+                <ScalarProperty Name="RewardChoiceItemId6" ColumnName="RewardChoiceItemId6" />
+                <ScalarProperty Name="RewardChoiceItemId5" ColumnName="RewardChoiceItemId5" />
+                <ScalarProperty Name="RewardChoiceItemId4" ColumnName="RewardChoiceItemId4" />
+                <ScalarProperty Name="RewardChoiceItemId3" ColumnName="RewardChoiceItemId3" />
+                <ScalarProperty Name="RewardChoiceItemId2" ColumnName="RewardChoiceItemId2" />
+                <ScalarProperty Name="RewardChoiceItemId1" ColumnName="RewardChoiceItemId1" />
+                <ScalarProperty Name="RewardItemCount4" ColumnName="RewardItemCount4" />
+                <ScalarProperty Name="RewardItemCount3" ColumnName="RewardItemCount3" />
+                <ScalarProperty Name="RewardItemCount2" ColumnName="RewardItemCount2" />
+                <ScalarProperty Name="RewardItemCount1" ColumnName="RewardItemCount1" />
+                <ScalarProperty Name="RewardItemId4" ColumnName="RewardItemId4" />
+                <ScalarProperty Name="RewardItemId3" ColumnName="RewardItemId3" />
+                <ScalarProperty Name="RewardItemId2" ColumnName="RewardItemId2" />
+                <ScalarProperty Name="RewardItemId1" ColumnName="RewardItemId1" />
+                <ScalarProperty Name="QuestTurnInPortrait" ColumnName="QuestTurnInPortrait" />
+                <ScalarProperty Name="QuestGiverPortrait" ColumnName="QuestGiverPortrait" />
+                <ScalarProperty Name="RewardReputationMask" ColumnName="RewardReputationMask" />
+                <ScalarProperty Name="RewardSkillPoints" ColumnName="RewardSkillPoints" />
+                <ScalarProperty Name="RewardSkillId" ColumnName="RewardSkillId" />
+                <ScalarProperty Name="RewardArenaPoints" ColumnName="RewardArenaPoints" />
+                <ScalarProperty Name="RewardTalents" ColumnName="RewardTalents" />
+                <ScalarProperty Name="RequiredPlayerKills" ColumnName="RequiredPlayerKills" />
+                <ScalarProperty Name="RewardTitleId" ColumnName="RewardTitleId" />
+                <ScalarProperty Name="MinimapTargetMark" ColumnName="MinimapTargetMark" />
+                <ScalarProperty Name="SpecialFlags" ColumnName="SpecialFlags" />
+                <ScalarProperty Name="Flags" ColumnName="Flags" />
+                <ScalarProperty Name="SourceSpellId" ColumnName="SourceSpellId" />
+                <ScalarProperty Name="SourceItemCount" ColumnName="SourceItemCount" />
+                <ScalarProperty Name="SourceItemId" ColumnName="SourceItemId" />
+                <ScalarProperty Name="RewardMailDelay" ColumnName="RewardMailDelay" />
+                <ScalarProperty Name="RewardMailTemplateId" ColumnName="RewardMailTemplateId" />
+                <ScalarProperty Name="RewardHonorMultiplier" ColumnName="RewardHonorMultiplier" />
+                <ScalarProperty Name="RewardHonor" ColumnName="RewardHonor" />
+                <ScalarProperty Name="RewardSpellCast" ColumnName="RewardSpellCast" />
+                <ScalarProperty Name="RewardSpell" ColumnName="RewardSpell" />
+                <ScalarProperty Name="RewardMoneyMaxLevel" ColumnName="RewardMoneyMaxLevel" />
+                <ScalarProperty Name="RewardOrRequiredMoney" ColumnName="RewardOrRequiredMoney" />
+                <ScalarProperty Name="RewardXPId" ColumnName="RewardXPId" />
+                <ScalarProperty Name="NextQuestIdChain" ColumnName="NextQuestIdChain" />
+                <ScalarProperty Name="ExclusiveGroup" ColumnName="ExclusiveGroup" />
+                <ScalarProperty Name="NextQuestId" ColumnName="NextQuestId" />
+                <ScalarProperty Name="PrevQuestId" ColumnName="PrevQuestId" />
+                <ScalarProperty Name="RequiredMaxRepValue" ColumnName="RequiredMaxRepValue" />
+                <ScalarProperty Name="RequiredMinRepValue" ColumnName="RequiredMinRepValue" />
+                <ScalarProperty Name="RequiredMaxRepFaction" ColumnName="RequiredMaxRepFaction" />
+                <ScalarProperty Name="RequiredMinRepFaction" ColumnName="RequiredMinRepFaction" />
+                <ScalarProperty Name="RequiredFactionValue2" ColumnName="RequiredFactionValue2" />
+                <ScalarProperty Name="RequiredFactionValue1" ColumnName="RequiredFactionValue1" />
+                <ScalarProperty Name="RequiredFactionId2" ColumnName="RequiredFactionId2" />
+                <ScalarProperty Name="RequiredFactionId1" ColumnName="RequiredFactionId1" />
+                <ScalarProperty Name="RequiredSkillPoints" ColumnName="RequiredSkillPoints" />
+                <ScalarProperty Name="RequiredSkill" ColumnName="RequiredSkill" />
+                <ScalarProperty Name="RequiredSkillId" ColumnName="RequiredSkillId" />
+                <ScalarProperty Name="RequiredRaces" ColumnName="RequiredRaces" />
+                <ScalarProperty Name="RequiredClasses" ColumnName="RequiredClasses" />
+                <ScalarProperty Name="LimitTime" ColumnName="LimitTime" />
+                <ScalarProperty Name="SuggestedPlayers" ColumnName="SuggestedPlayers" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="ZoneOrSort" ColumnName="ZoneOrSort" />
+                <ScalarProperty Name="MaxLevel" ColumnName="MaxLevel" />
+                <ScalarProperty Name="MinLevel" ColumnName="MinLevel" />
+                <ScalarProperty Name="Level" ColumnName="Level" />
+                <ScalarProperty Name="Method" ColumnName="Method" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_questender">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_questender">
+              <MappingFragment StoreEntitySet="creature_questender">
+                <ScalarProperty Name="quest" ColumnName="quest" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="creature_queststarter">
+            <EntityTypeMapping TypeName="itheria_worldModel.creature_queststarter">
+              <MappingFragment StoreEntitySet="creature_queststarter">
+                <ScalarProperty Name="quest" ColumnName="quest" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gameobject_questender">
+            <EntityTypeMapping TypeName="itheria_worldModel.gameobject_questender">
+              <MappingFragment StoreEntitySet="gameobject_questender">
+                <ScalarProperty Name="quest" ColumnName="quest" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="gameobject_queststarter">
+            <EntityTypeMapping TypeName="itheria_worldModel.gameobject_queststarter">
+              <MappingFragment StoreEntitySet="gameobject_queststarter">
+                <ScalarProperty Name="quest" ColumnName="quest" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
