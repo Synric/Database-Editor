@@ -3,6 +3,8 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
+using DatabaseEditor.Database;
+using DatabaseEditor.Editor.Creature.Edit;
 
 namespace DatabaseEditor.Creature
 {
@@ -67,7 +69,7 @@ namespace DatabaseEditor.Creature
             cOnKillReputationBinding.ReflectionBinding(this, "OKRBox_");
         }
 
-        public IButtonControl AcceptButton
+        public override IButtonControl AcceptButton
         {
             get
             {
@@ -453,7 +455,7 @@ namespace DatabaseEditor.Creature
 
         void EditShowTrainerSpellButton_Click(object sender, EventArgs e)
         {
-            CreatureEdit.TrainerSpell trainer_spell = new CreatureEdit.TrainerSpell();
+            TrainerSpell trainer_spell = new TrainerSpell();
 
             if (trainer_spell.ShowDialog() == DialogResult.OK)
                 EditBox_trainer_spell.Text = trainer_spell.ToString();
@@ -461,7 +463,7 @@ namespace DatabaseEditor.Creature
 
         void EditShowFamilyButton_Click(object sender, EventArgs e)
         {
-            CreatureEdit.Family family = new CreatureEdit.Family();
+            Editor.Shared.Family family = new Editor.Shared.Family();
 
             if (family.ShowDialog() == DialogResult.OK)
                 EditBox_family.Text = family.ToString();
@@ -469,7 +471,7 @@ namespace DatabaseEditor.Creature
 
         void EditShowAllianceFactionButton_Click(object sender, EventArgs e)
         {
-            CreatureEdit.Faction faction = new CreatureEdit.Faction();
+            Editor.Shared.Faction faction = new Editor.Shared.Faction();
 
             if (faction.ShowDialog() == DialogResult.OK)
                 EditBox_faction.Text = faction.ToString();
@@ -477,7 +479,7 @@ namespace DatabaseEditor.Creature
 
         void EditShowHordeFactionButton_Click(object sender, EventArgs e)
         {
-            CreatureEdit.Faction faction = new CreatureEdit.Faction();
+            Editor.Shared.Faction faction = new Editor.Shared.Faction();
 
             if (faction.ShowDialog() == DialogResult.OK)
                 EditBox_type_flags2.Text = faction.ToString();
@@ -764,18 +766,18 @@ namespace DatabaseEditor.Creature
         // On Kill Reputation
         void OtherOnKillReputationFactionButton_Click(object sender, EventArgs e)
         {
-            CreatureEdit.Faction faction = new CreatureEdit.Faction();
+            Editor.Shared.Family family = new Editor.Shared.Family();
 
-            if (faction.ShowDialog() == DialogResult.OK)
-                OKRBox_RewOnKillRepFaction1.Text = faction.ToString();
+            if (family.ShowDialog() == DialogResult.OK)
+                OKRBox_RewOnKillRepFaction1.Text = family.ToString();
         }
 
         void OtherOnKillReputationFaction2Button_Click(object sender, EventArgs e)
         {
-            CreatureEdit.Faction faction = new CreatureEdit.Faction();
+            Editor.Shared.Family family = new Editor.Shared.Family();
 
-            if (faction.ShowDialog() == DialogResult.OK)
-                OKRBox_RewOnKillRepFaction2.Text = faction.ToString();
+            if (family.ShowDialog() == DialogResult.OK)
+                OKRBox_RewOnKillRepFaction2.Text = family.ToString();
         }
 
         void OtherOnKillReputationMaxStandingButton_Click(object sender, EventArgs e)
@@ -936,8 +938,8 @@ namespace DatabaseEditor.Creature
                 return "8";
             else if (mysql_type == "7")
                 return "32";
-            else
-                return "8";
+
+            return "8";
         }
 
         void CreatureEditModelTrackBar_ValueChanged(object sender, EventArgs e)

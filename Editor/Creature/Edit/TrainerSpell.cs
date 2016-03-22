@@ -1,58 +1,40 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Windows.Forms;
+using System.Data;
 
-namespace DatabaseEditor.CreatureEdit
+namespace DatabaseEditor.Editor.Creature.Edit
 {
-    public partial class TrainerSpell : Form
+    public partial class TrainerSpell : DatabaseEditor.UI.Common.EditorGridForm
     {
         public TrainerSpell()
         {
             InitializeComponent();
-        }
 
-        void TrainerSpell_Load(object sender, EventArgs e)
-        {
-            if (DesignMode == false)
+            if (!DesignMode)
             {
-                List<NewItem> list = new List<NewItem>();
+                dataTable = new DataTable("TrainerSpell");
+                dataTable.Columns.AddRange(new DataColumn[] { new DataColumn("ID"), new DataColumn("Spell name") });
 
                 foreach (var record in Dbc.DbcStore.Spell.GetRecords())
-                    list.Add(new NewItem()
-                    {
-                        ID = record.GetUInt32Value(0).ToString(), // ID
-                        Name = record.GetStringValue(21) // Spellname
-                    });
+                {
+                    //                               id,                        Spell name
+                    dataTable.Rows.Add(new object[] { record.GetUInt32Value(0), record.GetStringValue(21) });
+                }
 
-                DataGrid.DataSource = list;
+                DataGrid.DataSource = dataTable;
             }
         }
 
-        void OkButton_Click(object sender, EventArgs e)
+        public override int Selected
         {
-            DialogResult = DialogResult.OK;
+            get
+            {
+                return Convert.ToInt32(DataGrid.Rows[DataGrid.CurrentCell.RowIndex].Cells["ID"].Value.ToString());
+            }
 
-            Hide();
-        }
-
-        void CancelButton_Click(object sender, EventArgs e)
-        {
-            DialogResult = DialogResult.Cancel;
-
-            Hide();
-        }
-
-        class NewItem
-        {
-            public string ID { get; set; }
-            public string Name { get; set; }
-        }
-
-        public int Selected { get { return Convert.ToInt32(DataGrid.Rows[DataGrid.CurrentCell.RowIndex].Cells["ID"].Value.ToString()); } }
-
-        public override string ToString()
-        {
-            return Selected.ToString();
+            protected set
+            {
+                base.Selected = value;
+            }
         }
     }
 }

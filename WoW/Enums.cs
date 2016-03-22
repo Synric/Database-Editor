@@ -132,6 +132,7 @@ namespace DatabaseEditor.WoW
         Shaman = 7,
         Mage = 8,
         Warlock = 9,
+        Monk = 10,
         Druid = 11
     }
 
@@ -140,15 +141,17 @@ namespace DatabaseEditor.WoW
     {
         None = 0,
         Human = 1,
+        Orc = 2,
         Dwarf = 3,
         NightElf = 4,
-        Gnome = 7,
-        Draenei = 11,
-        Orc = 2,
         Undead = 5,
         Tauren = 6,
+        Gnome = 7,
+        Draenei = 11,
         Troll = 8,
-        BloodElf = 10
+        Goblin = 9,
+        BloodElf = 10,
+        Worgen = 22
     }
 
     [Flags]
@@ -273,5 +276,44 @@ namespace DatabaseEditor.WoW
         NoDespawn = 32,
         Damaged = 64,
         Destroyed = 128
+    }
+
+    /// Items
+    [Flags]
+    enum I_Flags : uint
+    {
+        None = 0,
+        UNK1 = 1,
+        ConjuredItem = 2,
+        Openable = 4,
+        Heroic = 8,
+        Deprecated = 16,
+        CantBeDestroyed = 32,
+        UNK2 = 64,
+        NoDefaultCD = 128,
+        UNK3 = 256,
+        Wrapper = 512,
+        UNK4 = 1024,
+        PartyLoot = 2048,
+        Refundable = 4096,
+        Charter = 8192,
+        UNK5 = 16384,
+        UNK6 = 32768,
+        UNK7 = 65536,
+        UNK8 = 131072,
+        Prospectable = 262144,
+        Unique = 524288,
+        UNK9 = 1048576,
+        ArenaAllowed = 2097152,
+        Throwable = 4194304,
+        ShapeshiftAllowable = 8388608,
+        UNK10 = 16777216,
+        Proffession = 33554432,
+        ArenaNotAllowed = 67108864,
+        BindToAccount = 134217728,
+        SpellTrigger = 268435456,
+        Millable = 536870912,
+        UNK11 = 1073741824,
+        BindOnPickup = 2147483648
     }
 }

@@ -45,7 +45,11 @@
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainTab = new System.Windows.Forms.TabControl();
             this.CreaturePage = new System.Windows.Forms.TabPage();
+            this.creatureControl = new DatabaseEditor.Creature.CreatureControl();
             this.GameObjectPage = new System.Windows.Forms.TabPage();
+            this.gameObjectControl = new DatabaseEditor.Editor.GameObject.GameObjectControl();
+            this.ItemPage = new System.Windows.Forms.TabPage();
+            this.itemControl = new DatabaseEditor.Editor.Item.ItemControl();
             this.DBCPage = new System.Windows.Forms.TabPage();
             this.DBCSave = new System.Windows.Forms.Button();
             this.DBCColumnsList = new System.Windows.Forms.ListBox();
@@ -77,13 +81,12 @@
             this.OpenSchemaDialog = new System.Windows.Forms.OpenFileDialog();
             this.SaveSchemaDialog = new System.Windows.Forms.SaveFileDialog();
             this.SaveDbcDialog = new System.Windows.Forms.SaveFileDialog();
-            this.creatureControl = new DatabaseEditor.Creature.CreatureControl();
-            this.gameObjectControl = new DatabaseEditor.Editor.GameObject.GameObjectControl();
             this.dbcTableBinding = new System.Windows.Forms.BindingSource(this.components);
             this.MainMenu.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.CreaturePage.SuspendLayout();
             this.GameObjectPage.SuspendLayout();
+            this.ItemPage.SuspendLayout();
             this.DBCPage.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DBCView)).BeginInit();
             this.StatusBar.SuspendLayout();
@@ -177,6 +180,7 @@
             // 
             this.MainTab.Controls.Add(this.CreaturePage);
             this.MainTab.Controls.Add(this.GameObjectPage);
+            this.MainTab.Controls.Add(this.ItemPage);
             this.MainTab.Controls.Add(this.DBCPage);
             this.MainTab.Dock = System.Windows.Forms.DockStyle.Fill;
             this.MainTab.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
@@ -201,6 +205,17 @@
             this.CreaturePage.Text = "Creature";
             this.CreaturePage.UseVisualStyleBackColor = true;
             // 
+            // creatureControl
+            // 
+            this.creatureControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.creatureControl.Location = new System.Drawing.Point(0, 0);
+            this.creatureControl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
+            this.creatureControl.Name = "creatureControl";
+            this.creatureControl.Size = new System.Drawing.Size(1253, 887);
+            this.creatureControl.TabIndex = 1;
+            // 
             // GameObjectPage
             // 
             this.GameObjectPage.AutoScroll = true;
@@ -212,6 +227,37 @@
             this.GameObjectPage.TabIndex = 2;
             this.GameObjectPage.Text = "Game Object";
             this.GameObjectPage.UseVisualStyleBackColor = true;
+            // 
+            // gameObjectControl
+            // 
+            this.gameObjectControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gameObjectControl.Location = new System.Drawing.Point(0, 0);
+            this.gameObjectControl.Name = "gameObjectControl";
+            this.gameObjectControl.Size = new System.Drawing.Size(1253, 887);
+            this.gameObjectControl.TabIndex = 1;
+            // 
+            // ItemPage
+            // 
+            this.ItemPage.Controls.Add(this.itemControl);
+            this.ItemPage.Location = new System.Drawing.Point(4, 22);
+            this.ItemPage.Name = "ItemPage";
+            this.ItemPage.Padding = new System.Windows.Forms.Padding(3);
+            this.ItemPage.Size = new System.Drawing.Size(1256, 907);
+            this.ItemPage.TabIndex = 3;
+            this.ItemPage.Text = "Item";
+            this.ItemPage.UseVisualStyleBackColor = true;
+            // 
+            // itemControl
+            // 
+            this.itemControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.itemControl.Location = new System.Drawing.Point(0, 0);
+            this.itemControl.Name = "itemControl";
+            this.itemControl.Size = new System.Drawing.Size(1253, 887);
+            this.itemControl.TabIndex = 0;
             // 
             // DBCPage
             // 
@@ -478,27 +524,6 @@
     "db2)|*.db2|All files (*.*)|*.*";
             this.SaveDbcDialog.Title = "Save WoW Database file";
             // 
-            // creatureControl
-            // 
-            this.creatureControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.creatureControl.Location = new System.Drawing.Point(0, 0);
-            this.creatureControl.Margin = new System.Windows.Forms.Padding(3, 3, 3, 20);
-            this.creatureControl.Name = "creatureControl";
-            this.creatureControl.Size = new System.Drawing.Size(1253, 887);
-            this.creatureControl.TabIndex = 1;
-            // 
-            // gameObjectControl
-            // 
-            this.gameObjectControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.gameObjectControl.Location = new System.Drawing.Point(0, 0);
-            this.gameObjectControl.Name = "gameObjectControl";
-            this.gameObjectControl.Size = new System.Drawing.Size(1253, 887);
-            this.gameObjectControl.TabIndex = 1;
-            // 
             // dbcTableBinding
             // 
             this.dbcTableBinding.DataSource = typeof(DatabaseEditor.Dbc.DbcRecord);
@@ -526,6 +551,7 @@
             this.MainTab.ResumeLayout(false);
             this.CreaturePage.ResumeLayout(false);
             this.GameObjectPage.ResumeLayout(false);
+            this.ItemPage.ResumeLayout(false);
             this.DBCPage.ResumeLayout(false);
             this.DBCPage.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DBCView)).EndInit();
@@ -587,6 +613,8 @@
         private System.Windows.Forms.SaveFileDialog SaveDbcDialog;
         private Creature.CreatureControl creatureControl;
         private Editor.GameObject.GameObjectControl gameObjectControl;
+        private System.Windows.Forms.TabPage ItemPage;
+        private Editor.Item.ItemControl itemControl;
     }
 }
 

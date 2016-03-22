@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseEditor.Database;
+using System;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -26,7 +27,7 @@ namespace DatabaseEditor
             world = MainForm.Instance.WorldDB;
 
             //todo initialize datagrid column names
-
+            WorldDatabase db = new WorldDatabase();
             var query = world.item_template.Select(x => new { x.entry, x.name }).ToList();
 
             DataGrid.Load(query);

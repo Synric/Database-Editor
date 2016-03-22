@@ -3,7 +3,9 @@ using System.Data;
 using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
-using DatabaseEditor.Editor;
+using DatabaseEditor.Database;
+using DatabaseEditor.Editor.Shared;
+using DatabaseEditor.Creature.CreatureSmartAI;
 
 namespace DatabaseEditor.Editor.GameObject
 {
@@ -37,7 +39,7 @@ namespace DatabaseEditor.Editor.GameObject
             goTemplateBinding.ReflectionBinding(this, "EditBox_");
         }
 
-        public IButtonControl AcceptButton
+        public override IButtonControl AcceptButton
         {
             get
             {
@@ -300,7 +302,7 @@ namespace DatabaseEditor.Editor.GameObject
 
         void EditFactionButton_Click(object sender, EventArgs e)
         {
-            CreatureEdit.Faction faction = new CreatureEdit.Faction();
+            Faction faction = new Faction();
             
             if (faction.ShowDialog() == DialogResult.OK)
                 EditBox_faction.Text = faction.ToString();
@@ -380,7 +382,7 @@ namespace DatabaseEditor.Editor.GameObject
 
         void LootCodeButton_Click(object sender, EventArgs e)
         {
-            string sql = CodeGeneration(loot_delete, LootDataGrid, "`gameobject_loot_template` (`entry`, `item`, `ChanceOrQuestChance`, `lootmode`, `groupid`, `mincountOrRef`, `maxccount`) VALUES(`{0}`, `{1}`, `{2}`, `{3}`, `{4}`, `{5}`, `{6}`);\n");
+            string sql = CodeGeneration(loot_delete, LootDataGrid, "`gameobject_loot_template` (`Entry`, `Item`, `Reference`, `Chance`, `QuestRequired`, `LootMode`, `GroupID`, `MinCount`, `MaxCount`, `Comment`) VALUES(`{0}`, `{1}`, `{2}`, `{3}`, `{4}`, `{5}`, `{6}`, `{7}`, `{8}`, `{9}`);\n");
 
             CodeBox.Text += $"-- GameObject Loot: INSERT code\"{sql}\n";
             BtnCodeExecute.Enabled = true;
@@ -403,7 +405,7 @@ namespace DatabaseEditor.Editor.GameObject
 
         void SmartAISourceTypeButton_Click(object sender, EventArgs e)
         {
-            SmartAIDialog(SmartAIDataGrid, typeof(Creature.CreatureSmartAI.SourceType), 1);
+            SmartAIDialog(SmartAIDataGrid, typeof(SourceType), 1);
         }
 
         void SmartAIEventFlagsButton_Click(object sender, EventArgs e)
@@ -417,7 +419,7 @@ namespace DatabaseEditor.Editor.GameObject
                 if (SmartAIDataGrid.Rows[SmartAIDataGrid.CurrentCell.RowIndex].Cells[7].Value != null)
                     current_flags = Convert.ToInt32(SmartAIDataGrid.Rows[SmartAIDataGrid.CurrentCell.RowIndex].Cells[7].Value.ToString());
 
-                Creature.CreatureSmartAI.EventFlags eventFlags = new Creature.CreatureSmartAI.EventFlags(current_flags);
+                EventFlags eventFlags = new EventFlags(current_flags);
                 
                 if (eventFlags.ShowDialog() == DialogResult.Retry)
                     SmartAIDataGrid.Rows[SmartAIDataGrid.CurrentCell.RowIndex].Cells[7].Value = eventFlags.ToString();
@@ -426,17 +428,17 @@ namespace DatabaseEditor.Editor.GameObject
 
         void SmartAIEventTypeButton_Click(object sender, EventArgs e)
         {
-            SmartAIDialog(SmartAIDataGrid, typeof(Creature.CreatureSmartAI.EventType), 4);
+            SmartAIDialog(SmartAIDataGrid, typeof(EventType), 4);
         }
 
         void GameObjectSmartAIActionTypeButton_Click(object sender, EventArgs e)
         {
-            SmartAIDialog(SmartAIDataGrid, typeof(Creature.CreatureSmartAI.ActionType), 12);
+            SmartAIDialog(SmartAIDataGrid, typeof(ActionType), 12);
         }
 
         void GameObjectSmartAITargetTypeButton_Click(object sender, EventArgs e)
         {
-            SmartAIDialog(SmartAIDataGrid, typeof(Creature.CreatureSmartAI.TargetType), 19);
+            SmartAIDialog(SmartAIDataGrid, typeof(TargetType), 19);
         }
 
         void GameObjectSmartAIDeleteLineButton_Click(object sender, EventArgs e)

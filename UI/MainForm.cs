@@ -3,6 +3,7 @@ using System.Windows.Forms;
 using System.IO;
 using System.Reflection;
 using DatabaseEditor.Dbc;
+using DatabaseEditor.Database;
 
 namespace DatabaseEditor
 {
@@ -35,8 +36,8 @@ namespace DatabaseEditor
         {
             _StatusBar = "Initializing...";
 
-            settings = new Properties.Settings();
-            world = new WorldDatabase($"metadata=res://*/Database.csdl|res://*/Database.ssdl|res://*/Database.msl;provider=MySql.Data.MySqlClient;provider connection string=\";server={settings.IPAdress};user id={settings.User};password={settings.Pass};database={settings.World_DB};persistsecurityinfo=True\"");//new WorldDatabase();
+            settings = new Properties.Settings(); // metadata=res://*/Database.csdl|res://*/Database.ssdl|res://*/Database.msl;
+            world = new WorldDatabase($"metadata=res://*/Database.Database.csdl|res://*/Database.Database.ssdl|res://*/Database.Database.msl;provider=MySql.Data.MySqlClient;provider connection string=\";server={settings.IPAdress};user id={settings.User};password={settings.Pass};database={settings.World_DB};persistsecurityinfo=True\"");//new WorldDatabase();
 
             Text = $"Database Editor - {settings.IPAdress}";
 
@@ -47,7 +48,7 @@ namespace DatabaseEditor
             creatureControl.world = world;
             creatureControl.settings = settings;
             creatureControl.Initialize();
-            creatureControl.CreatureTab.SelectedIndexChanged += CreatureTab_SelectedIndexChanged;
+            creatureControl.CreatureTab.SelectedIndexChanged += EditorControlTab_SelectedIndexChanged;
 
             AcceptButton = creatureControl.AcceptButton;
 
@@ -55,7 +56,13 @@ namespace DatabaseEditor
             gameObjectControl.world = world;
             gameObjectControl.settings = settings;
             gameObjectControl.Initialize();
-            gameObjectControl.GameObjectTab.SelectedIndexChanged += GameObjectTab_SelectedIndexChanged;
+            gameObjectControl.GameObjectTab.SelectedIndexChanged += EditorControlTab_SelectedIndexChanged;
+
+            // Item Control
+            itemControl.world = world;
+            itemControl.settings = settings;
+            itemControl.Initialize();
+            itemControl.ItemTab.SelectedIndexChanged += EditorControlTab_SelectedIndexChanged;
 
             // Load App settings
             if (settings.FormSize.Height != 0 && settings.FormSize.Width != 0)
@@ -132,16 +139,13 @@ namespace DatabaseEditor
                 AcceptButton = creatureControl.AcceptButton;
             else if (MainTab.SelectedTab == GameObjectPage)
                 AcceptButton = gameObjectControl.AcceptButton;
+            else if (MainTab.SelectedTab == ItemPage)
+                AcceptButton = itemControl.AcceptButton;
         }
 
-        void CreatureTab_SelectedIndexChanged(object sender, EventArgs e)
+        void EditorControlTab_SelectedIndexChanged(object sender, EventArgs e)
         {
-            AcceptButton = creatureControl.AcceptButton;
-        }
-
-        void GameObjectTab_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            AcceptButton = gameObjectControl.AcceptButton;
+            AcceptButton = ((sender as TabControl).Parent as EditorControl).AcceptButton;
         }
 
         //// DBC \\\\
@@ -246,24 +250,51 @@ namespace DatabaseEditor
             switch(dbcFile)
             {
                 case "Spell.dbc":
-                    {
-                        Type type = typeof(SpellDbc);
+                    LoadStructure(typeof(SpellDbc));
+                    break;
 
-                        FieldInfo[] fields = type.GetFields();
+                case "AreaTable.dbc":
+                    LoadStructure(typeof(AreaDbc));
+                    break;
 
-                        for(int i = 0; i < dbcTable.ColumnCount; i++)
-                        {
-                            FieldInfo field = fields[i];
-                            
-                            dbcSchema.AddColumn(new DbcColumnSchema()
-                            {
-                                Name = (field.GetCustomAttribute(typeof(DbcRecordDetailsAttribute)) as DbcRecordDetailsAttribute).Name,
-                                Position = i,
-                                Type = DbcColumnSchemaHelper.GetColumnType(field.FieldType),
-                                Width = 100
-                            });
-                        }
-                    }
+                case "Emotes.dbc":
+                    LoadStructure(typeof(EmoteDbc));
+                    break;
+
+                case "Faction.dbc":
+                    LoadStructure(typeof(FactionDbc));
+                    break;
+
+                case "Family.dbc":
+                    LoadStructure(typeof(FamilyDbc));
+                    break;
+
+                case "Map.dbc":
+                    LoadStructure(typeof(MapDbc));
+                    break;
+
+                case "TotemCategory.dbc":
+                    LoadStructure(typeof(TotemCategory));
+                    break;
+
+                case "Languages.dbc":
+                    LoadStructure(typeof(Language));
+                    break;
+
+                case "PageTextMaterial.dbc":
+                    LoadStructure(typeof(PageMaterial));
+                    break;
+
+                case "Holidays.dbc":
+                    LoadStructure(typeof(Holiday));
+                    break;
+
+                case "HolidayNames.dbc":
+                    LoadStructure(typeof(HolidayNames));
+                    break;
+
+                case "SkillLine.dbc":
+                    LoadStructure(typeof(SkillLine));
                     break;
 
                 default:
@@ -281,6 +312,24 @@ namespace DatabaseEditor
             }
 
             BindSchema();
+        }
+
+        void LoadStructure(Type type)
+        {
+            FieldInfo[] fields = type.GetFields();
+
+            for (int i = 0; i < dbcTable.ColumnCount; i++)
+            {
+                FieldInfo field = fields[i];
+
+                dbcSchema.AddColumn(new DbcColumnSchema()
+                {
+                    Name = (field.GetCustomAttribute(typeof(DbcRecordDetailsAttribute)) as DbcRecordDetailsAttribute).Name,
+                    Position = i,
+                    Type = DbcColumnSchemaHelper.GetColumnType(field.FieldType),
+                    Width = 100
+                });
+            }
         }
 
         void BindSchema()

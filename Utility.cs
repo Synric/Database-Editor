@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DatabaseEditor.UI.Common;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -108,6 +109,18 @@ namespace DatabaseEditor
                     {
                         CheckBox box = field.GetValue(control) as CheckBox;
                         box.DataBindings.Add("Checked", binding, field.Name.Remove(0, memberPrefix.Length));
+                    }
+                    else if(field.FieldType == typeof(ComboBox))
+                    {
+                        ComboBox box = field.GetValue(control) as ComboBox;
+
+                        box.DataBindings.Add("SelectedIndex", binding, field.Name.Remove(0, memberPrefix.Length));
+                    }
+                    else if(field.FieldType == typeof(ComboBoxBasic))
+                    {
+                        ComboBoxBasic box = field.GetValue(control) as ComboBoxBasic;
+
+                        box.DataBindings.Add("SelectedItemValue", binding, field.Name.Remove(0, memberPrefix.Length));
                     }
                 }
             }

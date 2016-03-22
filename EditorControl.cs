@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Windows.Forms;
 using System.IO;
+using DatabaseEditor.Database;
 
 namespace DatabaseEditor
 {
@@ -14,6 +15,8 @@ namespace DatabaseEditor
 
         public WorldDatabase world { protected get; set; }
         public Properties.Settings settings { protected get; set; }
+
+        public virtual IButtonControl AcceptButton { get; }
 
         public virtual void Initialize()
         {

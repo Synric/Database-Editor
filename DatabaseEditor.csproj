@@ -90,25 +90,198 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Database\ComboBoxDataBinding.cs" />
+    <Compile Include="Database\creature.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_addon.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_equip_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_model_info.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_onkill_reputation.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_questender.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_queststarter.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\creature_template_addon.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Database.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Database.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Database\Database1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\disenchant_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\fishing_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\gameobject.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\gameobject_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\gameobject_questender.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\gameobject_queststarter.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\gameobject_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\item_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\item_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\milling_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\pickpocketing_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\prospecting_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\quest_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\reference_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\skinning_loot_template.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Database\smart_scripts.cs">
+      <DependentUpon>Database.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerSpell.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\TrainerSpell.Designer.cs">
+      <DependentUpon>TrainerSpell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Classes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Classes.Designer.cs">
+      <DependentUpon>Classes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Holiday.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Holiday.Designer.cs">
+      <DependentUpon>Holiday.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\ItemFlags.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\ItemFlags.Designer.cs">
+      <DependentUpon>ItemFlags.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Language.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Language.Designer.cs">
+      <DependentUpon>Language.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\PageMaterial.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\PageMaterial.Designer.cs">
+      <DependentUpon>PageMaterial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Races.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Races.Designer.cs">
+      <DependentUpon>Races.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\SkillLine.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\SkillLine.Designer.cs">
+      <DependentUpon>SkillLine.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Totem.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\Edit\Totem.Designer.cs">
+      <DependentUpon>Totem.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Item\ItemControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Editor\Item\ItemControl.Designer.cs">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Shared\Faction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Shared\Faction.Designer.cs">
+      <DependentUpon>Faction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Editor\Shared\Family.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Shared\Family.Designer.cs">
+      <DependentUpon>Family.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\About.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\About.Designer.cs">
       <DependentUpon>About.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Common\ComboBoxBasic.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Common\EditorBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\EditorBaseForm.Designer.cs">
+      <DependentUpon>EditorBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Common\EditorGridForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Common\EditorGridForm.Designer.cs">
+      <DependentUpon>EditorGridForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Connection.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Connection.Designer.cs">
       <DependentUpon>Connection.cs</DependentUpon>
-    </Compile>
-    <Compile Include="creature.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="Editor\Creature\CreatureControl.cs">
       <SubType>UserControl</SubType>
@@ -121,18 +294,6 @@
     </Compile>
     <Compile Include="Editor\Creature\Edit\DynamicFlags.Designer.cs">
       <DependentUpon>DynamicFlags.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\Creature\Edit\Faction.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editor\Creature\Edit\Faction.Designer.cs">
-      <DependentUpon>Faction.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\Creature\Edit\Family.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editor\Creature\Edit\Family.Designer.cs">
-      <DependentUpon>Family.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\Creature\Edit\ImmuneMask.cs">
       <SubType>Form</SubType>
@@ -175,12 +336,6 @@
     </Compile>
     <Compile Include="Editor\Creature\Edit\TrainerRace.Designer.cs">
       <DependentUpon>TrainerRace.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Editor\Creature\Edit\TrainerSpell.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Editor\Creature\Edit\TrainerSpell.Designer.cs">
-      <DependentUpon>TrainerSpell.cs</DependentUpon>
     </Compile>
     <Compile Include="Editor\Creature\Edit\TrainerType.cs">
       <SubType>Form</SubType>
@@ -272,41 +427,9 @@
     <Compile Include="Editor\Creature\RepMaxStanding.Designer.cs">
       <DependentUpon>RepMaxStanding.cs</DependentUpon>
     </Compile>
-    <Compile Include="creature_addon.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_equip_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_model_info.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_onkill_reputation.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_questender.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_queststarter.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="creature_template_addon.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Database.cs" />
-    <Compile Include="DatabaseHelper.cs" />
-    <Compile Include="DatabaseStructure.cs" />
+    <Compile Include="Database\Database.cs" />
+    <Compile Include="Database\DatabaseHelper.cs" />
+    <Compile Include="Database\DatabaseStructure.cs" />
     <Compile Include="WoW\Dbc\DbcRecord.cs" />
     <Compile Include="WoW\Dbc\DbcSchema.cs" />
     <Compile Include="WoW\Dbc\DbcStore.cs" />
@@ -319,9 +442,6 @@
     </Compile>
     <Compile Include="UI\DBCPath.Designer.cs">
       <DependentUpon>DBCPath.cs</DependentUpon>
-    </Compile>
-    <Compile Include="disenchant_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
     </Compile>
     <Compile Include="EditorControl.cs">
       <SubType>UserControl</SubType>
@@ -341,30 +461,6 @@
     <Compile Include="UI\FAQ.Designer.cs">
       <DependentUpon>FAQ.cs</DependentUpon>
     </Compile>
-    <Compile Include="fishing_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="gameobject.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="gameobject_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="gameobject_questender.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="gameobject_queststarter.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="gameobject_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="item_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="item_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="UI\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -383,41 +479,58 @@
     <Compile Include="Editor\GameObject\Edit\Type.Designer.cs">
       <DependentUpon>Type.cs</DependentUpon>
     </Compile>
-    <Compile Include="Database.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Database.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="milling_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="pickpocketing_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="quest_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
     <Compile Include="UI\Settings.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="UI\Settings.Designer.cs">
       <DependentUpon>Settings.cs</DependentUpon>
     </Compile>
-    <Compile Include="skinning_loot_template.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="smart_scripts.cs">
-      <DependentUpon>Database.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Threading.cs" />
-    <Compile Include="Trash.cs" />
     <Compile Include="Utility.cs" />
     <Compile Include="WoW\Enums.cs" />
     <Compile Include="WoW\Common.cs" />
+    <EmbeddedResource Include="Editor\Item\Edit\Classes.resx">
+      <DependentUpon>Classes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\Holiday.resx">
+      <DependentUpon>Holiday.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\ItemFlags.resx">
+      <DependentUpon>ItemFlags.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\Language.resx">
+      <DependentUpon>Language.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\PageMaterial.resx">
+      <DependentUpon>PageMaterial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\Races.resx">
+      <DependentUpon>Races.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\SkillLine.resx">
+      <DependentUpon>SkillLine.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\Edit\Totem.resx">
+      <DependentUpon>Totem.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Item\ItemControl.resx">
+      <DependentUpon>ItemControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Shared\Faction.resx">
+      <DependentUpon>Faction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Editor\Shared\Family.resx">
+      <DependentUpon>Family.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\About.resx">
       <DependentUpon>About.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\EditorBaseForm.resx">
+      <DependentUpon>EditorBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Common\EditorGridForm.resx">
+      <DependentUpon>EditorGridForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Connection.resx">
       <DependentUpon>Connection.cs</DependentUpon>
@@ -427,12 +540,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\Creature\Edit\DynamicFlags.resx">
       <DependentUpon>DynamicFlags.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\Creature\Edit\Faction.resx">
-      <DependentUpon>Faction.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\Creature\Edit\Family.resx">
-      <DependentUpon>Family.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\Creature\Edit\ImmuneMask.resx">
       <DependentUpon>ImmuneMask.cs</DependentUpon>
@@ -454,9 +561,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\Creature\Edit\TrainerRace.resx">
       <DependentUpon>TrainerRace.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Editor\Creature\Edit\TrainerSpell.resx">
-      <DependentUpon>TrainerSpell.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\Creature\Edit\TrainerType.resx">
       <DependentUpon>TrainerType.cs</DependentUpon>
@@ -538,14 +642,15 @@
       <DependentUpon>Settings.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.config" />
-    <EntityDeploy Include="Database.edmx">
+    <EntityDeploy Include="Database\Database.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>Database.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="Database.edmx.diagram">
+    <None Include="Database\Database.edmx.diagram">
       <DependentUpon>Database.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\DatabaseEditor.Database.ComboBoxBasicDB.datasource" />
     <None Include="Properties\DataSources\DatabaseEditor.DBC2.DbcRecord.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -589,15 +694,15 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Database.Context.tt">
+    <Content Include="Database\Database.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Database.edmx</DependentUpon>
       <LastGenOutput>Database.Context.cs</LastGenOutput>
-      <DependentUpon>Database.edmx</DependentUpon>
     </Content>
-    <Content Include="Database.tt">
+    <Content Include="Database\Database.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>Database1.cs</LastGenOutput>
       <DependentUpon>Database.edmx</DependentUpon>
+      <LastGenOutput>Database1.cs</LastGenOutput>
     </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
