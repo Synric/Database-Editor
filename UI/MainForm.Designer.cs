@@ -33,13 +33,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.MainMenu = new System.Windows.Forms.MenuStrip();
-            this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fileMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reconnectToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.settingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.helpMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fAQToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,16 +51,12 @@
             this.ItemPage = new System.Windows.Forms.TabPage();
             this.itemControl = new DatabaseEditor.Editor.Item.ItemControl();
             this.DBCPage = new System.Windows.Forms.TabPage();
-            this.DBCSave = new System.Windows.Forms.Button();
             this.DBCColumnsList = new System.Windows.Forms.ListBox();
             this.label3 = new System.Windows.Forms.Label();
             this.DBCColumnType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.DBCColumnName = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.DBCSaveScheme = new System.Windows.Forms.Button();
-            this.DBCApplyScheme = new System.Windows.Forms.Button();
-            this.DBCOpen = new System.Windows.Forms.Button();
             this.DBCView = new System.Windows.Forms.DataGridView();
             this.DBCMenu = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -82,6 +78,25 @@
             this.SaveSchemaDialog = new System.Windows.Forms.SaveFileDialog();
             this.SaveDbcDialog = new System.Windows.Forms.SaveFileDialog();
             this.dbcTableBinding = new System.Windows.Forms.BindingSource(this.components);
+            this.dbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.openDbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.applySchemeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveSchemeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveDbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAsDbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.closeDbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.goToIDMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.searchDbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.searchColumnDbcMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.replaceColMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.copyLineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearLineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clearColMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.insertLineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteLineMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MainMenu.SuspendLayout();
             this.MainTab.SuspendLayout();
             this.CreaturePage.SuspendLayout();
@@ -96,83 +111,84 @@
             // MainMenu
             // 
             this.MainMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.fileToolStripMenuItem,
-            this.helpToolStripMenuItem});
+            this.fileMenuItem,
+            this.dbcMenuItem,
+            this.helpMenuItem});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
             this.MainMenu.Size = new System.Drawing.Size(1264, 24);
             this.MainMenu.TabIndex = 0;
             this.MainMenu.Text = "menuStrip1";
             // 
-            // fileToolStripMenuItem
+            // fileMenuItem
             // 
-            this.fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fileMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.reconnectToolStripMenuItem,
             this.toolStripSeparator1,
             this.settingsToolStripMenuItem,
             this.toolStripSeparator4,
             this.exitToolStripMenuItem});
-            this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 20);
-            this.fileToolStripMenuItem.Text = "File";
+            this.fileMenuItem.Name = "fileMenuItem";
+            this.fileMenuItem.Size = new System.Drawing.Size(37, 20);
+            this.fileMenuItem.Text = "File";
             // 
             // reconnectToolStripMenuItem
             // 
             this.reconnectToolStripMenuItem.Name = "reconnectToolStripMenuItem";
-            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.reconnectToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.reconnectToolStripMenuItem.Text = "Reconnect";
             this.reconnectToolStripMenuItem.Click += new System.EventHandler(this.reconnectToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(149, 6);
             // 
             // settingsToolStripMenuItem
             // 
             this.settingsToolStripMenuItem.Name = "settingsToolStripMenuItem";
-            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.settingsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.settingsToolStripMenuItem.Text = "Settings";
             this.settingsToolStripMenuItem.Click += new System.EventHandler(this.settingsToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(127, 6);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(149, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
-            // helpToolStripMenuItem
+            // helpMenuItem
             // 
-            this.helpToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.helpMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fAQToolStripMenuItem,
             this.toolStripSeparator3,
             this.aboutToolStripMenuItem});
-            this.helpToolStripMenuItem.Name = "helpToolStripMenuItem";
-            this.helpToolStripMenuItem.Size = new System.Drawing.Size(44, 20);
-            this.helpToolStripMenuItem.Text = "Help";
+            this.helpMenuItem.Name = "helpMenuItem";
+            this.helpMenuItem.Size = new System.Drawing.Size(44, 20);
+            this.helpMenuItem.Text = "Help";
             // 
             // fAQToolStripMenuItem
             // 
             this.fAQToolStripMenuItem.Name = "fAQToolStripMenuItem";
-            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.fAQToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.fAQToolStripMenuItem.Text = "F.A.Q";
             this.fAQToolStripMenuItem.Click += new System.EventHandler(this.fAQToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(104, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(149, 6);
             // 
             // aboutToolStripMenuItem
             // 
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.aboutToolStripMenuItem.Text = "About";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
@@ -262,16 +278,12 @@
             // DBCPage
             // 
             this.DBCPage.AutoScroll = true;
-            this.DBCPage.Controls.Add(this.DBCSave);
             this.DBCPage.Controls.Add(this.DBCColumnsList);
             this.DBCPage.Controls.Add(this.label3);
             this.DBCPage.Controls.Add(this.DBCColumnType);
             this.DBCPage.Controls.Add(this.label2);
             this.DBCPage.Controls.Add(this.DBCColumnName);
             this.DBCPage.Controls.Add(this.label4);
-            this.DBCPage.Controls.Add(this.DBCSaveScheme);
-            this.DBCPage.Controls.Add(this.DBCApplyScheme);
-            this.DBCPage.Controls.Add(this.DBCOpen);
             this.DBCPage.Controls.Add(this.DBCView);
             this.DBCPage.Controls.Add(this.DBCMenu);
             this.DBCPage.Location = new System.Drawing.Point(4, 22);
@@ -282,32 +294,22 @@
             this.DBCPage.Text = "DBC";
             this.DBCPage.UseVisualStyleBackColor = true;
             // 
-            // DBCSave
-            // 
-            this.DBCSave.Location = new System.Drawing.Point(303, 6);
-            this.DBCSave.Name = "DBCSave";
-            this.DBCSave.Size = new System.Drawing.Size(75, 23);
-            this.DBCSave.TabIndex = 12;
-            this.DBCSave.Text = "Save";
-            this.DBCSave.UseVisualStyleBackColor = true;
-            this.DBCSave.Click += new System.EventHandler(this.DBCSave_Click);
-            // 
             // DBCColumnsList
             // 
             this.DBCColumnsList.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left)));
             this.DBCColumnsList.FormattingEnabled = true;
-            this.DBCColumnsList.Location = new System.Drawing.Point(17, 133);
+            this.DBCColumnsList.Location = new System.Drawing.Point(17, 109);
             this.DBCColumnsList.Margin = new System.Windows.Forms.Padding(2);
             this.DBCColumnsList.Name = "DBCColumnsList";
-            this.DBCColumnsList.Size = new System.Drawing.Size(194, 745);
+            this.DBCColumnsList.Size = new System.Drawing.Size(194, 771);
             this.DBCColumnsList.TabIndex = 11;
             this.DBCColumnsList.SelectedIndexChanged += new System.EventHandler(this.DBCColumnsList_SelectedIndexChanged);
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 118);
+            this.label3.Location = new System.Drawing.Point(15, 94);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(50, 13);
@@ -326,7 +328,7 @@
             "String",
             "Flags",
             "Boolean"});
-            this.DBCColumnType.Location = new System.Drawing.Point(90, 81);
+            this.DBCColumnType.Location = new System.Drawing.Point(90, 60);
             this.DBCColumnType.Margin = new System.Windows.Forms.Padding(2);
             this.DBCColumnType.Name = "DBCColumnType";
             this.DBCColumnType.Size = new System.Drawing.Size(121, 21);
@@ -336,7 +338,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 84);
+            this.label2.Location = new System.Drawing.Point(15, 63);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(34, 13);
@@ -348,7 +350,7 @@
             this.DBCColumnName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DBCColumnName.Enabled = false;
-            this.DBCColumnName.Location = new System.Drawing.Point(90, 51);
+            this.DBCColumnName.Location = new System.Drawing.Point(90, 30);
             this.DBCColumnName.Margin = new System.Windows.Forms.Padding(2);
             this.DBCColumnName.Name = "DBCColumnName";
             this.DBCColumnName.Size = new System.Drawing.Size(121, 20);
@@ -359,42 +361,12 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 54);
+            this.label4.Location = new System.Drawing.Point(12, 33);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 13);
             this.label4.TabIndex = 6;
             this.label4.Text = "Column name:";
-            // 
-            // DBCSaveScheme
-            // 
-            this.DBCSaveScheme.Location = new System.Drawing.Point(194, 6);
-            this.DBCSaveScheme.Name = "DBCSaveScheme";
-            this.DBCSaveScheme.Size = new System.Drawing.Size(103, 23);
-            this.DBCSaveScheme.TabIndex = 4;
-            this.DBCSaveScheme.Text = "Save scheme";
-            this.DBCSaveScheme.UseVisualStyleBackColor = true;
-            this.DBCSaveScheme.Click += new System.EventHandler(this.DBCSaveScheme_Click);
-            // 
-            // DBCApplyScheme
-            // 
-            this.DBCApplyScheme.Location = new System.Drawing.Point(84, 6);
-            this.DBCApplyScheme.Name = "DBCApplyScheme";
-            this.DBCApplyScheme.Size = new System.Drawing.Size(104, 23);
-            this.DBCApplyScheme.TabIndex = 3;
-            this.DBCApplyScheme.Text = "Apply scheme";
-            this.DBCApplyScheme.UseVisualStyleBackColor = true;
-            this.DBCApplyScheme.Click += new System.EventHandler(this.DBCApplyScheme_Click);
-            // 
-            // DBCOpen
-            // 
-            this.DBCOpen.Location = new System.Drawing.Point(3, 6);
-            this.DBCOpen.Name = "DBCOpen";
-            this.DBCOpen.Size = new System.Drawing.Size(75, 23);
-            this.DBCOpen.TabIndex = 2;
-            this.DBCOpen.Text = "Open";
-            this.DBCOpen.UseVisualStyleBackColor = true;
-            this.DBCOpen.Click += new System.EventHandler(this.DBCOpen_Click);
             // 
             // DBCView
             // 
@@ -418,9 +390,9 @@
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DBCView.DefaultCellStyle = dataGridViewCellStyle2;
-            this.DBCView.Location = new System.Drawing.Point(216, 51);
+            this.DBCView.Location = new System.Drawing.Point(216, 30);
             this.DBCView.Name = "DBCView";
-            this.DBCView.Size = new System.Drawing.Size(1037, 827);
+            this.DBCView.Size = new System.Drawing.Size(1037, 848);
             this.DBCView.TabIndex = 1;
             this.DBCView.ColumnWidthChanged += new System.Windows.Forms.DataGridViewColumnEventHandler(this.DBCView_ColumnWidthChanged);
             // 
@@ -528,6 +500,151 @@
             // 
             this.dbcTableBinding.DataSource = typeof(DatabaseEditor.Dbc.DbcRecord);
             // 
+            // dbcMenuItem
+            // 
+            this.dbcMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.openDbcMenuItem,
+            this.applySchemeMenuItem,
+            this.saveSchemeMenuItem,
+            this.saveDbcMenuItem,
+            this.saveAsDbcMenuItem,
+            this.closeDbcMenuItem,
+            this.toolStripSeparator5,
+            this.goToIDMenuItem,
+            this.toolStripSeparator6,
+            this.searchDbcMenuItem,
+            this.searchColumnDbcMenuItem,
+            this.replaceColMenuItem,
+            this.toolStripSeparator7,
+            this.copyLineMenuItem,
+            this.clearLineMenuItem,
+            this.clearColMenuItem,
+            this.insertLineMenuItem,
+            this.deleteLineMenuItem});
+            this.dbcMenuItem.Name = "dbcMenuItem";
+            this.dbcMenuItem.Size = new System.Drawing.Size(40, 20);
+            this.dbcMenuItem.Text = "Dbc";
+            // 
+            // openDbcMenuItem
+            // 
+            this.openDbcMenuItem.Name = "openDbcMenuItem";
+            this.openDbcMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.openDbcMenuItem.Text = "Open";
+            this.openDbcMenuItem.Click += new System.EventHandler(this.openDbcMenuItem_Click);
+            // 
+            // applySchemeMenuItem
+            // 
+            this.applySchemeMenuItem.Name = "applySchemeMenuItem";
+            this.applySchemeMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.applySchemeMenuItem.Text = "Apply scheme";
+            this.applySchemeMenuItem.Click += new System.EventHandler(this.applySchemeMenuItem_Click);
+            // 
+            // saveSchemeMenuItem
+            // 
+            this.saveSchemeMenuItem.Name = "saveSchemeMenuItem";
+            this.saveSchemeMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.saveSchemeMenuItem.Text = "Save scheme";
+            this.saveSchemeMenuItem.Click += new System.EventHandler(this.saveSchemeMenuItem_Click);
+            // 
+            // saveDbcMenuItem
+            // 
+            this.saveDbcMenuItem.Name = "saveDbcMenuItem";
+            this.saveDbcMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.saveDbcMenuItem.Text = "Save";
+            this.saveDbcMenuItem.Click += new System.EventHandler(this.saveDbcMenuItem_Click);
+            // 
+            // saveAsDbcMenuItem
+            // 
+            this.saveAsDbcMenuItem.Name = "saveAsDbcMenuItem";
+            this.saveAsDbcMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.saveAsDbcMenuItem.Text = "Save as";
+            this.saveAsDbcMenuItem.Click += new System.EventHandler(this.saveAsDbcMenuItem_Click);
+            // 
+            // closeDbcMenuItem
+            // 
+            this.closeDbcMenuItem.Name = "closeDbcMenuItem";
+            this.closeDbcMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.closeDbcMenuItem.Text = "Close";
+            this.closeDbcMenuItem.Click += new System.EventHandler(this.closeDbcMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(169, 6);
+            // 
+            // goToIDMenuItem
+            // 
+            this.goToIDMenuItem.Name = "goToIDMenuItem";
+            this.goToIDMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.goToIDMenuItem.Text = "Go to ID";
+            this.goToIDMenuItem.Click += new System.EventHandler(this.goToIDMenuItem_Click);
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(169, 6);
+            // 
+            // searchDbcMenuItem
+            // 
+            this.searchDbcMenuItem.Name = "searchDbcMenuItem";
+            this.searchDbcMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.searchDbcMenuItem.Text = "Search";
+            this.searchDbcMenuItem.Click += new System.EventHandler(this.searchDbcMenuItem_Click);
+            // 
+            // searchColumnDbcMenuItem
+            // 
+            this.searchColumnDbcMenuItem.Name = "searchColumnDbcMenuItem";
+            this.searchColumnDbcMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.searchColumnDbcMenuItem.Text = "Search column";
+            this.searchColumnDbcMenuItem.Click += new System.EventHandler(this.searchColumnDbcMenuItem_Click);
+            // 
+            // replaceColMenuItem
+            // 
+            this.replaceColMenuItem.Name = "replaceColMenuItem";
+            this.replaceColMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.replaceColMenuItem.Text = "Replace in column";
+            this.replaceColMenuItem.Click += new System.EventHandler(this.replaceColMenuItem_Click);
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(169, 6);
+            // 
+            // copyLineMenuItem
+            // 
+            this.copyLineMenuItem.Name = "copyLineMenuItem";
+            this.copyLineMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.copyLineMenuItem.Text = "Copy line to";
+            this.copyLineMenuItem.Click += new System.EventHandler(this.copyLineMenuItem_Click);
+            // 
+            // clearLineMenuItem
+            // 
+            this.clearLineMenuItem.Name = "clearLineMenuItem";
+            this.clearLineMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.clearLineMenuItem.Text = "Clear line";
+            this.clearLineMenuItem.Click += new System.EventHandler(this.clearLineMenuItem_Click);
+            // 
+            // clearColMenuItem
+            // 
+            this.clearColMenuItem.Name = "clearColMenuItem";
+            this.clearColMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.clearColMenuItem.Text = "Clear column";
+            this.clearColMenuItem.Click += new System.EventHandler(this.clearColMenuItem_Click);
+            // 
+            // insertLineMenuItem
+            // 
+            this.insertLineMenuItem.Name = "insertLineMenuItem";
+            this.insertLineMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.insertLineMenuItem.Text = "Insert line";
+            this.insertLineMenuItem.Click += new System.EventHandler(this.insertLineMenuItem_Click);
+            // 
+            // deleteLineMenuItem
+            // 
+            this.deleteLineMenuItem.Name = "deleteLineMenuItem";
+            this.deleteLineMenuItem.Size = new System.Drawing.Size(172, 22);
+            this.deleteLineMenuItem.Text = "Delete line";
+            this.deleteLineMenuItem.Click += new System.EventHandler(this.deleteLineMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 12F);
@@ -566,9 +683,9 @@
         #endregion
 
         private System.Windows.Forms.MenuStrip MainMenu;
-        private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem helpMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fileMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.TabControl MainTab;
         private System.Windows.Forms.TabPage CreaturePage;
@@ -602,10 +719,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox DBCColumnName;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Button DBCSaveScheme;
-        private System.Windows.Forms.Button DBCApplyScheme;
-        private System.Windows.Forms.Button DBCOpen;
-        private System.Windows.Forms.Button DBCSave;
         private System.Windows.Forms.BindingSource dbcTableBinding;
         private System.Windows.Forms.OpenFileDialog OpenDbcDialog;
         private System.Windows.Forms.OpenFileDialog OpenSchemaDialog;
@@ -615,6 +728,25 @@
         private Editor.GameObject.GameObjectControl gameObjectControl;
         private System.Windows.Forms.TabPage ItemPage;
         private Editor.Item.ItemControl itemControl;
+        private System.Windows.Forms.ToolStripMenuItem dbcMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem openDbcMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem applySchemeMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveSchemeMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveDbcMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAsDbcMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem closeDbcMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem goToIDMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        private System.Windows.Forms.ToolStripMenuItem searchDbcMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem searchColumnDbcMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem replaceColMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        private System.Windows.Forms.ToolStripMenuItem copyLineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearLineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clearColMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem insertLineMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteLineMenuItem;
     }
 }
 

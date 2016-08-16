@@ -4,6 +4,8 @@ using System.IO;
 using System.Reflection;
 using DatabaseEditor.Dbc;
 using DatabaseEditor.Database;
+using System.Linq;
+using Microsoft.VisualBasic;
 
 namespace DatabaseEditor
 {
@@ -158,90 +160,6 @@ namespace DatabaseEditor
 
         bool changingColumnSelectionDBC;
         bool updatingColumnSetDBC;
-
-        void DBCOpen_Click(object sender, EventArgs e)
-        {
-            if (OpenDbcDialog.ShowDialog() == DialogResult.OK)
-            {
-                if (dbcTable != null)
-                {
-                    DBCView.Rows.Clear();
-                    DBCView.Columns.Clear();
-
-                    dbcTable.Dispose();
-                    dbcTable = null;
-                }
-
-                FileStream fs = File.OpenRead(OpenDbcDialog.FileName);
-                dbcFile = Path.GetFileName(OpenDbcDialog.FileName);
-                dbcFilePath = Path.GetDirectoryName(OpenDbcDialog.FileName);
-
-                dbcTable = new DbcTable(fs, true);
-
-                var testSchema = Path.Combine(dbcFilePath, dbcFile + "schema");
-
-                if (File.Exists(testSchema))
-                {
-                    using (var file = File.OpenRead(testSchema))
-                    {
-                        dbcSchema = DbcSchema.Load(file, dbcTable.ColumnCount);
-                        dbcSchemFile = testSchema;
-                    }
-
-                    BindSchema();
-                }
-                else
-                {
-                    CreateDefaultSchema();
-                    dbcSchemFile = null;
-                }
-
-                PopulateDbc();
-            }
-        }
-
-        void DBCApplyScheme_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        void DBCSaveScheme_Click(object sender, EventArgs e)
-        {
-            if (!string.IsNullOrWhiteSpace(dbcSchemFile))
-            {
-                using (FileStream fs = new FileStream(dbcSchemFile, FileMode.OpenOrCreate, FileAccess.Write))
-                {
-                    fs.SetLength(0);
-
-                    dbcSchema.Save(fs, dbcFile);
-                }
-            }
-            else
-            {
-                SaveSchemaDialog.FileName = dbcFile + "schema";
-
-                if (SaveSchemaDialog.ShowDialog() == DialogResult.OK)
-                {
-                    using (FileStream fs = new FileStream(SaveSchemaDialog.FileName, FileMode.OpenOrCreate, FileAccess.Write))
-                    {
-                        fs.SetLength(0);
-
-                        dbcSchema.Save(fs, dbcFile);
-                    }
-                }
-            }
-        }
-
-        void DBCSave_Click(object sender, EventArgs e)
-        {
-            if(SaveDbcDialog.ShowDialog() == DialogResult.OK)
-            {
-                if (dbcTable == null)
-                    return;
-
-                dbcTable.Write(SaveDbcDialog.FileName, dbcSchema, DBCView);
-            }
-        }
 
         void CreateDefaultSchema()
         {
@@ -495,6 +413,190 @@ namespace DatabaseEditor
                 return;
 
             dbcSchema[index].Width = e.Column.Width;
+        }
+
+        // Dbc menu
+        private void openDbcMenuItem_Click(object sender, EventArgs e)
+        {
+            if (OpenDbcDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (dbcTable != null)
+                {
+                    DBCView.Rows.Clear();
+                    DBCView.Columns.Clear();
+
+                    dbcTable.Dispose();
+                    dbcTable = null;
+                }
+
+                FileStream fs = File.OpenRead(OpenDbcDialog.FileName);
+                dbcFile = Path.GetFileName(OpenDbcDialog.FileName);
+                dbcFilePath = Path.GetDirectoryName(OpenDbcDialog.FileName);
+
+                dbcTable = new DbcTable(fs, true);
+
+                var testSchema = Path.Combine(dbcFilePath, dbcFile + "schema");
+
+                if (File.Exists(testSchema))
+                {
+                    using (var file = File.OpenRead(testSchema))
+                    {
+                        dbcSchema = DbcSchema.Load(file, dbcTable.ColumnCount);
+                        dbcSchemFile = testSchema;
+                    }
+
+                    BindSchema();
+                }
+                else
+                {
+                    CreateDefaultSchema();
+                    dbcSchemFile = null;
+                }
+
+                PopulateDbc();
+            }
+        }
+
+        private void applySchemeMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveSchemeMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrWhiteSpace(dbcSchemFile))
+            {
+                using (FileStream fs = new FileStream(dbcSchemFile, FileMode.OpenOrCreate, FileAccess.Write))
+                {
+                    fs.SetLength(0);
+
+                    dbcSchema.Save(fs, dbcFile);
+                }
+            }
+            else
+            {
+                SaveSchemaDialog.FileName = dbcFile + "schema";
+
+                if (SaveSchemaDialog.ShowDialog() == DialogResult.OK)
+                {
+                    using (FileStream fs = new FileStream(SaveSchemaDialog.FileName, FileMode.OpenOrCreate, FileAccess.Write))
+                    {
+                        fs.SetLength(0);
+
+                        dbcSchema.Save(fs, dbcFile);
+                    }
+                }
+            }
+        }
+
+        private void saveDbcMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void saveAsDbcMenuItem_Click(object sender, EventArgs e)
+        {
+            if (SaveDbcDialog.ShowDialog() == DialogResult.OK)
+            {
+                if (dbcTable == null)
+                    return;
+
+                dbcTable.Write(SaveDbcDialog.FileName, dbcSchema, DBCView);
+            }
+        }
+
+        private void closeDbcMenuItem_Click(object sender, EventArgs e)
+        {
+            if (dbcTable != null)
+            {
+                DBCView.Rows.Clear();
+                DBCView.Columns.Clear();
+
+                dbcTable.Dispose();
+                dbcTable = null;
+            }
+        }
+
+        private void goToIDMenuItem_Click(object sender, EventArgs e)
+        {
+            string retVal = Interaction.InputBox("Insert ID", "Go to ID");
+
+            int line = 0;
+            Int32.TryParse(retVal, out line);
+
+            DataGridViewRow findedRow = DBCView.Rows.Cast<DataGridViewRow>().Where(row => row.Cells[0].Value.ToString() == line.ToString()).FirstOrDefault();
+            
+            if(findedRow != null)
+            {
+                DBCView.ClearSelection();
+                DBCView.Rows[findedRow.Index].Selected = true;
+                DBCView.FirstDisplayedScrollingRowIndex = findedRow.Index;
+                DBCView.Focus();
+            }
+        }
+        
+        private void searchDbcMenuItem_Click(object sender, EventArgs e)
+        {
+            string retVal = Interaction.InputBox("Insert parameter", "Search");
+
+            int col = 0;
+
+            DataGridViewRow findedRow = DBCView.Rows.Cast<DataGridViewRow>().Where(x => x.Cells.Cast<DataGridViewCell>().Where(y =>
+            {
+                if (y.Value != null && y.Value.ToString().Contains(retVal) && y.RowIndex > DBCView.CurrentRow.Index)
+                {
+                    col = y.ColumnIndex;
+
+                    return true;
+                }
+
+                return false;
+            }).Count() > 0).FirstOrDefault();
+            
+            if(findedRow != null)
+            {
+                DBCView.ClearSelection();
+                DBCView.Rows[findedRow.Index].Selected = true;
+                DBCView.Rows[findedRow.Index].Cells[col].Selected = true;
+                DBCView.FirstDisplayedScrollingRowIndex = findedRow.Index;
+                DBCView.FirstDisplayedScrollingColumnIndex = col;
+                DBCView.Focus();
+            }
+        }
+
+        private void searchColumnDbcMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void replaceColMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void copyLineMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clearLineMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clearColMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void insertLineMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void deleteLineMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

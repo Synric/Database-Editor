@@ -38,7 +38,7 @@ namespace DatabaseEditor
                 columns += $"`{property.Name}`, ";
 
                 if(property.PropertyType != typeof(string))
-                    values += $"`{property.GetValue(table).ToString().Replace(',', '.')}`, ";
+                    values += $"{property.GetValue(table).ToString().Replace(',', '.')}, ";
                 else
                     values += $"`{property.GetValue(table)}`, ";
             }
