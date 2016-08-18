@@ -478,7 +478,7 @@
             this.DBCColumnType.Location = new System.Drawing.Point(63, 60);
             this.DBCColumnType.Margin = new System.Windows.Forms.Padding(2);
             this.DBCColumnType.Name = "DBCColumnType";
-            this.DBCColumnType.Size = new System.Drawing.Size(148, 25);
+            this.DBCColumnType.Size = new System.Drawing.Size(1045, 25);
             this.DBCColumnType.TabIndex = 9;
             this.DBCColumnType.SelectedIndexChanged += new System.EventHandler(this.DBCColumnType_SelectedIndexChanged);
             // 
@@ -500,7 +500,7 @@
             this.DBCColumnName.Location = new System.Drawing.Point(65, 29);
             this.DBCColumnName.Margin = new System.Windows.Forms.Padding(2);
             this.DBCColumnName.Name = "DBCColumnName";
-            this.DBCColumnName.Size = new System.Drawing.Size(146, 23);
+            this.DBCColumnName.Size = new System.Drawing.Size(1045, 23);
             this.DBCColumnName.TabIndex = 7;
             this.DBCColumnName.TextChanged += new System.EventHandler(this.DBCColumnName_TextChanged);
             this.DBCColumnName.Leave += new System.EventHandler(this.DBCColumnName_Leave);

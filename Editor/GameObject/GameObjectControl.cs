@@ -499,24 +499,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData3Label.Text = "Dmg Immune (0/1)";
                     GameObjectData4Label.Text = "Open Text ID";
                     GameObjectData5Label.Text = "Close Text ID";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "1")
                 {
@@ -529,21 +511,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData6Label.Text = "Open Text ID";
                     GameObjectData7Label.Text = "Close Text ID";
                     GameObjectData8Label.Text = "Line of Sight? (0/1)";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "2")
                 {
@@ -557,20 +524,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData7Label.Text = "Line of Sight? (0/1)";
                     GameObjectData8Label.Text = "Allow Mount? (0/1)";
                     GameObjectData9Label.Text = "Large? (0/1)";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "3")
                 {
@@ -590,41 +543,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData13Label.Text = "Log Loot? (0/1)";
                     GameObjectData14Label.Text = "Open Text ID";
                     GameObjectData15Label.Text = "Group Loot? (0/1)";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "4")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "5")
                 {
@@ -634,24 +552,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData3Label.Text = "Large? (0/1)";
                     GameObjectData4Label.Text = "Float on Water? (0/1)";
                     GameObjectData5Label.Text = "Required Quest ID";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "6")
                 {
@@ -668,44 +568,11 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData10Label.Text = "Large? (0/1)";
                     GameObjectData11Label.Text = "Affect Stealth? (0/1)";
                     GameObjectData12Label.Text = "Open Text ID";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "7")
                 {
                     GameObjectDataLabel.Text = "Number of Slots";
                     GameObjectData1Label.Text = "Orientation";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "8")
                 {
@@ -716,50 +583,12 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData4Label.Text = "Required Quest ID";
                     GameObjectData5Label.Text = "Large? (0/1)";
                     GameObjectData6Label.Text = "Floating Tooltip? (0/1)";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "9")
                 {
                     GameObjectDataLabel.Text = "Page ID";
                     GameObjectData1Label.Text = "Language";
                     GameObjectData2Label.Text = "Page Material";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "10")
                 {
@@ -781,120 +610,11 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData15Label.Text = "Close Text ID";
                     GameObjectData16Label.Text = "Line of Sight? (0/1)";
                     GameObjectData17Label.Text = "Gossip ID";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "11")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "12")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "13")
                 {
                     GameObjectDataLabel.Text = "Lock.dbc ID";
                     GameObjectData1Label.Text = "Camera ID";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "14")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "15")
                 {
@@ -905,77 +625,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData4Label.Text = "Unknown";
                     GameObjectData5Label.Text = "Unknown";
                     GameObjectData6Label.Text = "Unknown";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "16")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "17")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "18")
                 {
@@ -986,158 +635,26 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData4Label.Text = "Spell ID Cast on Target";
                     GameObjectData5Label.Text = "Unknown";
                     GameObjectData6Label.Text = "Casters Grouped? (0/1)";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "19")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "20")
                 {
                     GameObjectDataLabel.Text = "Auction House ID";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "21")
                 {
                     GameObjectDataLabel.Text = "Creature ID";
-                    GameObjectData1Label.Text = "Unknown";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "22")
                 {
                     GameObjectDataLabel.Text = "Spell ID";
                     GameObjectData1Label.Text = "Charges";
                     GameObjectData2Label.Text = "Party Only? (0/1)";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "23")
                 {
                     GameObjectDataLabel.Text = "Min Level";
                     GameObjectData1Label.Text = "Max Level";
                     GameObjectData2Label.Text = "AreaTable.dbc ID";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "24")
                 {
@@ -1149,22 +666,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData5Label.Text = "Dmg Immune? (0/1)";
                     GameObjectData6Label.Text = "Unknown";
                     GameObjectData7Label.Text = "Line of Sight? (0/1)";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "25")
                 {
@@ -1172,26 +673,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData1Label.Text = "Loot ID";
                     GameObjectData2Label.Text = "Min Loot to Despawn";
                     GameObjectData3Label.Text = "Max Loot to Despawn";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "26")
                 {
@@ -1199,80 +680,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData1Label.Text = "Event ID";
                     GameObjectData2Label.Text = "Spell Cast on Pickup";
                     GameObjectData3Label.Text = "Dmg Immune? (0/1)";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "27")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "28")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "29")
                 {
@@ -1295,11 +702,6 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData16Label.Text = "Min Time (Seconds)";
                     GameObjectData17Label.Text = "Max Time (Seconds)";
                     GameObjectData18Label.Text = "Large? (0/1)";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "30")
                 {
@@ -1307,80 +709,11 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData1Label.Text = "Radius";
                     GameObjectData2Label.Text = "Aura ID";
                     GameObjectData3Label.Text = "Condition ID";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "31")
                 {
                     GameObjectDataLabel.Text = "Map ID";
                     GameObjectData1Label.Text = "Difficulty";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "32")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "33")
                 {
@@ -1390,78 +723,19 @@ namespace DatabaseEditor.Editor.GameObject
                     GameObjectData3Label.Text = "Intact Event";
                     GameObjectData4Label.Text = "Damaged Display ID";
                     GameObjectData5Label.Text = "Damaged for Hits";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
                     GameObjectData9Label.Text = "Destroyed Event";
                     GameObjectData10Label.Text = "Destroyed Display ID";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
                     GameObjectData14Label.Text = "Destroyed Event";
-                    GameObjectData15Label.Text = "Unused";
                     GameObjectData16Label.Text = "Debuild Time (Seconds)";
-                    GameObjectData17Label.Text = "Unused";
                     GameObjectData18Label.Text = "Destructible Data";
                     GameObjectData19Label.Text = "Rebuilding Event";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
                     GameObjectData22Label.Text = "Damage Event";
-                    GameObjectData23Label.Text = "Unused";
-                }
-                if (EditBox_type.Text == "34")
-                {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
                 if (EditBox_type.Text == "35")
                 {
                     GameObjectDataLabel.Text = "When to Pause";
                     GameObjectData1Label.Text = "Start Open (0/1)";
                     GameObjectData2Label.Text = "Auto Close (MS)";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
                 }
             }
             catch

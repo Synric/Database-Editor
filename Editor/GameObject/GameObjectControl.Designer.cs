@@ -748,7 +748,7 @@
             this.EditBox_type.Name = "EditBox_type";
             this.EditBox_type.Size = new System.Drawing.Size(132, 22);
             this.EditBox_type.TabIndex = 3;
-            this.EditBox_type.Text = "0";
+            this.EditBox_type.Text = "-1";
             this.EditBox_type.TextChanged += new System.EventHandler(this.EditBox_type_TextChanged);
             // 
             // EditBox_data30
@@ -1553,7 +1553,7 @@
             this.GameObjectData5Label.Name = "GameObjectData5Label";
             this.GameObjectData5Label.Size = new System.Drawing.Size(97, 18);
             this.GameObjectData5Label.TabIndex = 18;
-            this.GameObjectData5Label.Text = "Close Text ID";
+            this.GameObjectData5Label.Text = "Unused";
             // 
             // GameObjectEditCastBarTitleLabel
             // 
@@ -1593,7 +1593,7 @@
             this.GameObjectData4Label.Name = "GameObjectData4Label";
             this.GameObjectData4Label.Size = new System.Drawing.Size(94, 18);
             this.GameObjectData4Label.TabIndex = 17;
-            this.GameObjectData4Label.Text = "Open Text ID";
+            this.GameObjectData4Label.Text = "Unused";
             // 
             // GameObjectEditUNK1Label
             // 
@@ -1635,7 +1635,7 @@
             this.GameObjectData3Label.Name = "GameObjectData3Label";
             this.GameObjectData3Label.Size = new System.Drawing.Size(139, 18);
             this.GameObjectData3Label.TabIndex = 16;
-            this.GameObjectData3Label.Text = "Dmg Immune? (0/1)";
+            this.GameObjectData3Label.Text = "Unused";
             // 
             // EditBox_data19
             // 
@@ -1675,7 +1675,7 @@
             this.GameObjectData2Label.Name = "GameObjectData2Label";
             this.GameObjectData2Label.Size = new System.Drawing.Size(118, 18);
             this.GameObjectData2Label.TabIndex = 15;
-            this.GameObjectData2Label.Text = "Auto Close (MS)";
+            this.GameObjectData2Label.Text = "Unused";
             // 
             // EditBox_data18
             // 
@@ -1704,7 +1704,7 @@
             this.GameObjectDataLabel.Name = "GameObjectDataLabel";
             this.GameObjectDataLabel.Size = new System.Drawing.Size(113, 18);
             this.GameObjectDataLabel.TabIndex = 13;
-            this.GameObjectDataLabel.Text = "Start Open (0/1)";
+            this.GameObjectDataLabel.Text = "Unused";
             this.GameObjectDataLabel.Click += new System.EventHandler(this.GameObjectDataLabel_Click);
             // 
             // GameObjectData1Label
@@ -1716,7 +1716,7 @@
             this.GameObjectData1Label.Name = "GameObjectData1Label";
             this.GameObjectData1Label.Size = new System.Drawing.Size(87, 18);
             this.GameObjectData1Label.TabIndex = 14;
-            this.GameObjectData1Label.Text = "Lock.dbc ID";
+            this.GameObjectData1Label.Text = "Unused";
             // 
             // EditBox_data17
             // 
