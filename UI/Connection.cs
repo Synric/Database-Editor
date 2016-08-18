@@ -39,25 +39,25 @@ namespace DatabaseEditor
         void ConnectButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrWhiteSpace(IPBox.Text))
-                MessageBox.Show("IP Adress Text box is empty! Please enter IP Adress for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter MySQL Server IP.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (string.IsNullOrWhiteSpace(UserBox.Text))
-                MessageBox.Show("User Text box is empty! Please enter User for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter MySQL Username.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (string.IsNullOrWhiteSpace(PassBox.Text))
-                MessageBox.Show("Pass Text box is empty! Please enter Pass for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter MySQL Password.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (string.IsNullOrWhiteSpace(PortBox.Text))
-                MessageBox.Show("Port Text box is empty! Please enter Port for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter MySQL Port Number.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (string.IsNullOrWhiteSpace(CharBox.Text))
-                MessageBox.Show("CharDB Text box is empty! Please enter CharDB for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter Character Database Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (string.IsNullOrWhiteSpace(WorldBox.Text))
-                MessageBox.Show("WorldDB Text box is empty! Please enter WorldDB for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter World Database Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             if (string.IsNullOrWhiteSpace(AuthBox.Text))
-                MessageBox.Show("AuthDB Text box is empty! Please enter AuthDB for connection.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Please Enter Auth Database Name.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
             ////////// CONNECTING /////////////////
             try
@@ -78,7 +78,7 @@ namespace DatabaseEditor
 
                 world.Database.Connection.Close();
 
-                MessageBox.Show("You has been successfull logged!", "Connect successfull", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Connection Established!", "Connection Established!", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                 Hide();
 

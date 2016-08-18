@@ -263,7 +263,7 @@ namespace DatabaseEditor.WoW
         Exalted = 7
     }
 
-    /// Game Objects
+    /// Gameobjects
     [Flags]
     enum GO_Flags : uint
     {

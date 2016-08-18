@@ -26,7 +26,7 @@ namespace DatabaseEditor.Database
         {
             if(template)
             {
-                entry = 98765;
+                entry = 0;
                 name = "Name";
                 subname = "Subname";
                 Health_mod = Mana_mod = Mana_mod_extra = Armor_mod = RegenHealth = 1;
@@ -54,10 +54,10 @@ namespace DatabaseEditor.Database
         {
             if(template)
             {
-                entry = 98765;
+                entry = 0;
                 name = "GO Name";
                 size = 1.0f;
-                VerifiedBuild = 15595;
+                VerifiedBuild = 12340;
             }
         }
     }
@@ -72,13 +72,13 @@ namespace DatabaseEditor.Database
         {
             if (template)
             {
-                entry = 98765;
+                entry = 0;
                 name = "Item Name";
                 maxcount = BuyCount = 1;
                 stackable = 1;
                 delay = 1000;
                 AllowableClass = AllowableRace = -1;
-                WDBVerified = 15595;
+                WDBVerified = 12340;
             }
         }
     }

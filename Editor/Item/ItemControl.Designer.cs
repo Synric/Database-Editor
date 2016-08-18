@@ -3469,7 +3469,7 @@ namespace DatabaseEditor.Editor.Item
             this.EditBox_entry.Size = new System.Drawing.Size(71, 20);
             this.EditBox_entry.TabIndex = 0;
             this.EditBox_entry.Tag = "";
-            this.EditBox_entry.Text = "98765";
+            this.EditBox_entry.Text = "0";
             // 
             // CreatureEditDifficultyLabel
             // 

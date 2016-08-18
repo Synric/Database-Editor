@@ -112,5 +112,10 @@ namespace DatabaseEditor.GameObject.Edit
         {
             return Selected.ToString();
         }
+
+        private void DataGrid_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

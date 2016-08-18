@@ -63,7 +63,7 @@
             this.A3.Name = "A3";
             this.A3.Size = new System.Drawing.Size(239, 13);
             this.A3.TabIndex = 5;
-            this.A3.Text = "A: Use email form glararan[at]glararan.eu";
+            this.A3.Text = "A: Please email all bugs to glararan@glararan.eu";
             // 
             // Q3
             // 

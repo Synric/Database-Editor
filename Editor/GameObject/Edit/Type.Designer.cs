@@ -64,10 +64,10 @@
             // 
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.OkButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OkButton.Location = new System.Drawing.Point(654, 419);
-            this.OkButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OkButton.Location = new System.Drawing.Point(872, 516);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(64, 29);
+            this.OkButton.Size = new System.Drawing.Size(85, 36);
             this.OkButton.TabIndex = 0;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
@@ -77,10 +77,10 @@
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CancelButton.Location = new System.Drawing.Point(722, 419);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelButton.Location = new System.Drawing.Point(963, 516);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(63, 29);
+            this.CancelButton.Size = new System.Drawing.Size(84, 36);
             this.CancelButton.TabIndex = 1;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -119,12 +119,13 @@
             this.DataGridData21Column,
             this.DataGridData22Column,
             this.DataGridData23Column});
-            this.DataGrid.Location = new System.Drawing.Point(11, 11);
-            this.DataGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DataGrid.Location = new System.Drawing.Point(12, 15);
+            this.DataGrid.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DataGrid.Name = "DataGrid";
             this.DataGrid.RowTemplate.Height = 24;
-            this.DataGrid.Size = new System.Drawing.Size(774, 404);
+            this.DataGrid.Size = new System.Drawing.Size(1032, 497);
             this.DataGrid.TabIndex = 2;
+            this.DataGrid.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DataGrid_CellContentClick);
             this.DataGrid.DoubleClick += new System.EventHandler(this.DataGrid_DoubleClick);
             // 
             // DataGridValueColumn
@@ -259,13 +260,13 @@
             // 
             // Type
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(796, 459);
+            this.ClientSize = new System.Drawing.Size(1061, 565);
             this.Controls.Add(this.DataGrid);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.OkButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Type";

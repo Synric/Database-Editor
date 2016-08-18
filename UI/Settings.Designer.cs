@@ -36,18 +36,22 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.versionBox = new System.Windows.Forms.GroupBox();
+            this.radioButton3 = new System.Windows.Forms.RadioButton();
+            this.radioButton4 = new System.Windows.Forms.RadioButton();
             this.DatabaseGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
+            this.versionBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // CancelButton
             // 
             this.CancelButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.CancelButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.CancelButton.Location = new System.Drawing.Point(208, 181);
-            this.CancelButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.CancelButton.Location = new System.Drawing.Point(277, 223);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(61, 28);
+            this.CancelButton.Size = new System.Drawing.Size(81, 34);
             this.CancelButton.TabIndex = 0;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -57,10 +61,10 @@
             // 
             this.OkButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.OkButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.OkButton.Location = new System.Drawing.Point(153, 181);
-            this.OkButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.OkButton.Location = new System.Drawing.Point(204, 223);
+            this.OkButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.OkButton.Name = "OkButton";
-            this.OkButton.Size = new System.Drawing.Size(51, 28);
+            this.OkButton.Size = new System.Drawing.Size(68, 34);
             this.OkButton.TabIndex = 1;
             this.OkButton.Text = "OK";
             this.OkButton.UseVisualStyleBackColor = true;
@@ -71,11 +75,11 @@
             this.DatabaseGroupBox.Controls.Add(this.DatabaseReplaceRadioButton);
             this.DatabaseGroupBox.Controls.Add(this.DatabaseInsertRadioButton);
             this.DatabaseGroupBox.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DatabaseGroupBox.Location = new System.Drawing.Point(9, 10);
-            this.DatabaseGroupBox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DatabaseGroupBox.Location = new System.Drawing.Point(12, 12);
+            this.DatabaseGroupBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DatabaseGroupBox.Name = "DatabaseGroupBox";
-            this.DatabaseGroupBox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.DatabaseGroupBox.Size = new System.Drawing.Size(261, 41);
+            this.DatabaseGroupBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DatabaseGroupBox.Size = new System.Drawing.Size(348, 50);
             this.DatabaseGroupBox.TabIndex = 2;
             this.DatabaseGroupBox.TabStop = false;
             this.DatabaseGroupBox.Text = "Database Settings";
@@ -84,12 +88,12 @@
             // 
             this.DatabaseReplaceRadioButton.AutoSize = true;
             this.DatabaseReplaceRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DatabaseReplaceRadioButton.Location = new System.Drawing.Point(144, 17);
-            this.DatabaseReplaceRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DatabaseReplaceRadioButton.Location = new System.Drawing.Point(192, 21);
+            this.DatabaseReplaceRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DatabaseReplaceRadioButton.Name = "DatabaseReplaceRadioButton";
-            this.DatabaseReplaceRadioButton.Size = new System.Drawing.Size(111, 19);
+            this.DatabaseReplaceRadioButton.Size = new System.Drawing.Size(111, 22);
             this.DatabaseReplaceRadioButton.TabIndex = 4;
-            this.DatabaseReplaceRadioButton.Text = "REPLACE INTO";
+            this.DatabaseReplaceRadioButton.Text = "Replace Into";
             this.DatabaseReplaceRadioButton.UseVisualStyleBackColor = true;
             // 
             // DatabaseInsertRadioButton
@@ -97,24 +101,24 @@
             this.DatabaseInsertRadioButton.AutoSize = true;
             this.DatabaseInsertRadioButton.Checked = true;
             this.DatabaseInsertRadioButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.DatabaseInsertRadioButton.Location = new System.Drawing.Point(4, 17);
-            this.DatabaseInsertRadioButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DatabaseInsertRadioButton.Location = new System.Drawing.Point(5, 21);
+            this.DatabaseInsertRadioButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.DatabaseInsertRadioButton.Name = "DatabaseInsertRadioButton";
-            this.DatabaseInsertRadioButton.Size = new System.Drawing.Size(100, 19);
+            this.DatabaseInsertRadioButton.Size = new System.Drawing.Size(93, 22);
             this.DatabaseInsertRadioButton.TabIndex = 3;
             this.DatabaseInsertRadioButton.TabStop = true;
-            this.DatabaseInsertRadioButton.Text = "INSERT INTO";
+            this.DatabaseInsertRadioButton.Text = "Insert Into";
             this.DatabaseInsertRadioButton.UseVisualStyleBackColor = true;
             // 
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.radioButton2);
             this.groupBox1.Controls.Add(this.radioButton1);
-            this.groupBox1.Location = new System.Drawing.Point(9, 56);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(12, 146);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(261, 45);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Size = new System.Drawing.Size(348, 55);
             this.groupBox1.TabIndex = 3;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Code Tabs";
@@ -123,10 +127,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(144, 17);
-            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton2.Location = new System.Drawing.Point(192, 21);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(70, 17);
+            this.radioButton2.Size = new System.Drawing.Size(90, 21);
             this.radioButton2.TabIndex = 1;
             this.radioButton2.TabStop = true;
             this.radioButton2.Text = "One main";
@@ -136,30 +140,73 @@
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
-            this.radioButton1.Location = new System.Drawing.Point(4, 17);
-            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.radioButton1.Location = new System.Drawing.Point(5, 21);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(89, 17);
+            this.radioButton1.Size = new System.Drawing.Size(115, 21);
             this.radioButton1.TabIndex = 0;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Everyone self";
             this.radioButton1.UseVisualStyleBackColor = true;
             this.radioButton1.Visible = false;
             // 
+            // versionBox
+            // 
+            this.versionBox.Controls.Add(this.radioButton3);
+            this.versionBox.Controls.Add(this.radioButton4);
+            this.versionBox.Location = new System.Drawing.Point(12, 76);
+            this.versionBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.versionBox.Name = "versionBox";
+            this.versionBox.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.versionBox.Size = new System.Drawing.Size(348, 55);
+            this.versionBox.TabIndex = 4;
+            this.versionBox.TabStop = false;
+            this.versionBox.Text = "Version Select";
+            this.versionBox.Visible = false;
+            this.versionBox.Enter += new System.EventHandler(this.groupBox2_Enter);
+            // 
+            // radioButton3
+            // 
+            this.radioButton3.AutoSize = true;
+            this.radioButton3.Checked = true;
+            this.radioButton3.Location = new System.Drawing.Point(192, 21);
+            this.radioButton3.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton3.Name = "radioButton3";
+            this.radioButton3.Size = new System.Drawing.Size(93, 21);
+            this.radioButton3.TabIndex = 1;
+            this.radioButton3.TabStop = true;
+            this.radioButton3.Text = "Cataclysm";
+            this.radioButton3.UseVisualStyleBackColor = true;
+            this.radioButton3.Visible = false;
+            // 
+            // radioButton4
+            // 
+            this.radioButton4.AutoSize = true;
+            this.radioButton4.Location = new System.Drawing.Point(5, 21);
+            this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.radioButton4.Name = "radioButton4";
+            this.radioButton4.Size = new System.Drawing.Size(169, 21);
+            this.radioButton4.TabIndex = 0;
+            this.radioButton4.Text = "Wrath of the Lich King";
+            this.radioButton4.UseVisualStyleBackColor = true;
+            this.radioButton4.Visible = false;
+            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            // 
             // Settings
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(280, 220);
+            this.ClientSize = new System.Drawing.Size(371, 261);
+            this.Controls.Add(this.versionBox);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.DatabaseGroupBox);
             this.Controls.Add(this.OkButton);
             this.Controls.Add(this.CancelButton);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
-            this.MaximumSize = new System.Drawing.Size(296, 259);
+            this.MaximumSize = new System.Drawing.Size(389, 308);
             this.MinimizeBox = false;
-            this.MinimumSize = new System.Drawing.Size(296, 259);
+            this.MinimumSize = new System.Drawing.Size(389, 308);
             this.Name = "Settings";
             this.ShowIcon = false;
             this.Text = "Settings";
@@ -168,6 +215,8 @@
             this.DatabaseGroupBox.PerformLayout();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.versionBox.ResumeLayout(false);
+            this.versionBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -182,5 +231,8 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.GroupBox versionBox;
+        private System.Windows.Forms.RadioButton radioButton3;
+        private System.Windows.Forms.RadioButton radioButton4;
     }
 }
