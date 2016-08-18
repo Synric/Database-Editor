@@ -30,7 +30,7 @@ namespace DatabaseEditor.Editor.GameObject
             SetDataGridViewColumns(InvolvedInTabStartsDataGrid, new string[] { "Id", "Title", "Level", "faction", "RewardOrRequiredMoney" });
             SetDataGridViewColumns(InvolvedInTabEndsDataGrid, new string[] { "Id", "Title", "Level", "faction", "RewardOrRequiredMoney" });
             SetDataGridViewColumns(SmartAIDataGrid, new string[] { "entryorguid", "source_type", "id", "link", "event_type", "event_phase_mask", "event_chance", "event_flags", "event_param1", "event_param2", "event_param3", "event_param4", "action_type", "action_param1", "action_param2", "action_param3", "action_param4", "action_param5", "action_param6", "target_type", "target_param1", "target_param2", "target_param3", "target_x", "target_y", "target_z", "target_o", "comment" });
-            
+
             // Bindings
             goTemplate = new gameobject_template(true);
 
@@ -64,7 +64,7 @@ namespace DatabaseEditor.Editor.GameObject
         void SearchTypeButton_Click(object sender, EventArgs e)
         {
             DatabaseEditor.GameObject.Edit.Type type = new DatabaseEditor.GameObject.Edit.Type();
-            
+
             if (type.ShowDialog() == DialogResult.OK)
                 SearchType.Text = type.ToString();
         }
@@ -289,7 +289,7 @@ namespace DatabaseEditor.Editor.GameObject
             if (type.ShowDialog() == DialogResult.OK)
                 EditBox_type.Text = type.ToString();
         }
-        
+
         void EditCodeButton_Click(object sender, EventArgs e)
         {
             if (CodeBox.Text == String.Empty)
@@ -303,7 +303,7 @@ namespace DatabaseEditor.Editor.GameObject
         void EditFactionButton_Click(object sender, EventArgs e)
         {
             Faction faction = new Faction();
-            
+
             if (faction.ShowDialog() == DialogResult.OK)
                 EditBox_faction.Text = faction.ToString();
         }
@@ -328,7 +328,7 @@ namespace DatabaseEditor.Editor.GameObject
             else
             {
                 CreatureLocation.Map map = new CreatureLocation.Map();
-                
+
                 if (map.ShowDialog() == DialogResult.OK)
                     LocationDataGrid.Rows[LocationDataGrid.CurrentCell.RowIndex].Cells[2].Value = map.ToString();
             }
@@ -346,7 +346,7 @@ namespace DatabaseEditor.Editor.GameObject
                     current_spawnMask = Convert.ToInt32(LocationDataGrid.Rows[LocationDataGrid.CurrentCell.RowIndex].Cells[15].Value.ToString());
 
                 CreatureLocation.SpawnMask spawn_mask = new CreatureLocation.SpawnMask(current_spawnMask);
-                
+
                 if (spawn_mask.ShowDialog() == DialogResult.OK)
                     LocationDataGrid.Rows[LocationDataGrid.CurrentCell.RowIndex].Cells[15].Value = spawn_mask.ToString();
             }
@@ -399,7 +399,7 @@ namespace DatabaseEditor.Editor.GameObject
                 LootDataGrid.Load(query_loot);
             }
         }
-        
+
         //// GameObject - SmartAI \\\\
         string SmartAI_delete = String.Empty;
 
@@ -420,7 +420,7 @@ namespace DatabaseEditor.Editor.GameObject
                     current_flags = Convert.ToInt32(SmartAIDataGrid.Rows[SmartAIDataGrid.CurrentCell.RowIndex].Cells[7].Value.ToString());
 
                 EventFlags eventFlags = new EventFlags(current_flags);
-                
+
                 if (eventFlags.ShowDialog() == DialogResult.Retry)
                     SmartAIDataGrid.Rows[SmartAIDataGrid.CurrentCell.RowIndex].Cells[7].Value = eventFlags.ToString();
             }
@@ -489,281 +489,255 @@ namespace DatabaseEditor.Editor.GameObject
 
         private void EditBox_type_TextChanged(object sender, EventArgs e)
         {
-            try
-            {
-                if (EditBox_type.Text == "0")
-                {
-                    GameObjectDataLabel.Text = "Start Open";
-                    GameObjectData1Label.Text = "Lock.dbc ID";
-                    GameObjectData2Label.Text = "Close Time - MS";
-                    GameObjectData3Label.Text = "Dmg Immune (0/1)";
-                    GameObjectData4Label.Text = "Open Text ID";
-                    GameObjectData5Label.Text = "Close Text ID";
-                }
-                if (EditBox_type.Text == "1")
-                {
-                    GameObjectDataLabel.Text = "Start Open State";
-                    GameObjectData1Label.Text = "Lock.dbc ID";
-                    GameObjectData2Label.Text = "Auto Close Flag";
-                    GameObjectData3Label.Text = "Trap ID - GO Template";
-                    GameObjectData4Label.Text = "Dmg Immune (0/1)";
-                    GameObjectData5Label.Text = "Large? (0/1)";
-                    GameObjectData6Label.Text = "Open Text ID";
-                    GameObjectData7Label.Text = "Close Text ID";
-                    GameObjectData8Label.Text = "Line of Sight? (0/1)";
-                }
-                if (EditBox_type.Text == "2")
-                {
+            int type = Int32.Parse(EditBox_type.Text);
+            switch (type) {
+                case 0:
+                            GameObjectDataLabel.Text = "Start Open";
+                            GameObjectData1Label.Text = "Lock.dbc ID";
+                            GameObjectData2Label.Text = "Close Time - MS";
+                            GameObjectData3Label.Text = "Dmg Immune (0/1)";
+                            GameObjectData4Label.Text = "Open Text ID";
+                            GameObjectData5Label.Text = "Close Text ID";
+                break;
+                case 1:
+                            GameObjectDataLabel.Text = "Start Open State";
+                            GameObjectData1Label.Text = "Lock.dbc ID";
+                            GameObjectData2Label.Text = "Auto Close Flag";
+                            GameObjectData3Label.Text = "Trap ID - GO Template";
+                            GameObjectData4Label.Text = "Dmg Immune (0/1)";
+                            GameObjectData5Label.Text = "Large? (0/1)";
+                            GameObjectData6Label.Text = "Open Text ID";
+                            GameObjectData7Label.Text = "Close Text ID";
+                            GameObjectData8Label.Text = "Line of Sight? (0/1)";
+                break;
+                case 2:
+                            GameObjectDataLabel.Text = "Lock.dbc ID";
+                            GameObjectData1Label.Text = "Quest ID";
+                            GameObjectData2Label.Text = "PageMaterial ID";
+                            GameObjectData3Label.Text = "Gossip Menu ID";
+                            GameObjectData4Label.Text = "Custom Anim (1-4)";
+                            GameObjectData5Label.Text = "Dmg Immune? (0/1)";
+                            GameObjectData6Label.Text = "Open Text ID";
+                            GameObjectData7Label.Text = "Line of Sight? (0/1)";
+                            GameObjectData8Label.Text = "Allow Mount? (0/1)";
+                            GameObjectData9Label.Text = "Large? (0/1)";
+                break;
+                case 3:
+                            GameObjectDataLabel.Text = "Lock.dbc ID";
+                            GameObjectData1Label.Text = "Loot Template ID";
+                            GameObjectData2Label.Text = "Restock Time (Seconds)";
+                            GameObjectData3Label.Text = "Consumable? (0/1)";
+                            GameObjectData4Label.Text = "Minimum Attempts";
+                            GameObjectData5Label.Text = "Maximum Attempts";
+                            GameObjectData6Label.Text = "Loot Event";
+                            GameObjectData7Label.Text = "Trap ID";
+                            GameObjectData8Label.Text = "Required Quest ID";
+                            GameObjectData9Label.Text = "Min Level to Loot";
+                            GameObjectData10Label.Text = "Line of Sight? (0/1)";
+                            GameObjectData11Label.Text = "Leave Loot? (0/1)";
+                            GameObjectData12Label.Text = "Lootable in Combat? (0/1)";
+                            GameObjectData13Label.Text = "Log Loot? (0/1)";
+                            GameObjectData14Label.Text = "Open Text ID";
+                            GameObjectData15Label.Text = "Group Loot? (0/1)";
+                break;
+                case 5:
+                            GameObjectDataLabel.Text = "Floating Tooltip? (0/1)";
+                            GameObjectData1Label.Text = "Highlight? (0/1)";
+                            GameObjectData2Label.Text = "Server Only? (0)";
+                            GameObjectData3Label.Text = "Large? (0/1)";
+                            GameObjectData4Label.Text = "Float on Water? (0/1)";
+                            GameObjectData5Label.Text = "Required Quest ID";
+                break;
+                case 6:
                     GameObjectDataLabel.Text = "Lock.dbc ID";
-                    GameObjectData1Label.Text = "Quest ID";
-                    GameObjectData2Label.Text = "PageMaterial ID";
-                    GameObjectData3Label.Text = "Gossip Menu ID";
-                    GameObjectData4Label.Text = "Custom Anim (1-4)";
-                    GameObjectData5Label.Text = "Dmg Immune? (0/1)";
-                    GameObjectData6Label.Text = "Open Text ID";
-                    GameObjectData7Label.Text = "Line of Sight? (0/1)";
-                    GameObjectData8Label.Text = "Allow Mount? (0/1)";
-                    GameObjectData9Label.Text = "Large? (0/1)";
-                }
-                if (EditBox_type.Text == "3")
-                {
-                    GameObjectDataLabel.Text = "Lock.dbc ID";
-                    GameObjectData1Label.Text = "Loot Template ID";
-                    GameObjectData2Label.Text = "Restock Time (Seconds)";
-                    GameObjectData3Label.Text = "Consumable? (0/1)";
-                    GameObjectData4Label.Text = "Minimum Attempts";
-                    GameObjectData5Label.Text = "Maximum Attempts";
-                    GameObjectData6Label.Text = "Loot Event";
-                    GameObjectData7Label.Text = "Trap ID";
-                    GameObjectData8Label.Text = "Required Quest ID";
-                    GameObjectData9Label.Text = "Min Level to Loot";
-                    GameObjectData10Label.Text = "Line of Sight? (0/1)";
-                    GameObjectData11Label.Text = "Leave Loot? (0/1)";
-                    GameObjectData12Label.Text = "Lootable in Combat? (0/1)";
-                    GameObjectData13Label.Text = "Log Loot? (0/1)";
-                    GameObjectData14Label.Text = "Open Text ID";
-                    GameObjectData15Label.Text = "Group Loot? (0/1)";
-                }
-                if (EditBox_type.Text == "5")
-                {
-                    GameObjectDataLabel.Text = "Floating Tooltip? (0/1)";
-                    GameObjectData1Label.Text = "Highlight? (0/1)";
-                    GameObjectData2Label.Text = "Server Only? (0)";
-                    GameObjectData3Label.Text = "Large? (0/1)";
-                    GameObjectData4Label.Text = "Float on Water? (0/1)";
-                    GameObjectData5Label.Text = "Required Quest ID";
-                }
-                if (EditBox_type.Text == "6")
-                {
-                    GameObjectDataLabel.Text = "Lock.dbc ID";
-                    GameObjectData1Label.Text = "Level";
-                    GameObjectData2Label.Text = "Diameter";
-                    GameObjectData3Label.Text = "Spell ID";
-                    GameObjectData4Label.Text = "Type (0-2)";
-                    GameObjectData5Label.Text = "Cooldown (Seconds)";
-                    GameObjectData6Label.Text = "Unknown";
-                    GameObjectData7Label.Text = "Start Delay (Seconds)";
-                    GameObjectData8Label.Text = "Server Only? (0)";
-                    GameObjectData9Label.Text = "Stealthed? (0/1)";
-                    GameObjectData10Label.Text = "Large? (0/1)";
-                    GameObjectData11Label.Text = "Affect Stealth? (0/1)";
-                    GameObjectData12Label.Text = "Open Text ID";
-                }
-                if (EditBox_type.Text == "7")
-                {
-                    GameObjectDataLabel.Text = "Number of Slots";
-                    GameObjectData1Label.Text = "Orientation";
-                }
-                if (EditBox_type.Text == "8")
-                {
-                    GameObjectDataLabel.Text = "SpellFocusType.dbc ID";
-                    GameObjectData1Label.Text = "Diameter";
-                    GameObjectData2Label.Text = "Linked Trap ID";
-                    GameObjectData3Label.Text = "Server Only? (0)";
-                    GameObjectData4Label.Text = "Required Quest ID";
-                    GameObjectData5Label.Text = "Large? (0/1)";
-                    GameObjectData6Label.Text = "Floating Tooltip? (0/1)";
-                }
-                if (EditBox_type.Text == "9")
-                {
-                    GameObjectDataLabel.Text = "Page ID";
-                    GameObjectData1Label.Text = "Language";
-                    GameObjectData2Label.Text = "Page Material";
-                }
-                if (EditBox_type.Text == "10")
-                {
-                    GameObjectDataLabel.Text = "Open ID";
-                    GameObjectData1Label.Text = "Required Quest ID";
-                    GameObjectData2Label.Text = "Event ID";
-                    GameObjectData3Label.Text = "Unknown";
-                    GameObjectData4Label.Text = "Custom Anim";
-                    GameObjectData5Label.Text = "Consumable? (0/1)";
-                    GameObjectData6Label.Text = "Cooldown (Seconds)";
-                    GameObjectData7Label.Text = "Page ID";
-                    GameObjectData8Label.Text = "Language";
-                    GameObjectData9Label.Text = "Material ID";
-                    GameObjectData10Label.Text = "Spell ID";
-                    GameObjectData11Label.Text = "Dmg Immune? (0/1)";
-                    GameObjectData12Label.Text = "Linked Trap ID";
-                    GameObjectData13Label.Text = "Large? (0/1)";
-                    GameObjectData14Label.Text = "Open Text ID";
-                    GameObjectData15Label.Text = "Close Text ID";
-                    GameObjectData16Label.Text = "Line of Sight? (0/1)";
-                    GameObjectData17Label.Text = "Gossip ID";
-                }
-                if (EditBox_type.Text == "13")
-                {
-                    GameObjectDataLabel.Text = "Lock.dbc ID";
-                    GameObjectData1Label.Text = "Camera ID";
-                }
-                if (EditBox_type.Text == "15")
-                {
-                    GameObjectDataLabel.Text = "Taxi Path ID";
-                    GameObjectData1Label.Text = "Movement Speed";
-                    GameObjectData2Label.Text = "Acceleration Rate";
-                    GameObjectData3Label.Text = "Unknown";
-                    GameObjectData4Label.Text = "Unknown";
-                    GameObjectData5Label.Text = "Unknown";
-                    GameObjectData6Label.Text = "Unknown";
-                }
-                if (EditBox_type.Text == "18")
-                {
-                    GameObjectDataLabel.Text = "# of Casters";
-                    GameObjectData1Label.Text = "Spell ID";
-                    GameObjectData2Label.Text = "Animation Spell ID";
-                    GameObjectData3Label.Text = "Channel? (0/1)";
-                    GameObjectData4Label.Text = "Spell ID Cast on Target";
-                    GameObjectData5Label.Text = "Unknown";
-                    GameObjectData6Label.Text = "Casters Grouped? (0/1)";
-                }
-                if (EditBox_type.Text == "20")
-                {
-                    GameObjectDataLabel.Text = "Auction House ID";
-                }
-                if (EditBox_type.Text == "21")
-                {
-                    GameObjectDataLabel.Text = "Creature ID";
-                }
-                if (EditBox_type.Text == "22")
-                {
-                    GameObjectDataLabel.Text = "Spell ID";
-                    GameObjectData1Label.Text = "Charges";
-                    GameObjectData2Label.Text = "Party Only? (0/1)";
-                }
-                if (EditBox_type.Text == "23")
-                {
-                    GameObjectDataLabel.Text = "Min Level";
-                    GameObjectData1Label.Text = "Max Level";
-                    GameObjectData2Label.Text = "AreaTable.dbc ID";
-                }
-                if (EditBox_type.Text == "24")
-                {
-                    GameObjectDataLabel.Text = "Lock.dbc ID";
-                    GameObjectData1Label.Text = "Spell ID on Pickup";
-                    GameObjectData2Label.Text = "Radius";
-                    GameObjectData3Label.Text = "Aura ID on Return";
-                    GameObjectData4Label.Text = "Spell ID on Return";
-                    GameObjectData5Label.Text = "Dmg Immune? (0/1)";
-                    GameObjectData6Label.Text = "Unknown";
-                    GameObjectData7Label.Text = "Line of Sight? (0/1)";
-                }
-                if (EditBox_type.Text == "25")
-                {
-                    GameObjectDataLabel.Text = "Radius";
-                    GameObjectData1Label.Text = "Loot ID";
-                    GameObjectData2Label.Text = "Min Loot to Despawn";
-                    GameObjectData3Label.Text = "Max Loot to Despawn";
-                }
-                if (EditBox_type.Text == "26")
-                {
-                    GameObjectDataLabel.Text = "Lock.dbc ID";
-                    GameObjectData1Label.Text = "Event ID";
-                    GameObjectData2Label.Text = "Spell Cast on Pickup";
-                    GameObjectData3Label.Text = "Dmg Immune? (0/1)";
-                }
-                if (EditBox_type.Text == "29")
-                {
-                    GameObjectDataLabel.Text = "Radius";
-                    GameObjectData1Label.Text = "Spell?";
-                    GameObjectData2Label.Text = "Worldstate 1";
-                    GameObjectData3Label.Text = "Worldstate 2";
-                    GameObjectData4Label.Text = "Win Event ID 1";
-                    GameObjectData5Label.Text = "Win Event ID 2";
-                    GameObjectData6Label.Text = "Contest Event ID 1";
-                    GameObjectData7Label.Text = "Contest Event ID 2";
-                    GameObjectData8Label.Text = "Progress Event ID 1";
-                    GameObjectData9Label.Text = "Progress Event ID 2";
-                    GameObjectData10Label.Text = "Neutral Event ID 1";
-                    GameObjectData11Label.Text = "Neutral Event ID 2";
-                    GameObjectData12Label.Text = "Neutral Percentage";
-                    GameObjectData13Label.Text = "Worldstate 3";
-                    GameObjectData14Label.Text = "Min Superiority";
-                    GameObjectData15Label.Text = "Max Superiority";
-                    GameObjectData16Label.Text = "Min Time (Seconds)";
-                    GameObjectData17Label.Text = "Max Time (Seconds)";
-                    GameObjectData18Label.Text = "Large? (0/1)";
-                }
-                if (EditBox_type.Text == "30")
-                {
-                    GameObjectDataLabel.Text = "Start Open (0/1)";
-                    GameObjectData1Label.Text = "Radius";
-                    GameObjectData2Label.Text = "Aura ID";
-                    GameObjectData3Label.Text = "Condition ID";
-                }
-                if (EditBox_type.Text == "31")
-                {
-                    GameObjectDataLabel.Text = "Map ID";
-                    GameObjectData1Label.Text = "Difficulty";
-                }
-                if (EditBox_type.Text == "33")
-                {
-                    GameObjectDataLabel.Text = "Intact for Hits";
-                    GameObjectData1Label.Text = "Creature Giving Credit";
-                    GameObjectData2Label.Text = "State 1 Name";
-                    GameObjectData3Label.Text = "Intact Event";
-                    GameObjectData4Label.Text = "Damaged Display ID";
-                    GameObjectData5Label.Text = "Damaged for Hits";
-                    GameObjectData9Label.Text = "Destroyed Event";
-                    GameObjectData10Label.Text = "Destroyed Display ID";
-                    GameObjectData14Label.Text = "Destroyed Event";
-                    GameObjectData16Label.Text = "Debuild Time (Seconds)";
-                    GameObjectData18Label.Text = "Destructible Data";
-                    GameObjectData19Label.Text = "Rebuilding Event";
-                    GameObjectData22Label.Text = "Damage Event";
-                }
-                if (EditBox_type.Text == "35")
-                {
-                    GameObjectDataLabel.Text = "When to Pause";
-                    GameObjectData1Label.Text = "Start Open (0/1)";
-                    GameObjectData2Label.Text = "Auto Close (MS)";
-                }
-            }
-            catch
-            {
-                    GameObjectDataLabel.Text = "Unused";
-                    GameObjectData1Label.Text = "Unused";
-                    GameObjectData2Label.Text = "Unused";
-                    GameObjectData3Label.Text = "Unused";
-                    GameObjectData4Label.Text = "Unused";
-                    GameObjectData5Label.Text = "Unused";
-                    GameObjectData6Label.Text = "Unused";
-                    GameObjectData7Label.Text = "Unused";
-                    GameObjectData8Label.Text = "Unused";
-                    GameObjectData9Label.Text = "Unused";
-                    GameObjectData10Label.Text = "Unused";
-                    GameObjectData11Label.Text = "Unused";
-                    GameObjectData12Label.Text = "Unused";
-                    GameObjectData13Label.Text = "Unused";
-                    GameObjectData14Label.Text = "Unused";
-                    GameObjectData15Label.Text = "Unused";
-                    GameObjectData16Label.Text = "Unused";
-                    GameObjectData17Label.Text = "Unused";
-                    GameObjectData18Label.Text = "Unused";
-                    GameObjectData19Label.Text = "Unused";
-                    GameObjectData20Label.Text = "Unused";
-                    GameObjectData21Label.Text = "Unused";
-                    GameObjectData22Label.Text = "Unused";
-                    GameObjectData23Label.Text = "Unused";
+                            GameObjectData1Label.Text = "Level";
+                            GameObjectData2Label.Text = "Diameter";
+                            GameObjectData3Label.Text = "Spell ID";
+                            GameObjectData4Label.Text = "Type (0-2)";
+                            GameObjectData5Label.Text = "Cooldown (Seconds)";
+                            GameObjectData6Label.Text = "Unknown";
+                            GameObjectData7Label.Text = "Start Delay (Seconds)";
+                            GameObjectData8Label.Text = "Server Only? (0)";
+                            GameObjectData9Label.Text = "Stealthed? (0/1)";
+                            GameObjectData10Label.Text = "Large? (0/1)";
+                            GameObjectData11Label.Text = "Affect Stealth? (0/1)";
+                            GameObjectData12Label.Text = "Open Text ID";
+                break;
+                case 7:
+                            GameObjectDataLabel.Text = "Number of Slots";
+                            GameObjectData1Label.Text = "Orientation";
+                break;
+                case 8:
+                            GameObjectDataLabel.Text = "SpellFocusType.dbc ID";
+                            GameObjectData1Label.Text = "Diameter";
+                            GameObjectData2Label.Text = "Linked Trap ID";
+                            GameObjectData3Label.Text = "Server Only? (0)";
+                            GameObjectData4Label.Text = "Required Quest ID";
+                            GameObjectData5Label.Text = "Large? (0/1)";
+                            GameObjectData6Label.Text = "Floating Tooltip? (0/1)";
+                break;
+                case 9:
+                            GameObjectDataLabel.Text = "Page ID";
+                            GameObjectData1Label.Text = "Language";
+                            GameObjectData2Label.Text = "Page Material";
+                break;
+                case 10:
+                            GameObjectDataLabel.Text = "Open ID";
+                            GameObjectData1Label.Text = "Required Quest ID";
+                            GameObjectData2Label.Text = "Event ID";
+                            GameObjectData3Label.Text = "Unknown";
+                            GameObjectData4Label.Text = "Custom Anim";
+                            GameObjectData5Label.Text = "Consumable? (0/1)";
+                            GameObjectData6Label.Text = "Cooldown (Seconds)";
+                            GameObjectData7Label.Text = "Page ID";
+                            GameObjectData8Label.Text = "Language";
+                            GameObjectData9Label.Text = "Material ID";
+                            GameObjectData10Label.Text = "Spell ID";
+                            GameObjectData11Label.Text = "Dmg Immune? (0/1)";
+                            GameObjectData12Label.Text = "Linked Trap ID";
+                            GameObjectData13Label.Text = "Large? (0/1)";
+                            GameObjectData14Label.Text = "Open Text ID";
+                            GameObjectData15Label.Text = "Close Text ID";
+                            GameObjectData16Label.Text = "Line of Sight? (0/1)";
+                            GameObjectData17Label.Text = "Gossip ID";
+                break;
+                case 13:
+                            GameObjectDataLabel.Text = "Lock.dbc ID";
+                            GameObjectData1Label.Text = "Camera ID";
+                break;
+                case 15:
+                            GameObjectDataLabel.Text = "Taxi Path ID";
+                            GameObjectData1Label.Text = "Movement Speed";
+                            GameObjectData2Label.Text = "Acceleration Rate";
+                            GameObjectData3Label.Text = "Unknown";
+                            GameObjectData4Label.Text = "Unknown";
+                            GameObjectData5Label.Text = "Unknown";
+                            GameObjectData6Label.Text = "Unknown";
+                break;
+                case 18:
+                            GameObjectDataLabel.Text = "# of Casters";
+                            GameObjectData1Label.Text = "Spell ID";
+                            GameObjectData2Label.Text = "Animation Spell ID";
+                            GameObjectData3Label.Text = "Channel? (0/1)";
+                            GameObjectData4Label.Text = "Spell ID Cast on Target";
+                            GameObjectData5Label.Text = "Unknown";
+                            GameObjectData6Label.Text = "Casters Grouped? (0/1)";
+                break;
+                case 20:
+                            GameObjectDataLabel.Text = "Auction House ID";
+                break;
+                case 21:
+                            GameObjectDataLabel.Text = "Creature ID";
+                break;
+                case 22:
+                            GameObjectDataLabel.Text = "Spell ID";
+                            GameObjectData1Label.Text = "Charges";
+                            GameObjectData2Label.Text = "Party Only? (0/1)";
+                break;
+                case 23:
+                            GameObjectDataLabel.Text = "Min Level";
+                            GameObjectData1Label.Text = "Max Level";
+                            GameObjectData2Label.Text = "AreaTable.dbc ID";
+                break;
+                case 24:
+                            GameObjectDataLabel.Text = "Lock.dbc ID";
+                            GameObjectData1Label.Text = "Spell ID on Pickup";
+                            GameObjectData2Label.Text = "Radius";
+                            GameObjectData3Label.Text = "Aura ID on Return";
+                            GameObjectData4Label.Text = "Spell ID on Return";
+                            GameObjectData5Label.Text = "Dmg Immune? (0/1)";
+                            GameObjectData6Label.Text = "Unknown";
+                            GameObjectData7Label.Text = "Line of Sight? (0/1)";
+                break;
+                case 25:
+                            GameObjectDataLabel.Text = "Radius";
+                            GameObjectData1Label.Text = "Loot ID";
+                            GameObjectData2Label.Text = "Min Loot to Despawn";
+                            GameObjectData3Label.Text = "Max Loot to Despawn";
+                break;
+                case 26:
+                            GameObjectDataLabel.Text = "Lock.dbc ID";
+                            GameObjectData1Label.Text = "Event ID";
+                            GameObjectData2Label.Text = "Spell Cast on Pickup";
+                            GameObjectData3Label.Text = "Dmg Immune? (0/1)";
+                break;
+                case 29:
+                            GameObjectDataLabel.Text = "Radius";
+                            GameObjectData1Label.Text = "Spell?";
+                            GameObjectData2Label.Text = "Worldstate 1";
+                            GameObjectData3Label.Text = "Worldstate 2";
+                            GameObjectData4Label.Text = "Win Event ID 1";
+                            GameObjectData5Label.Text = "Win Event ID 2";
+                            GameObjectData6Label.Text = "Contest Event ID 1";
+                            GameObjectData7Label.Text = "Contest Event ID 2";
+                            GameObjectData8Label.Text = "Progress Event ID 1";
+                            GameObjectData9Label.Text = "Progress Event ID 2";
+                            GameObjectData10Label.Text = "Neutral Event ID 1";
+                            GameObjectData11Label.Text = "Neutral Event ID 2";
+                            GameObjectData12Label.Text = "Neutral Percentage";
+                            GameObjectData13Label.Text = "Worldstate 3";
+                            GameObjectData14Label.Text = "Min Superiority";
+                            GameObjectData15Label.Text = "Max Superiority";
+                            GameObjectData16Label.Text = "Min Time (Seconds)";
+                            GameObjectData17Label.Text = "Max Time (Seconds)";
+                            GameObjectData18Label.Text = "Large? (0/1)";
+                break;
+                case 30:
+                            GameObjectDataLabel.Text = "Start Open (0/1)";
+                            GameObjectData1Label.Text = "Radius";
+                            GameObjectData2Label.Text = "Aura ID";
+                            GameObjectData3Label.Text = "Condition ID";
+                break;
+                case 31:
+                            GameObjectDataLabel.Text = "Map ID";
+                            GameObjectData1Label.Text = "Difficulty";
+                break;
+                case 33:
+                            GameObjectDataLabel.Text = "Intact for Hits";
+                            GameObjectData1Label.Text = "Creature Giving Credit";
+                            GameObjectData2Label.Text = "State 1 Name";
+                            GameObjectData3Label.Text = "Intact Event";
+                            GameObjectData4Label.Text = "Damaged Display ID";
+                            GameObjectData5Label.Text = "Damaged for Hits";
+                            GameObjectData9Label.Text = "Destroyed Event";
+                            GameObjectData10Label.Text = "Destroyed Display ID";
+                            GameObjectData14Label.Text = "Destroyed Event";
+                            GameObjectData16Label.Text = "Debuild Time (Seconds)";
+                            GameObjectData18Label.Text = "Destructible Data";
+                            GameObjectData19Label.Text = "Rebuilding Event";
+                            GameObjectData22Label.Text = "Damage Event";
+                break;
+                case 35:
+                            GameObjectDataLabel.Text = "When to Pause";
+                            GameObjectData1Label.Text = "Start Open (0/1)";
+                            GameObjectData2Label.Text = "Auto Close (MS)";
+                break;
+                default:
+                            GameObjectDataLabel.Text = "Unused";
+                            GameObjectData1Label.Text = "Unused";
+                            GameObjectData2Label.Text = "Unused";
+                            GameObjectData3Label.Text = "Unused";
+                            GameObjectData4Label.Text = "Unused";
+                            GameObjectData5Label.Text = "Unused";
+                            GameObjectData6Label.Text = "Unused";
+                            GameObjectData7Label.Text = "Unused";
+                            GameObjectData8Label.Text = "Unused";
+                            GameObjectData9Label.Text = "Unused";
+                            GameObjectData10Label.Text = "Unused";
+                            GameObjectData11Label.Text = "Unused";
+                            GameObjectData12Label.Text = "Unused";
+                            GameObjectData13Label.Text = "Unused";
+                            GameObjectData14Label.Text = "Unused";
+                            GameObjectData15Label.Text = "Unused";
+                            GameObjectData16Label.Text = "Unused";
+                            GameObjectData17Label.Text = "Unused";
+                            GameObjectData18Label.Text = "Unused";
+                            GameObjectData19Label.Text = "Unused";
+                            GameObjectData20Label.Text = "Unused";
+                            GameObjectData21Label.Text = "Unused";
+                            GameObjectData22Label.Text = "Unused";
+                            GameObjectData23Label.Text = "Unused";
+                    break;
             }
         }
     }
