@@ -24,12 +24,12 @@ namespace DatabaseEditor.Database
         public int faction { get; set; }
         public long flags { get; set; }
         public float size { get; set; }
-        public long questItem1 { get; set; }
+/*        public long questItem1 { get; set; }
         public long questItem2 { get; set; }
         public long questItem3 { get; set; }
         public long questItem4 { get; set; }
         public long questItem5 { get; set; }
-        public long questItem6 { get; set; }
+        public long questItem6 { get; set; } */
         public long data0 { get; set; }
         public int data1 { get; set; }
         public long data2 { get; set; }
@@ -54,7 +54,7 @@ namespace DatabaseEditor.Database
         public long data21 { get; set; }
         public long data22 { get; set; }
         public long data23 { get; set; }
-        public Nullable<int> data24 { get; set; }
+/*        public Nullable<int> data24 { get; set; }
         public Nullable<int> data25 { get; set; }
         public Nullable<int> data26 { get; set; }
         public Nullable<int> data27 { get; set; }
@@ -62,7 +62,7 @@ namespace DatabaseEditor.Database
         public Nullable<int> data29 { get; set; }
         public Nullable<int> data30 { get; set; }
         public Nullable<int> data31 { get; set; }
-        public int unkInt32 { get; set; }
+        public int unkInt32 { get; set; } */
         public string AIName { get; set; }
         public string ScriptName { get; set; }
         public Nullable<short> VerifiedBuild { get; set; }

@@ -40,7 +40,7 @@ namespace DatabaseEditor
                 if(property.PropertyType != typeof(string))
                     values += $"{property.GetValue(table).ToString().Replace(',', '.')}, ";
                 else
-                    values += $"`{property.GetValue(table)}`, ";
+                    values += $"'{property.GetValue(table)}', ";
             }
 
             columns = columns.Remove(columns.Length - 2, 2); // remove ", "

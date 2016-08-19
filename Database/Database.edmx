@@ -331,12 +331,12 @@ warning 6002: The table/view 'def.itheria_world.creature_equip_template' does no
           <Property Name="faction" Type="usmallint" Nullable="false" />
           <Property Name="flags" Type="uint" Nullable="false" />
           <Property Name="size" Type="float" Nullable="false" />
-          <Property Name="questItem1" Type="uint" Nullable="false" />
+<!--          <Property Name="questItem1" Type="uint" Nullable="false" />
           <Property Name="questItem2" Type="uint" Nullable="false" />
           <Property Name="questItem3" Type="uint" Nullable="false" />
           <Property Name="questItem4" Type="uint" Nullable="false" />
           <Property Name="questItem5" Type="uint" Nullable="false" />
-          <Property Name="questItem6" Type="uint" Nullable="false" />
+          <Property Name="questItem6" Type="uint" Nullable="false" /> -->
           <Property Name="data0" Type="uint" Nullable="false" />
           <Property Name="data1" Type="int" Nullable="false" />
           <Property Name="data2" Type="uint" Nullable="false" />
@@ -361,7 +361,7 @@ warning 6002: The table/view 'def.itheria_world.creature_equip_template' does no
           <Property Name="data21" Type="uint" Nullable="false" />
           <Property Name="data22" Type="uint" Nullable="false" />
           <Property Name="data23" Type="uint" Nullable="false" />
-          <Property Name="data24" Type="int" />
+<!--          <Property Name="data24" Type="int" />
           <Property Name="data25" Type="int" />
           <Property Name="data26" Type="int" />
           <Property Name="data27" Type="int" />
@@ -369,7 +369,7 @@ warning 6002: The table/view 'def.itheria_world.creature_equip_template' does no
           <Property Name="data29" Type="int" />
           <Property Name="data30" Type="int" />
           <Property Name="data31" Type="int" />
-          <Property Name="unkInt32" Type="int" Nullable="false" />
+          <Property Name="unkInt32" Type="int" Nullable="false" /> -->
           <Property Name="AIName" Type="char" MaxLength="64" Nullable="false" />
           <Property Name="ScriptName" Type="varchar" MaxLength="64" Nullable="false" />
           <Property Name="VerifiedBuild" Type="smallint" />
@@ -1207,12 +1207,12 @@ FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
           <Property Name="faction" Type="Int32" Nullable="false" />
           <Property Name="flags" Type="Int64" Nullable="false" />
           <Property Name="size" Type="Single" Nullable="false" />
-          <Property Name="questItem1" Type="Int64" Nullable="false" />
+<!--          <Property Name="questItem1" Type="Int64" Nullable="false" />
           <Property Name="questItem2" Type="Int64" Nullable="false" />
           <Property Name="questItem3" Type="Int64" Nullable="false" />
           <Property Name="questItem4" Type="Int64" Nullable="false" />
           <Property Name="questItem5" Type="Int64" Nullable="false" />
-          <Property Name="questItem6" Type="Int64" Nullable="false" />
+          <Property Name="questItem6" Type="Int64" Nullable="false" /> -->
           <Property Name="data0" Type="Int64" Nullable="false" />
           <Property Name="data1" Type="Int32" Nullable="false" />
           <Property Name="data2" Type="Int64" Nullable="false" />
@@ -1237,7 +1237,7 @@ FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
           <Property Name="data21" Type="Int64" Nullable="false" />
           <Property Name="data22" Type="Int64" Nullable="false" />
           <Property Name="data23" Type="Int64" Nullable="false" />
-          <Property Name="data24" Type="Int32" />
+<!--          <Property Name="data24" Type="Int32" />
           <Property Name="data25" Type="Int32" />
           <Property Name="data26" Type="Int32" />
           <Property Name="data27" Type="Int32" />
@@ -1245,7 +1245,7 @@ FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
           <Property Name="data29" Type="Int32" />
           <Property Name="data30" Type="Int32" />
           <Property Name="data31" Type="Int32" />
-          <Property Name="unkInt32" Type="Int32" Nullable="false" />
+          <Property Name="unkInt32" Type="Int32" Nullable="false" /> -->
           <Property Name="AIName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="ScriptName" Type="String" MaxLength="64" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="VerifiedBuild" Type="Int16" />
@@ -2094,12 +2094,12 @@ FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
                 <ScalarProperty Name="faction" ColumnName="faction" />
                 <ScalarProperty Name="flags" ColumnName="flags" />
                 <ScalarProperty Name="size" ColumnName="size" />
-                <ScalarProperty Name="questItem1" ColumnName="questItem1" />
+<!--                <ScalarProperty Name="questItem1" ColumnName="questItem1" />
                 <ScalarProperty Name="questItem2" ColumnName="questItem2" />
                 <ScalarProperty Name="questItem3" ColumnName="questItem3" />
                 <ScalarProperty Name="questItem4" ColumnName="questItem4" />
                 <ScalarProperty Name="questItem5" ColumnName="questItem5" />
-                <ScalarProperty Name="questItem6" ColumnName="questItem6" />
+                <ScalarProperty Name="questItem6" ColumnName="questItem6" /> -->
                 <ScalarProperty Name="data0" ColumnName="data0" />
                 <ScalarProperty Name="data1" ColumnName="data1" />
                 <ScalarProperty Name="data2" ColumnName="data2" />
@@ -2124,7 +2124,7 @@ FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
                 <ScalarProperty Name="data21" ColumnName="data21" />
                 <ScalarProperty Name="data22" ColumnName="data22" />
                 <ScalarProperty Name="data23" ColumnName="data23" />
-                <ScalarProperty Name="data24" ColumnName="data24" />
+<!--                <ScalarProperty Name="data24" ColumnName="data24" />
                 <ScalarProperty Name="data25" ColumnName="data25" />
                 <ScalarProperty Name="data26" ColumnName="data26" />
                 <ScalarProperty Name="data27" ColumnName="data27" />
@@ -2132,7 +2132,7 @@ FROM `creature_equip_template` AS `creature_equip_template`</DefiningQuery>
                 <ScalarProperty Name="data29" ColumnName="data29" />
                 <ScalarProperty Name="data30" ColumnName="data30" />
                 <ScalarProperty Name="data31" ColumnName="data31" />
-                <ScalarProperty Name="unkInt32" ColumnName="unkInt32" />
+                <ScalarProperty Name="unkInt32" ColumnName="unkInt32" /> -->
                 <ScalarProperty Name="AIName" ColumnName="AIName" />
                 <ScalarProperty Name="ScriptName" ColumnName="ScriptName" />
                 <ScalarProperty Name="VerifiedBuild" ColumnName="VerifiedBuild" />

@@ -38,7 +38,7 @@
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.versionBox = new System.Windows.Forms.GroupBox();
             this.radioButton3 = new System.Windows.Forms.RadioButton();
-            this.radioButton4 = new System.Windows.Forms.RadioButton();
+            this.WrathVersionButton = new System.Windows.Forms.RadioButton();
             this.DatabaseGroupBox.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.versionBox.SuspendLayout();
@@ -153,7 +153,7 @@
             // versionBox
             // 
             this.versionBox.Controls.Add(this.radioButton3);
-            this.versionBox.Controls.Add(this.radioButton4);
+            this.versionBox.Controls.Add(this.WrathVersionButton);
             this.versionBox.Location = new System.Drawing.Point(12, 76);
             this.versionBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.versionBox.Name = "versionBox";
@@ -162,7 +162,6 @@
             this.versionBox.TabIndex = 4;
             this.versionBox.TabStop = false;
             this.versionBox.Text = "Version Select";
-            this.versionBox.Visible = false;
             this.versionBox.Enter += new System.EventHandler(this.groupBox2_Enter);
             // 
             // radioButton3
@@ -177,20 +176,19 @@
             this.radioButton3.TabStop = true;
             this.radioButton3.Text = "Cataclysm";
             this.radioButton3.UseVisualStyleBackColor = true;
-            this.radioButton3.Visible = false;
             // 
-            // radioButton4
+            // WrathVersionButton
             // 
-            this.radioButton4.AutoSize = true;
-            this.radioButton4.Location = new System.Drawing.Point(5, 21);
-            this.radioButton4.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.radioButton4.Name = "radioButton4";
-            this.radioButton4.Size = new System.Drawing.Size(169, 21);
-            this.radioButton4.TabIndex = 0;
-            this.radioButton4.Text = "Wrath of the Lich King";
-            this.radioButton4.UseVisualStyleBackColor = true;
-            this.radioButton4.Visible = false;
-            this.radioButton4.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
+            this.WrathVersionButton.AutoSize = true;
+            this.WrathVersionButton.Location = new System.Drawing.Point(5, 21);
+            this.WrathVersionButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.WrathVersionButton.Name = "WrathVersionButton";
+            this.WrathVersionButton.Size = new System.Drawing.Size(169, 21);
+            this.WrathVersionButton.TabIndex = 0;
+            this.WrathVersionButton.Text = "Wrath of the Lich King";
+            this.WrathVersionButton.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.WrathVersionButton.UseVisualStyleBackColor = true;
+            this.WrathVersionButton.CheckedChanged += new System.EventHandler(this.radioButton4_CheckedChanged);
             // 
             // Settings
             // 
@@ -233,6 +231,6 @@
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.GroupBox versionBox;
         private System.Windows.Forms.RadioButton radioButton3;
-        private System.Windows.Forms.RadioButton radioButton4;
+        private System.Windows.Forms.RadioButton WrathVersionButton;
     }
 }

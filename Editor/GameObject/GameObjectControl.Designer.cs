@@ -880,10 +880,10 @@
             // 
             // EditBox_VerifiedBuild
             // 
-            this.EditBox_VerifiedBuild.Location = new System.Drawing.Point(649, 223);
+            this.EditBox_VerifiedBuild.Location = new System.Drawing.Point(13, 241);
             this.EditBox_VerifiedBuild.Margin = new System.Windows.Forms.Padding(4);
             this.EditBox_VerifiedBuild.Name = "EditBox_VerifiedBuild";
-            this.EditBox_VerifiedBuild.Size = new System.Drawing.Size(173, 22);
+            this.EditBox_VerifiedBuild.Size = new System.Drawing.Size(131, 22);
             this.EditBox_VerifiedBuild.TabIndex = 13;
             this.EditBox_VerifiedBuild.Text = "12340";
             // 
@@ -1047,6 +1047,7 @@
             this.EditBox_questItem6.Size = new System.Drawing.Size(132, 22);
             this.EditBox_questItem6.TabIndex = 19;
             this.EditBox_questItem6.Text = "0";
+            this.EditBox_questItem6.Visible = false;
             // 
             // EditBox_ScriptName
             // 
@@ -1075,6 +1076,7 @@
             this.EditBox_questItem5.Size = new System.Drawing.Size(132, 22);
             this.EditBox_questItem5.TabIndex = 18;
             this.EditBox_questItem5.Text = "0";
+            this.EditBox_questItem5.Visible = false;
             // 
             // EditBox_data0
             // 
@@ -1113,6 +1115,7 @@
             this.EditBox_questItem4.Size = new System.Drawing.Size(132, 22);
             this.EditBox_questItem4.TabIndex = 17;
             this.EditBox_questItem4.Text = "0";
+            this.EditBox_questItem4.Visible = false;
             // 
             // EditBox_data1
             // 
@@ -1142,6 +1145,7 @@
             this.EditBox_questItem3.Size = new System.Drawing.Size(132, 22);
             this.EditBox_questItem3.TabIndex = 16;
             this.EditBox_questItem3.Text = "0";
+            this.EditBox_questItem3.Visible = false;
             // 
             // EditBox_data2
             // 
@@ -1182,6 +1186,7 @@
             this.EditBox_questItem2.Size = new System.Drawing.Size(132, 22);
             this.EditBox_questItem2.TabIndex = 15;
             this.EditBox_questItem2.Text = "0";
+            this.EditBox_questItem2.Visible = false;
             // 
             // EditBox_data3
             // 
@@ -1211,6 +1216,7 @@
             this.EditBox_questItem1.Size = new System.Drawing.Size(132, 22);
             this.EditBox_questItem1.TabIndex = 14;
             this.EditBox_questItem1.Text = "0";
+            this.EditBox_questItem1.Visible = false;
             // 
             // EditBox_data4
             // 
@@ -1231,6 +1237,7 @@
             this.GameObjectEditQuestItem5Label.Size = new System.Drawing.Size(93, 18);
             this.GameObjectEditQuestItem5Label.TabIndex = 41;
             this.GameObjectEditQuestItem5Label.Text = "Quest Item V";
+            this.GameObjectEditQuestItem5Label.Visible = false;
             // 
             // GameObjectData13Label
             // 
@@ -1273,6 +1280,7 @@
             this.GameObjectEditQuestItem4Label.Size = new System.Drawing.Size(96, 18);
             this.GameObjectEditQuestItem4Label.TabIndex = 40;
             this.GameObjectEditQuestItem4Label.Text = "Quest Item IV";
+            this.GameObjectEditQuestItem4Label.Visible = false;
             // 
             // GameObjectData12Label
             // 
@@ -1315,6 +1323,7 @@
             this.GameObjectEditQuestItem3Label.Size = new System.Drawing.Size(93, 18);
             this.GameObjectEditQuestItem3Label.TabIndex = 39;
             this.GameObjectEditQuestItem3Label.Text = "Quest Item III";
+            this.GameObjectEditQuestItem3Label.Visible = false;
             // 
             // GameObjectData11Label
             // 
@@ -1357,6 +1366,7 @@
             this.GameObjectEditQuestItem2Label.Size = new System.Drawing.Size(90, 18);
             this.GameObjectEditQuestItem2Label.TabIndex = 38;
             this.GameObjectEditQuestItem2Label.Text = "Quest Item II";
+            this.GameObjectEditQuestItem2Label.Visible = false;
             // 
             // GameObjectData10Label
             // 
@@ -1401,6 +1411,7 @@
             this.GameObjectEditQuestItemLabel.Size = new System.Drawing.Size(80, 18);
             this.GameObjectEditQuestItemLabel.TabIndex = 37;
             this.GameObjectEditQuestItemLabel.Text = "Quest Item";
+            this.GameObjectEditQuestItemLabel.Visible = false;
             // 
             // EditBox_data9
             // 
@@ -1443,6 +1454,7 @@
             this.GameObjectEditQuestItem6Label.Size = new System.Drawing.Size(96, 18);
             this.GameObjectEditQuestItem6Label.TabIndex = 35;
             this.GameObjectEditQuestItem6Label.Text = "Quest Item VI";
+            this.GameObjectEditQuestItem6Label.Visible = false;
             // 
             // EditBox_data10
             // 
@@ -1551,7 +1563,7 @@
             this.GameObjectData5Label.Location = new System.Drawing.Point(149, 350);
             this.GameObjectData5Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectData5Label.Name = "GameObjectData5Label";
-            this.GameObjectData5Label.Size = new System.Drawing.Size(97, 18);
+            this.GameObjectData5Label.Size = new System.Drawing.Size(59, 18);
             this.GameObjectData5Label.TabIndex = 18;
             this.GameObjectData5Label.Text = "Unused";
             // 
@@ -1591,7 +1603,7 @@
             this.GameObjectData4Label.Location = new System.Drawing.Point(8, 350);
             this.GameObjectData4Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectData4Label.Name = "GameObjectData4Label";
-            this.GameObjectData4Label.Size = new System.Drawing.Size(94, 18);
+            this.GameObjectData4Label.Size = new System.Drawing.Size(59, 18);
             this.GameObjectData4Label.TabIndex = 17;
             this.GameObjectData4Label.Text = "Unused";
             // 
@@ -1633,7 +1645,7 @@
             this.GameObjectData3Label.Location = new System.Drawing.Point(429, 292);
             this.GameObjectData3Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectData3Label.Name = "GameObjectData3Label";
-            this.GameObjectData3Label.Size = new System.Drawing.Size(139, 18);
+            this.GameObjectData3Label.Size = new System.Drawing.Size(59, 18);
             this.GameObjectData3Label.TabIndex = 16;
             this.GameObjectData3Label.Text = "Unused";
             // 
@@ -1659,7 +1671,7 @@
             // 
             this.GameObjectEditWDBVerifiedLabel.AutoSize = true;
             this.GameObjectEditWDBVerifiedLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.GameObjectEditWDBVerifiedLabel.Location = new System.Drawing.Point(645, 197);
+            this.GameObjectEditWDBVerifiedLabel.Location = new System.Drawing.Point(9, 215);
             this.GameObjectEditWDBVerifiedLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectEditWDBVerifiedLabel.Name = "GameObjectEditWDBVerifiedLabel";
             this.GameObjectEditWDBVerifiedLabel.Size = new System.Drawing.Size(96, 18);
@@ -1673,7 +1685,7 @@
             this.GameObjectData2Label.Location = new System.Drawing.Point(291, 292);
             this.GameObjectData2Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectData2Label.Name = "GameObjectData2Label";
-            this.GameObjectData2Label.Size = new System.Drawing.Size(118, 18);
+            this.GameObjectData2Label.Size = new System.Drawing.Size(59, 18);
             this.GameObjectData2Label.TabIndex = 15;
             this.GameObjectData2Label.Text = "Unused";
             // 
@@ -1702,7 +1714,7 @@
             this.GameObjectDataLabel.Location = new System.Drawing.Point(8, 292);
             this.GameObjectDataLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectDataLabel.Name = "GameObjectDataLabel";
-            this.GameObjectDataLabel.Size = new System.Drawing.Size(113, 18);
+            this.GameObjectDataLabel.Size = new System.Drawing.Size(59, 18);
             this.GameObjectDataLabel.TabIndex = 13;
             this.GameObjectDataLabel.Text = "Unused";
             this.GameObjectDataLabel.Click += new System.EventHandler(this.GameObjectDataLabel_Click);
@@ -1714,7 +1726,7 @@
             this.GameObjectData1Label.Location = new System.Drawing.Point(149, 292);
             this.GameObjectData1Label.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.GameObjectData1Label.Name = "GameObjectData1Label";
-            this.GameObjectData1Label.Size = new System.Drawing.Size(87, 18);
+            this.GameObjectData1Label.Size = new System.Drawing.Size(59, 18);
             this.GameObjectData1Label.TabIndex = 14;
             this.GameObjectData1Label.Text = "Unused";
             // 
