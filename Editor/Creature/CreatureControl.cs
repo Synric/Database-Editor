@@ -4,7 +4,9 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Reflection;
 using DatabaseEditor.Database;
+using DatabaseEditor.CreatureEdit;
 using DatabaseEditor.Editor.Creature.Edit;
+using DatabaseEditor.UI;
 
 namespace DatabaseEditor.Creature
 {
@@ -411,6 +413,14 @@ namespace DatabaseEditor.Creature
 
             if (trainer_class.ShowDialog() == DialogResult.OK)
                 EditBox_trainer_class.Text = trainer_class.ToString();
+        }
+
+        void ShowCreatureClassButton_Click(object sender, EventArgs e)
+        {
+            CreatureClass creature_class = new CreatureEdit.CreatureClass(Convert.ToInt32(EditBox_unit_class.Text));
+
+            if (creature_class.ShowDialog() == DialogResult.OK)
+                EditBox_unit_class.Text = creature_class.ToString();
         }
 
         void EditShowRankButton_Click(object sender, EventArgs e)

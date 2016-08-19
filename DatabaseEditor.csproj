@@ -184,6 +184,12 @@
     <Compile Include="Database\smart_scripts.cs">
       <DependentUpon>Database.tt</DependentUpon>
     </Compile>
+    <Compile Include="Editor\Creature\Edit\creatureclass.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Editor\Creature\Edit\creatureclass.Designer.cs">
+      <DependentUpon>creatureclass.cs</DependentUpon>
+    </Compile>
     <Compile Include="Editor\Creature\Edit\TrainerSpell.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,9 @@
     <Compile Include="Utility.cs" />
     <Compile Include="WoW\Enums.cs" />
     <Compile Include="WoW\Common.cs" />
+    <EmbeddedResource Include="Editor\Creature\Edit\creatureclass.resx">
+      <DependentUpon>creatureclass.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Editor\Item\Edit\Classes.resx">
       <DependentUpon>Classes.cs</DependentUpon>
     </EmbeddedResource>
@@ -627,6 +636,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Editor\GameObject\Edit\Type.resx">
       <DependentUpon>Type.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
